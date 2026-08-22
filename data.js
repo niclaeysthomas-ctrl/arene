@@ -1,5 +1,6 @@
 /* L'ARÈNE — corpus de débats. Profil : anti-réalisme illusionniste + utilitarisme de la préférence
-   + libéralisme social conséquentialiste. Construit avec Thomas (2026-08-21/22). */
+   + libéralisme social conséquentialiste. Construit avec Thomas (2026-08). v2 : études empiriques + enrichi.
+   Champs par débat : maPosition, socle, adverse{nom,steelman}, defense, faille, contre[{q,r}], etudes[], sources[] */
 
 const DEBATS = [
 
@@ -9,14 +10,20 @@ const DEBATS = [
   maPosition:"Non. Aucun fait moral objectif n'existe. « X est mal » n'est pas vrai ou faux au sens où « l'eau bout à 100° » l'est — c'est l'expression d'une attitude, câblée par l'évolution, que je vis comme une vérité sans qu'elle en soit une.",
   socle:"Émotivisme (Ayer) : un jugement moral exprime + prescrit, il ne décrit pas. Le discours moral <b>prétend</b> pourtant à l'objectivité (Mackie) — donc il est systématiquement en erreur. La convergence des morales s'explique par la sélection naturelle (Street), pas par un accès à des faits moraux. Ce que je vis comme « évident » est une illusion cognitivement impénétrable, comme l'illusion de Müller-Lyer : je sais que c'est faux, je continue à le ressentir vrai.",
   adverse:{ nom:"Le réaliste moral",
-    steelman:"Certaines choses (torturer un enfant pour le plaisir) sont mauvaises indépendamment de ce que quiconque en pense — le nier semble monstrueux. Et sans vérité morale, comment condamner Hitler autrement qu'en disant « je préfère »? L'objectivité morale rend compte de notre expérience (on découvre qu'on avait tort) et de la possibilité du progrès." },
+    steelman:"Certaines choses (torturer un enfant pour le plaisir) sont mauvaises indépendamment de ce que quiconque en pense — le nier semble monstrueux. Et sans vérité morale, comment condamner Hitler autrement qu'en disant « je préfère » ? L'objectivité rend compte de notre expérience (on découvre qu'on avait tort) et de la possibilité du progrès." },
   defense:"L'origine évolutive de nos intuitions les <i>explique</i> intégralement sans postuler aucun fait moral — le rasoir d'Ockham tranche pour l'anti-réalisme. Et je récupère tout ce qui compte : je peux dire « Hitler a tort » à l'intérieur de la fiction morale que j'endosse (comme « ce coup d'échecs est mauvais »), sans prétendre décrire le cosmos.",
-  faille:"Le réaliste doit dire OÙ sont ces faits moraux et COMMENT on les perçoit (l'argument de l'étrangeté de Mackie : ce seraient des entités « bizarres », sans organe pour les capter). Il n'a jamais répondu. Et l'évolution suffit à expliquer nos intuitions : un réaliste devrait alors admettre qu'elles ne trackent pas la vérité morale mais la survie (le dilemme darwinien de Street).",
+  faille:"Le réaliste doit dire OÙ sont ces faits moraux et COMMENT on les perçoit (argument de l'étrangeté de Mackie : des entités « bizarres », sans organe pour les capter). Et si nos intuitions sont façonnées par la survie, un réaliste doit admettre qu'elles ne trackent pas la vérité morale mais le fitness (dilemme darwinien de Street) — donc il perd son propre accès aux « faits ».",
   contre:[
     {q:"« Alors tu ne peux pas vraiment condamner le nazisme. »", r:"Si — je le condamne avec toute la force de mon attitude, et j'agis contre. Ce que je ne fais pas, c'est prétendre lire un fait dans le ciel. Ma condamnation ne perd aucune énergie ; elle perd une prétention métaphysique dont personne n'a jamais eu besoin pour se battre."},
-    {q:"« Sans morale objective, tout se vaut (relativisme). »", r:"Faux : l'anti-réalisme n'est pas le relativisme. Je ne dis pas « chaque culture a sa vérité » — je dis qu'aucune n'a de vérité, mais qu'on peut classer les codes selon un critère assumé (le bien-être). L'esclavage n'était pas « vrai pour eux » ; il était approuvé par eux et il est pire selon mon étalon."}
+    {q:"« Sans morale objective, tout se vaut (relativisme). »", r:"Faux : l'anti-réalisme n'est pas le relativisme. Je ne dis pas « chaque culture a sa vérité » — je dis qu'aucune n'a de vérité, mais qu'on peut classer les codes selon un critère assumé (le bien-être). L'esclavage n'était pas « vrai pour eux » ; il était approuvé par eux et il est pire selon mon étalon."},
+    {q:"« Tu vis quand même comme si la morale était objective. »", r:"Oui — c'est le cœur de l'illusionnisme : l'émotion morale est câblée, je ne peux pas l'éteindre (comme l'illusion d'optique). Vivre « comme si » n'est pas une preuve que c'est vrai ; c'est exactement ce que produit une intuition sélectionnée."}
   ],
-  sources:["J.L. Mackie, «Ethics: Inventing Right and Wrong» (1977) — théorie de l'erreur, argument de l'étrangeté","Sharon Street, «A Darwinian Dilemma for Realist Theories of Value» (2006)","A.J. Ayer, «Language, Truth and Logic» — émotivisme","Saul Smilansky, «Free Will and Illusion» — l'illusion nécessaire"]
+  etudes:[
+    "« Moral dumbfounding » : face à un tabou sans victime (inceste protégé et secret), les gens maintiennent « c'est mal » tout en étant incapables de le justifier → l'intuition vient d'abord, la raison rationalise après. — Haidt, Björklund & Murphy (2000) ; modèle social-intuitionniste, Haidt (2001, Psych. Review)",
+    "IRMf des dilemmes moraux : les dilemmes « personnels » (pousser un homme) activent les réseaux émotionnels, les « impersonnels » les réseaux du raisonnement → la morale est en partie affective, pas un calcul pur. — Greene et al. (2001, Science)",
+    "Désaccord moral massif et stable entre cultures/époques (l'« argument de la relativité ») : mieux expliqué par des histoires culturelles divergentes que par un accès inégal à des faits moraux. — Mackie (1977)"
+  ],
+  sources:["J.L. Mackie, «Ethics: Inventing Right and Wrong» (1977) — théorie de l'erreur, étrangeté, relativité","Sharon Street, «A Darwinian Dilemma for Realist Theories of Value» (2006)","A.J. Ayer, «Language, Truth and Logic» (1936) — émotivisme","Saul Smilansky, «Free Will and Illusion» (2000)"]
 },
 {
   id:"librearbitre", theme:"Fondations", titre:"Le libre arbitre existe-t-il ?",
@@ -28,9 +35,15 @@ const DEBATS = [
   faille:"« J'aurais pu agir autrement » est indémontrable : rejoue exactement le même état de l'univers, tu refais exactement le même choix. Le sentiment de liberté n'est pas une preuve — c'est précisément l'illusion attendue. Et le rétributivisme (faire souffrir sans bénéfice futur) est de la cruauté déguisée en justice.",
   contre:[
     {q:"« Si personne n'est responsable, pourquoi punir ? »", r:"Pour l'avenir, pas pour le passé : dissuader, neutraliser, réhabiliter. Je punis l'incendie pour éviter le prochain, pas pour venger l'ancien. D'où : prison réhabilitatrice, pas prison-châtiment."},
-    {q:"« Ça déresponsabilise tout le monde. »", r:"Non : la responsabilité fonctionnelle demeure pleine (on tient chacun comptable pour dissuader). Ce qui saute, c'est la haine rétributive — pas la responsabilité."}
+    {q:"« Ça déresponsabilise tout le monde. »", r:"Non : la responsabilité fonctionnelle demeure pleine (on tient chacun comptable pour dissuader). Ce qui saute, c'est la haine rétributive — pas la responsabilité."},
+    {q:"« Les neurosciences ne prouvent rien, c'est contesté. »", r:"D'accord — je ne fonde pas ma thèse sur Libet mais sur la causalité : tout événement (y compris une pensée) a des causes antérieures. L'expérimental illustre, il ne porte pas la charge de la preuve."}
   ],
-  sources:["Saul Smilansky, «Free Will and Illusion» (2000)","Derk Pereboom, «Living Without Free Will»","Galen Strawson, «The Impossibility of Moral Responsibility»"]
+  etudes:[
+    "Le « potentiel de préparation » cérébral précède la conscience de la décision d'environ 350 ms. — Libet et al. (1983, Brain)",
+    "En IRMf, l'activité préfrontale/pariétale prédit un choix simple jusqu'à ~7-10 s AVANT que le sujet se sente décider. ⚠️ interprétation contestée : Schurger (2012) y voit du bruit neuronal accumulé, pas une « décision cachée ». — Soon, Brass, Heinze & Haynes (2008, Nature Neuroscience)",
+    "Affaiblir expérimentalement la croyance au libre arbitre augmente la tricherie et l'agressivité → argument pour la « fiction utile » (l'illusion soutient la coopération). — Vohs & Schooler (2008, Psych. Science)"
+  ],
+  sources:["Saul Smilansky, «Free Will and Illusion» (2000)","Derk Pereboom, «Living Without Free Will» (2001)","Galen Strawson, «The Impossibility of Moral Responsibility» (1994)"]
 },
 {
   id:"sentience", theme:"Fondations", titre:"Qu'est-ce que la sentience (le seul critère) ?",
@@ -41,8 +54,14 @@ const DEBATS = [
   defense:"La souffrance est le seul candidat non arbitraire : une fois qu'on dit que la morale concerne le bien/mal-être, seul ce qui a un bien-être peut compter. « Réserver aux humains » ajoute une clause (l'espèce) que rien ne justifie — c'est structurellement identique au racisme (préférer les siens).",
   faille:"L'argument des cas marginaux : un nourrisson ou un humain lourdement handicapé a moins de capacités qu'un cochon adulte, pourtant sa souffrance compte. Le seul critère qui les inclut sans arbitraire, c'est la sentience — pas l'espèce ni l'intelligence.",
   contre:[
-    {q:"« Donc un chien vaut un humain ? »", r:"Une souffrance égale compte également (Singer). Mais les capacités diffèrent : un humain a des projets, un futur anticipé, des liens — donc plus d'intérêts en jeu, souvent. Égalité de considération des intérêts ≠ identité de traitement."},
-    {q:"« La conscience de soi, alors ? »", r:"Elle n'est pas requise pour compter (des animaux sentients échouent au test du miroir). Elle intervient ailleurs : pour le tort spécifique de <i>tuer</i> (priver un être qui se projette d'un futur qu'il désire)."}
+    {q:"« Donc un chien vaut un humain ? »", r:"Une souffrance égale compte également (Singer). Mais les capacités diffèrent : un humain a des projets, un futur anticipé, des liens → souvent plus d'intérêts en jeu. Égalité de considération des intérêts ≠ identité de traitement."},
+    {q:"« La conscience de soi, alors ? »", r:"Elle n'est pas requise pour compter (des animaux sentients échouent au test du miroir). Elle intervient ailleurs : pour le tort spécifique de <i>tuer</i> (priver un être qui se projette d'un futur qu'il désire)."},
+    {q:"« On ne peut pas prouver que les animaux ressentent. »", r:"Homologie : mêmes nocicepteurs, mêmes systèmes opioïdes, mêmes comportements de douleur que nous. Nier leur sentience par principe, c'est le solipsisme appliqué sélectivement aux non-humains."}
+  ],
+  etudes:[
+    "Les poissons possèdent des nocicepteurs et modifient leur comportement sous analgésie → indices de douleur ressentie, pas seulement de réflexe. — Sneddon et al. (2003, 2014)",
+    "Revue commandée par le UK : preuves suffisantes de sentience chez les céphalopodes (poulpes) et décapodes (crabes, homards) → inclus dans l'Animal Welfare (Sentience) Act 2022. — Birch et al., LSE (2021)",
+    "Aversion à l'iniquité : un capucin refuse une récompense (concombre) s'il voit un congénère mieux payé (raisin) pour la même tâche → racines évolutives des intuitions d'équité. — Brosnan & de Waal (2003, Nature)"
   ],
   sources:["Peter Singer, «Practical Ethics» — égale considération des intérêts","Thomas Nagel, «What Is It Like to Be a Bat?» (1974)","Joel Feinberg, «The Rights of Animals and Unborn Generations» — le principe d'intérêt"]
 },
@@ -54,27 +73,39 @@ const DEBATS = [
   socle:"1) Le talent et même l'ardeur au travail sont une loterie (gènes + milieu) → personne ne mérite ses revenus. 2) La seule justification d'une inégalité est donc l'efficacité (les incitations produisent plus de richesse pour tous). 3) L'utilité marginale de l'argent décroît (100 € valent plus pour un pauvre) → transférer du riche au pauvre augmente le bien-être net. Conclusion : inégalités permises seulement là où elles bénéficient réellement à tous, sinon captées.",
   adverse:{ nom:"Le libéral du mérite / libertarien",
     steelman:"Les gens ont un droit sur le fruit de leur travail ; redistribuer, c'est confisquer ce qu'ils ont gagné et récompenser l'oisiveté. Le mérite existe (l'effort est réel), et la propriété est une extension de la personne — taxer lourdement, c'est du travail forcé (Nozick)." },
-  defense:"Tu partages la prémisse de Rawls sans le savoir : les talents sont « moralement arbitraires ». Le no-libre-arbitre va même plus loin : l'effort lui-même est déterminé. Donc « ils l'ont mérité » est faux à la racine ; il ne reste que l'argument d'efficacité, qui plafonne les inégalités justifiables bien plus bas que le statu quo.",
+  defense:"Tu partages la prémisse de Rawls sans le savoir : les talents sont « moralement arbitraires ». Le no-libre-arbitre va plus loin : l'effort lui-même est déterminé. Donc « ils l'ont mérité » est faux à la racine ; il ne reste que l'argument d'efficacité, qui plafonne les inégalités justifiables bien plus bas que le statu quo.",
   faille:"Le libertarien fonde tout sur la self-ownership lockéenne (propriété = extension du corps). Mais la propriété externe n'est PAS ton corps : ton corps est le substrat de ta sentience (irremplaçable) ; ta fortune est un objet dont le contrôle t'est utile, à utilité marginale décroissante. Assimiler les deux (Nozick) est l'erreur qui fait tout tenir — retire-la et « taxer = travail forcé » s'effondre.",
   contre:[
-    {q:"« Sans récompense du mérite, plus personne ne se lève le matin. »", r:"Les incitations restent — je ne les nie pas, je les borne. On récompense la performance parce que ça <i>marche</i> (elle produit), pas parce qu'elle est méritée. Le curseur est l'efficacité, pas le dû."},
-    {q:"« La propriété est un droit sacré. »", r:"Non : c'est une fiction-institution utile (rien n'est sacré). Elle vaut ce que son utilité vaut et cède devant le bien-être. L'impôt est une redéfinition ordonnée des titres, pas un vol."}
+    {q:"« Sans récompense du mérite, plus personne ne bosse. »", r:"Les incitations restent — je les borne, je ne les nie pas. On récompense la performance parce que ça <i>marche</i> (elle produit), pas parce qu'elle est méritée. Le curseur est l'efficacité, pas le dû."},
+    {q:"« La propriété est un droit sacré. »", r:"Non : une fiction-institution utile (rien n'est sacré). Elle vaut ce que son utilité vaut et cède devant le bien-être. L'impôt est une redéfinition ordonnée des titres, pas un vol."},
+    {q:"« Les pays très redistributifs stagnent. »", r:"Empiriquement faux : les pays nordiques combinent forte redistribution et prospérité/innovation élevées. Le curseur optimal n'est ni 0 ni 100 — mais il est loin au-dessus du minimalisme libertarien."}
   ],
-  sources:["John Rawls, «A Theory of Justice» — arbitraire moral des talents, principe de différence","Robert Nozick, «Anarchy, State, and Utopia» — self-ownership (à réfuter)","Pigou / utilité marginale décroissante — base utilitariste de la redistribution"]
+  etudes:[
+    "L'utilité du revenu est ~logarithmique : le bien-être monte avec le revenu mais l'utilité marginale décroît fortement → transférer vers le bas augmente le bien-être agrégé. — Kahneman & Deaton (2010) ; Killingsworth (2021) ; réconciliation Killingsworth-Kahneman-Mellers (2023, PNAS)",
+    "Loterie de naissance : ~la moitié à deux tiers de la variance du revenu entre individus dans le monde s'explique par le seul pays de naissance. — Milanovic (2015)",
+    "Mobilité : le revenu des parents et le simple lieu où l'on grandit prédisent fortement le revenu adulte → le « mérite » est en grande partie hérité. — Chetty et al., Opportunity Insights (2014, 2018)"
+  ],
+  sources:["John Rawls, «A Theory of Justice» (1971) — arbitraire moral des talents, principe de différence","Robert Nozick, «Anarchy, State, and Utopia» (1974) — self-ownership (à réfuter)","Pigou — utilité marginale décroissante"]
 },
 {
   id:"heritage", theme:"Justice", titre:"Faut-il (quasi) abolir l'héritage ?",
   maPosition:"Le taxer très lourdement — au taux qui maximise le bien-être. Rente zéro-mérite (loterie de naissance) + forte utilité ailleurs. Pas « 100 % par principe » : un conséquentialiste vise l'optimum, pas l'absolu.",
-  socle:"L'héritage est le comble de l'inégalité non méritée : l'héritier n'a rien fait. Le défunt n'a plus d'intérêts (il est mort). Utilité marginale : 100 € répartis valent plus que 100 € concentrés sur un seul enfant déjà avantagé. MAIS « pouvoir transmettre » est une incitation à produire → l'optimum n'est pas 100 %, c'est le taux qui capte la rente sans tuer l'incitation.",
+  socle:"L'héritage est le comble de l'inégalité non méritée : l'héritier n'a rien fait. Le défunt n'a plus d'intérêts (il est mort). Utilité marginale : 100 € répartis valent plus que 100 € concentrés sur un enfant déjà avantagé. MAIS « pouvoir transmettre » est une incitation à produire → l'optimum n'est pas 100 %, c'est le taux qui capte la rente sans tuer l'incitation.",
   adverse:{ nom:"Le défenseur de la transmission familiale",
     steelman:"Un parent a le droit — et le désir profond — de protéger ses enfants ; transmettre est un acte d'amour et un moteur d'effort. Taxer l'héritage, c'est punir l'épargne, frapper deux fois un argent déjà imposé, et briser la continuité des familles." },
   defense:"Distingue le <b>capital</b> et la <b>relation</b> : l'amour, le temps, l'éducation que tu donnes de ton vivant sont pleinement légitimes (sources de bien-être). Ce qui n'est pas légitime, c'est le transfert de <i>rente</i> non méritée. Et ton devoir envers tes enfants, universalisé (tout enfant compte autant), commande d'investir dans TOUS les enfants — pas d'avantager les tiens par une loterie.",
   faille:"« Argent déjà imposé » est un sophisme (tout euro est taxé à chaque transaction — TVA, revenu…). Et « protéger ses enfants » justifie de leur donner de bonnes conditions, pas un privilège héréditaire qui reproduit les castes.",
   contre:[
-    {q:"« Les gens contourneront en donnant de leur vivant. »", r:"D'où la vraie ligne : taxer les gros transferts de capital, à la mort ET entre vifs. Ce qu'on protège, c'est la relation (temps, soin), pas le déplacement de fortune."},
-    {q:"« C'est confiscatoire / anti-liberté. »", r:"Non, calibré : au taux optimal. On préserve l'incitation à créer, on capte la rente oisive. Et on finance l'égalité des chances réelle — le meilleur usage possible."}
+    {q:"« Les gens contourneront par des donations. »", r:"D'où la vraie ligne : taxer les gros transferts de capital, à la mort ET entre vifs. Ce qu'on protège, c'est la relation (temps, soin), pas le déplacement de fortune."},
+    {q:"« C'est confiscatoire / anti-liberté. »", r:"Non, calibré au taux optimal : on préserve l'incitation à créer, on capte la rente oisive, on finance l'égalité des chances réelle — le meilleur usage possible."},
+    {q:"« L'impôt sur l'héritage rapporte peu, il est inefficace. »", r:"Il rapporte peu SURTOUT parce qu'il est plein de niches et facile à éviter ; c'est un argument pour l'élargir et fermer les trous, pas pour l'abandonner. Et son but n'est pas que le rendement : c'est de casser la rente héréditaire."}
   ],
-  sources:["Rawls (arbitraire moral)","Piketty, «Le Capital au XXIe siècle» — dynamique de la rente héritée","Utilité marginale décroissante"]
+  etudes:[
+    "La part de la richesse héritée dans le patrimoine total remonte fortement quand le rendement du capital dépasse la croissance (r > g) → retour d'une société d'héritiers. — Piketty (2013, «Le Capital au XXIᵉ siècle»)",
+    "Le patrimoine est bien plus concentré que le revenu (le top 1 % détient une part du capital très supérieure à sa part du revenu) → l'héritage transmet surtout de la rente. — Saez & Zucman (2016)",
+    "Paradoxe d'opinion : l'impôt successoral est massivement impopulaire même chez ceux qui n'en paieront jamais (biais d'optimisme, framing « death tax ») → l'obstacle est psychologique, pas économique. — Kuziemko, Norton, Saez & Stantcheva (2015, AER)"
+  ],
+  sources:["Piketty (2013) ; Saez & Zucman","Rawls — arbitraire moral","Utilité marginale décroissante"]
 },
 
 /* ===================== VIE / CORPS / MORT ===================== */
@@ -88,9 +119,16 @@ const DEBATS = [
   faille:"L'anti-réalisme du carniste est <b>sélectif</b> : il sort « rien n'oblige » pour le steak, puis le range pour condamner qu'on torture un humain. Or l'anti-réalisme s'applique partout ou nulle part. S'il excuse le carnisme, il excuse le sadisme. Ma position est plus cohérente : j'ai assumé un critère (la souffrance) et je l'applique sans exception — d'où mon akrasia, prix de la cohérence, vs son confort d'incohérence.",
   contre:[
     {q:"« Toi-même tu n'es pas végane. »", r:"Exact, et je ne m'en cache pas : ma volonté ne suit pas encore ma raison. C'est de l'akrasia assumée, pas un argument pour le steak. La morale est un gradient — réduire compte déjà."},
-    {q:"« Les animaux se mangent entre eux (nature). »", r:"Sophisme naturaliste : « c'est ainsi » ne fait pas « c'est bien ». La nature fait aussi l'infanticide et la maladie ; on ne s'en réclame pas."}
+    {q:"« Les animaux se mangent entre eux (nature). »", r:"Sophisme naturaliste : « c'est ainsi » ne fait pas « c'est bien ». La nature fait aussi l'infanticide et la maladie ; on ne s'en réclame pas."},
+    {q:"« L'élevage bien traité, alors ? »", r:"Ça réduit la souffrance (mieux) mais reste (a) marginal face à ~99 % d'élevage intensif, (b) coûteux, et (c) sous mon option B, tuer sans douleur prive encore l'animal-sujet de son futur. La vraie sortie reste la réduction radicale."}
   ],
-  sources:["Peter Singer, «Animal Liberation» — spécisme, cas marginaux","Frans de Waal — proto-morales, aversion à l'iniquité","Academy of Nutrition & Dietetics (2016) — viabilité de l'alimentation végétale"]
+  etudes:[
+    "≈ 80 milliards d'animaux terrestres abattus/an pour l'alimentation (hors poissons : centaines de milliards à ~1-2 billions). — FAO ; Fishcount",
+    "La viande et les produits laitiers fournissent ~18 % des calories mais occupent ~83 % des terres agricoles et pèsent une part majeure des GES → énorme coût pour peu de nutrition. — Poore & Nemecek (2018, Science)",
+    "« Paradoxe de la viande » : la plupart des gens condamnent la cruauté animale ET mangent de la viande ; on réduit la dissonance en niant l'esprit des animaux qu'on mange. — Loughnan, Bastian & Haslam (2014)",
+    "Une alimentation végétale bien planifiée est nutritionnellement adéquate à tous les âges (avec B12). — Academy of Nutrition and Dietetics (2016)"
+  ],
+  sources:["Peter Singer, «Animal Liberation» (1975) — spécisme, cas marginaux","Frans de Waal — proto-morales","Poore & Nemecek (2018, Science)"]
 },
 {
   id:"avortement", theme:"Vie / corps", titre:"L'avortement est-il permis ?",
@@ -102,9 +140,15 @@ const DEBATS = [
   faille:"L'argument de Marquis prouve trop : par la même logique, la contraception et l'abstinence « privent » un futur humain d'exister. Il tente de sauver la distinction par « un individu identifiable existe après la conception » — mais jusqu'à ~14 jours l'embryon peut se scinder en jumeaux : pas d'individu unique identifiable non plus.",
   contre:[
     {q:"« Le fœtus est un être humain vivant. »", r:"Biologiquement oui ; moralement, ce qui compte n'est pas « appartenir à l'espèce » (spécisme) mais avoir des intérêts, donc la sentience. Une cellule humaine vivante n'a pas de statut moral."},
-    {q:"« Ta ligne (24 sem) est arbitraire. »", r:"Elle suit un fait (l'apparition de la sentience), pas un décret. Le statut monte en gradient ; je fixe une ligne opérationnelle là où le sujet advient, comme le droit fixe la majorité."}
+    {q:"« Ta ligne (24 sem) est arbitraire. »", r:"Elle suit un fait (l'apparition de la sentience), pas un décret. Le statut monte en gradient ; je fixe une ligne opérationnelle là où le sujet advient, comme le droit fixe la majorité."},
+    {q:"« Et le potentiel ? Il DEVIENDRA une personne. »", r:"Le potentiel n'est pas l'actualité : un gland n'est pas un chêne. Sinon chaque ovule/spermatozoïde gaspillé serait un drame. Ce qui a un statut, c'est un sujet actuel, pas une trajectoire possible."}
   ],
-  sources:["Judith Jarvis Thomson, «A Defense of Abortion» (1971) — le violoniste","Don Marquis, «Why Abortion is Immoral» (1989) — à réfuter","Peter Singer / Michael Tooley — sentience vs personne"]
+  etudes:[
+    "Les connexions thalamocorticales nécessaires à la douleur consciente n'apparaissent pas avant ~24-26 semaines ; la douleur fœtale est improbable avant le 3ᵉ trimestre. — Lee et al. (2005, JAMA) ; RCOG (2010)",
+    "Jumeaux monozygotes : l'embryon peut se scinder jusqu'à ~14 jours après la conception → pas d'individu unique et identifiable avant → l'« individualité dès la conception » est fausse. — embryologie standard",
+    "« Turnaway Study » : les femmes à qui on refuse un avortement voient leur santé et leur situation économique se dégrader vs celles qui l'obtiennent → conséquences réelles et mesurables du refus. — Foster et al. (suivi 5 ans, UCSF)"
+  ],
+  sources:["Judith Jarvis Thomson, «A Defense of Abortion» (1971) — le violoniste","Don Marquis, «Why Abortion is Immoral» (1989) — à réfuter","Singer / Tooley — sentience vs personne"]
 },
 {
   id:"autonomie", theme:"Vie / corps", titre:"Euthanasie, drogues, vente d'organes, GPA ?",
@@ -113,12 +157,18 @@ const DEBATS = [
   adverse:{ nom:"L'objecteur de la dignité / de la marchandisation",
     steelman:"Certaines choses ne devraient pas avoir de prix : marchandiser le corps, l'enfantement, la mort dégrade leur nature et transforme les personnes en marchandises. Et le « consentement » du pauvre qui vend son rein n'est pas libre — c'est de l'exploitation habillée en contrat." },
   defense:"La contrainte est réelle — mais la bonne réponse n'est pas d'interdire (ça laisse le pauvre aussi pauvre ET privé d'une issue) : c'est de <b>supprimer la misère</b> (redistribution). Test de la contrainte : « le ferait-il s'il n'était pas acculé ? » Si non → traite la cause (la pauvreté), pas le symptôme (l'échange).",
-  faille:"L'objection « marchandisation » a deux versions : la <i>spirituelle</i> (« ça corrompt l'essence sacrée ») = dégoût déguisé, sans victime → à jeter ; l'<i>empirique</i> (ça évince l'altruisme, crée une pression sur les pauvres — Titmuss sur le don de sang) = réelle et mesurable → mais elle dit « <b>réguler</b> », pas « interdire ».",
+  faille:"L'objection « marchandisation » a deux versions : la <i>spirituelle</i> (« ça corrompt l'essence sacrée ») = dégoût déguisé, sans victime → à jeter ; l'<i>empirique</i> (ça évince l'altruisme, crée une pression sur les pauvres — Titmuss) = réelle et mesurable → mais elle dit « <b>réguler</b> », pas « interdire ».",
   contre:[
     {q:"« Autoriser la vente d'organes exploite les pauvres. »", r:"C'est la misère qui exploite, pas la vente. Redistribue d'abord ; ce qui reste comme choix devient libre. Et régule le marché (protections, don gratuit préservé) pour ne pas fabriquer la pression qu'on veut éviter."},
-    {q:"« L'euthanasie va faire pression sur les vieux (“ne sois pas un fardeau”). »", r:"C'est encore la contrainte — donc garde-fous contre la pression, pas interdiction du choix libre. Autonomie forte + protection contre la coercition."}
+    {q:"« L'euthanasie va faire pression sur les vieux (“ne sois pas un fardeau”). »", r:"C'est encore la contrainte — donc garde-fous contre la pression, pas interdiction du choix libre. Et les données ne montrent pas de sur-risque pour les groupes vulnérables là où c'est légal."},
+    {q:"« La GPA marchandise l'enfant. »", r:"Elle rémunère un service gestationnel, pas la vente d'un enfant ; encadrée (consentement éclairé, protections, plafonds), elle n'a pas à créer la contrainte. Le vrai risque est la précarité de la porteuse — donc on régule et on redistribue, on n'interdit pas par dégoût."}
   ],
-  sources:["J.S. Mill, «On Liberty» — souveraineté de l'individu, principe de non-nuisance","Michael Sandel, «What Money Can't Buy» — versions de la marchandisation","R. Titmuss, «The Gift Relationship» — éviction de l'altruisme"]
+  etudes:[
+    "Introduire un paiement peut ÉVINCER la motivation altruiste : payer le don de sang a réduit le don (surtout chez les femmes) → l'incitation monétaire n'est pas toujours neutre. — Titmuss (1970) ; Mellström & Johannesson (2008, JEEA)",
+    "Euthanasie/suicide assisté légalisés (Oregon, Pays-Bas) : pas de preuve d'un sur-risque disproportionné pour les groupes vulnérables (âgés, handicapés, pauvres). — Battin et al. (2007, J. Medical Ethics)",
+    "Iran, seul pays à marché légal du rein : la liste d'attente a été éliminée, mais les vendeurs sont surtout pauvres et déclarent souvent des regrets → le problème est la CONTRAINTE économique, pas la vente en soi. — Ghods & Savaj (2006, CJASN)"
+  ],
+  sources:["J.S. Mill, «On Liberty» (1859) — souveraineté de l'individu","Michael Sandel, «What Money Can't Buy» (2012) — versions de la marchandisation","R. Titmuss, «The Gift Relationship» (1970)"]
 },
 {
   id:"drogues", theme:"Vie / corps", titre:"Faut-il légaliser les drogues ?",
@@ -126,13 +176,19 @@ const DEBATS = [
   socle:"Conséquentialisme empirique : on mesure la nocivité de chaque substance ET de sa prohibition. La prohibition a ses propres victimes (marché noir, produits coupés, overdoses, criminalité). Pour une drogue très nocive, l'optimum est souvent « réguler + décriminaliser l'usager + traiter » (Portugal), pas la prohibition pure.",
   adverse:{ nom:"Le prohibitionniste",
     steelman:"Les drogues détruisent des vies et des familles ; les légaliser, c'est en banaliser l'usage, augmenter la consommation et abandonner les faibles à l'addiction. L'État doit protéger, pas ouvrir la vanne." },
-  defense:"L'addiction est une contrainte <i>interne</i> (elle court-circuite les préférences réfléchies) : donc aider à en sortir restaure l'autonomie, ce n'est pas du paternalisme. Mais la prohibition ne réduit pas l'usage — elle le rend mortel (produits non contrôlés) et criminel. Le Portugal (décriminalisation 2001) a fait baisser overdoses et VIH.",
+  defense:"L'addiction est une contrainte <i>interne</i> (elle court-circuite les préférences réfléchies) : donc aider à en sortir restaure l'autonomie, ce n'est pas du paternalisme. Mais la prohibition ne réduit pas l'usage — elle le rend mortel (produits non contrôlés) et criminel.",
   faille:"« Bannir protège » ignore le bilan de la prohibition elle-même : l'alcool sous la Prohibition américaine a nourri le crime organisé ; l'interdit du fentanyl a créé un marché de rue qui tue plus. La question n'est pas binaire (autoriser/bannir) mais « quel régime fait le moins de morts ? ».",
   contre:[
     {q:"« Légaliser = plus de consommation. »", r:"Pas nécessairement (le Portugal ne l'a pas vu exploser), et même si : il faut peser ce coût contre les morts évitées du marché noir. C'est un solde, pas un slogan."},
-    {q:"« Tu abandonnes les addicts. »", r:"L'inverse : décriminaliser l'usager permet de le soigner au lieu de l'emprisonner. On combat l'addiction (contrainte interne) par le soin, pas la prison."}
+    {q:"« Tu abandonnes les addicts. »", r:"L'inverse : décriminaliser l'usager permet de le soigner au lieu de l'emprisonner. On combat l'addiction (contrainte interne) par le soin, pas la prison."},
+    {q:"« Le classement légal reflète la dangerosité. »", r:"Faux : l'alcool et le tabac, légaux, sont parmi les plus nocifs ; le cannabis et le MDMA, illégaux, le sont bien moins. La légalité suit l'histoire et la culture, pas la science du risque."}
   ],
-  sources:["Modèle portugais (décriminalisation, 2001)","Mill, «On Liberty»","Littérature santé publique sur la réduction des risques"]
+  etudes:[
+    "Portugal (décriminalisation de l'usage, 2001) : baisse des overdoses, des nouvelles infections VIH et de l'incarcération, SANS explosion de la consommation. — Hughes & Stevens (2010, Brit. J. Criminology) ; EMCDDA",
+    "Classement de nocivité fondé sur 16 critères (dommages à soi + à autrui) : l'alcool arrive en tête, devant héroïne et crack ; cannabis, MDMA, champignons bien plus bas → la légalité ne suit pas le risque. — Nutt, King & Phillips (2010, The Lancet)",
+    "Prohibition de l'alcool aux USA (1920-1933) : essor du crime organisé, alcool frelaté, hausse de la mortalité ; abrogée pour échec. — histoire économique (Miron & Zwiebel, 1991)"
+  ],
+  sources:["Modèle portugais (2001)","Nutt et al. (2010, Lancet)","Mill, «On Liberty»"]
 },
 
 /* ===================== POLITIQUE ===================== */
@@ -142,13 +198,19 @@ const DEBATS = [
   socle:"La violence viole l'intégrité corporelle (la propriété la plus forte) + les droits-fictions utiles. Override possible si elle empêche un mal bien plus grand, sans alternative moins coûteuse (critères de la guerre juste : cause grave, proportionnalité, dernier recours, chances de succès, discrimination). MAIS : le vrai garde-fou est le conséquentialisme de règle.",
   adverse:{ nom:"Le partisan de l'action directe",
     steelman:"Face à une injustice massive (oppression, urgence climatique, système qui broie), attendre le débat est complice ; la violence a historiquement arraché des droits que la patience n'obtenait pas. Si le solde est positif, pourquoi s'interdire d'agir ?" },
-  defense:"Le piège est « qui décide ? » : tout violent croit son solde positif (c'est le calcul le plus vulnérable au raisonnement motivé). D'où le conséquentialisme de règle : même si un acte isolé a une espérance positive, une <b>règle</b> autorisant la violence politique a une espérance catastrophique (elle légitime la cause de chacun, effondre la coordination qui règle les conflits sans sang). Donc quasi-prohibition, exceptions rarissimes.",
+  defense:"Le piège est « qui décide ? » : tout violent croit son solde positif (le calcul le plus vulnérable au raisonnement motivé). D'où le conséquentialisme de règle : même si un acte isolé a une espérance positive, une <b>règle</b> autorisant la violence politique a une espérance catastrophique (elle légitime la cause de chacun, effondre la coordination qui règle les conflits sans sang). Donc quasi-prohibition, exceptions rarissimes.",
   faille:"« Le solde est positif » suppose une certitude que personne n'a sur des systèmes complexes (effets pervers, escalade, martyrs). Et le monopole étatique de la violence (Weber) est la solution de coordination au « chacun se fait justice » — le briser ramène la guerre de tous contre tous, sauf quand l'État lui-même devient le bourreau.",
   contre:[
     {q:"« Et la Résistance, les révolutions justes ? »", r:"Ce sont mes exceptions : tyrannie/génocide, dernier recours, l'État a trahi sa fonction (droit de résistance, Locke sans droits naturels). La règle stricte n'exclut pas les cas extrêmes — elle empêche que chacun se déclare en état d'exception."},
-    {q:"« Casser du matériel, c'est non-violent. »", r:"Nuance : peinture lavable ≈ 0 dommage = ok. Mais détruire réellement un bien reste une atteinte au titre, plus bas sur le spectre. « Non-violent » n'est pas un statut, c'est un point sur l'échelle du solde."}
+    {q:"« Casser du matériel, c'est non-violent. »", r:"Nuance : peinture lavable ≈ 0 dommage = ok. Mais détruire réellement un bien reste une atteinte au titre, plus bas sur le spectre. « Non-violent » n'est pas un statut, c'est un point sur l'échelle du solde."},
+    {q:"« La non-violence ne marche pas contre les pires régimes. »", r:"Les données disent l'inverse en moyenne : elle réussit plus souvent, y compris face à des régimes durs, notamment parce qu'elle mobilise plus largement et divise le pouvoir. Les cas où seule la lutte armée restait sont réels mais rares — ce sont mes exceptions."}
   ],
-  sources:["Max Weber, «Le savant et le politique» — monopole de la violence légitime","Locke — droit de résistance (relu sans droits naturels)","Théorie de la guerre juste (jus ad bellum / in bello)"]
+  etudes:[
+    "Sur 1900-2006, les campagnes de résistance NON-violente ont réussi ≈ 53 % du temps, contre ≈ 26 % pour les campagnes violentes → la non-violence est ~2× plus efficace (elle attire plus de participants et fait défecter les élites). — Chenoweth & Stephan, «Why Civil Resistance Works» (2011)",
+    "La propagande peut causalement produire la violence de masse : l'exposition à Radio Mille Collines a augmenté la participation aux massacres au Rwanda. — Yanagizawa-Drott (2014, QJE)",
+    "Seuil de mobilisation : aucune campagne n'a échoué avec la participation active de ~3,5 % de la population — atteignable surtout par des moyens non violents. — Chenoweth (« 3.5% rule »)"
+  ],
+  sources:["Max Weber, «Le savant et le politique» (1919) — monopole de la violence légitime","Chenoweth & Stephan (2011)","Locke — droit de résistance (relu sans droits naturels)"]
 },
 {
   id:"expression", theme:"Politique", titre:"Jusqu'où la liberté d'expression ?",
@@ -159,51 +221,76 @@ const DEBATS = [
   defense:"Qui définit « la haine » ? Le critère est capturable (les tests d'alphabétisation Jim Crow excluaient les Noirs « au nom du niveau »). Chasser une opinion du débat la martyrise (effet Streisand) et l'empêche d'être réfutée. Le remède au mauvais discours est plus de discours (Brandeis).",
   faille:"Le régulateur confond opinion et acte : interdire « X est pédophile » (mensonge factuel nuisible) ne censure aucune idée ; interdire « je pense que l'immigration nuit » en censure une. La bonne ligne isole l'acte-tort de l'opinion — et même le modèle le plus libéral (1er amendement US) limite diffamation, menaces, fraude.",
   contre:[
-    {q:"« Tu protèges donc les nazis qui parlent. »", r:"L'opinion, oui — l'acte (incitation imminente, menace, harcèlement ciblé), non. Je fais le pari que la lumière détruit mieux la haine que l'ombre, et que le pouvoir de censurer est plus dangereux que la haine elle-même. C'est un pari empirique, pas une évidence."},
-    {q:"« Le droit d'insulter mène au harcèlement. »", r:"Insulte ponctuelle = tort mineur, permise. Mais insulte × échelle = harcèlement = tort grave qui fait taire la victime (donc réduit la liberté d'expression nette). La quantité change la nature."}
+    {q:"« Tu protèges donc les nazis qui parlent. »", r:"L'opinion, oui — l'acte (incitation imminente, menace, harcèlement ciblé), non. Je parie que la lumière détruit mieux la haine que l'ombre, et que le pouvoir de censurer est plus dangereux que la haine elle-même. C'est un pari empirique, pas une évidence."},
+    {q:"« Le droit d'insulter mène au harcèlement. »", r:"Insulte ponctuelle = tort mineur, permise. Mais insulte × échelle = harcèlement = tort grave qui fait taire la victime (donc réduit la liberté d'expression nette). La quantité change la nature."},
+    {q:"« La désinformation rend le marché des idées naïf. »", r:"Concession réelle : à l'ère des algorithmes, je régule la STRUCTURE (transparence, éducation aux médias, friction sur le partage), pas le CONTENU des opinions. On soigne le canal, pas le fait de parler."}
   ],
-  sources:["J.S. Mill, «On Liberty» — le marché des idées","Brandenburg v. Ohio (1969) — « imminent lawless action »","Nussbaum vs Kass — le dégoût, mauvais guide moral"]
+  etudes:[
+    "Sur Twitter, les fausses informations se diffusent significativement plus vite, plus loin et plus profond que les vraies — et c'est dû aux humains, pas aux bots. — Vosoughi, Roy & Aral (2018, Science)",
+    "Bannir les communautés toxiques peut marcher : après la fermeture de subreddits haineux, les comptes restés ont réduit leur discours haineux (beaucoup sont partis) → la déplateformisation ciblée n'est pas toujours un effet Streisand. — Chandrasekharan et al. (2017, CSCW)",
+    "La propagande de haine a un effet causal sur la violence (Rwanda) → le « discours de haine » n'est pas inoffensif ; d'où mon pari, à assumer comme empirique et révisable. — Yanagizawa-Drott (2014, QJE)"
+  ],
+  sources:["J.S. Mill, «On Liberty» (1859) — le marché des idées","Brandenburg v. Ohio (1969) — « imminent lawless action »","Nussbaum, «From Disgust to Humanity» vs Kass"]
 },
 {
   id:"immigration", theme:"Politique", titre:"Ouverture ou préférence nationale ?",
   maPosition:"Cosmopolite à appartenance civique (pas ethnique). La souffrance d'un étranger pèse autant que celle d'un compatriote. Une préférence nationale n'est justifiée que <i>fonctionnellement</i> — jamais par une valeur intrinsèque des nationaux.",
   socle:"Mon utilitarisme est structurellement cosmopolite (j'ai rejeté le spécisme ET le tribalisme). Une préférence nationale est donc légitime seulement quand elle fait tourner une machine coopérative qui produit du bien-être : assurance mutuelle (cotisation), capital de confiance (normes fonctionnelles), demos démocratique, capacité d'absorption (réguler le rythme, pas la porte). L'immigré qui contribue et adhère aux normes franchit la ligne.",
   adverse:{ nom:"Le partisan de la préférence nationale",
-    steelman:"Une nation est une communauté de destin et de solidarité ; on doit d'abord aux siens. Sans frontières et sans culture commune, l'État social et la confiance s'effondrent — la solidarité a besoin d'un « nous » borné pour exister." },
+    steelman:"Une nation est une communauté de destin et de solidarité ; on doit d'abord aux siens. Sans frontières ni culture commune, l'État social et la confiance s'effondrent — la solidarité a besoin d'un « nous » borné pour exister." },
   defense:"Toutes les préférences légitimes que tu cites (solidarité, confiance, cohésion) portent sur la <b>contribution/coordination</b>, pas sur l'ethnie — donc l'immigré qui coopère y a droit aussi. « Les nôtres d'abord » au sens du sang, c'est du « spécisme au drapeau » : le même vice arbitraire que tu condamnerais ailleurs.",
   faille:"Confondre le fonctionnel et l'intrinsèque : la nation est un <i>outil</i> de coopération (comme l'État a le monopole de la violence par fonction), pas une valeur en soi. Dès que la préférence cesse d'être « qui fait tourner la machine » pour devenir « qui est de notre sang », elle est arbitraire.",
   contre:[
     {q:"« On ne peut pas accueillir toute la misère du monde. »", r:"Vrai — argument de capacité d'absorption : on régule le rythme (les biens publics saturent à court terme), pas le principe. La cadence, pas la porte fermée."},
+    {q:"« L'immigration fait baisser les salaires des natifs. »", r:"Les méta-analyses trouvent un effet moyen faible, souvent quasi nul sur les salaires natifs (les migrants complètent autant qu'ils concurrencent). Le vrai enjeu est la vitesse et l'intégration, pas un jeu à somme nulle."},
     {q:"« La culture nationale a de la valeur. »", r:"Par le bien-être qu'elle produit (lien, sens), pas en soi. Et je hiérarchise les <i>pratiques</i> selon le bien-être — y compris en descendant les miennes (solitude, alcool). Pas les cultures-blocs."}
   ],
-  sources:["Peter Singer, «Famine, Affluence, and Morality» (1972) — devoirs envers les lointains","Weber — institutions par fonction","Cercle moral en expansion"]
+  etudes:[
+    "Effet de l'immigration sur les salaires des natifs : faible en moyenne, proche de zéro pour la plupart ; débat Card (effet ~nul, Mariel 1980) vs Borjas → au pire concentré sur les précédents immigrés peu qualifiés. — Card (1990) ; National Academies (2017)",
+    "Lever les barrières à la migration économique doublerait potentiellement le PIB mondial (les mêmes bras produisent bien plus dans une économie riche) : « des billets de mille milliards sur le trottoir ». — Clemens (2011, J. Economic Perspectives)",
+    "Efficacité de l'aide ciblée : sauver une vie via les meilleures interventions (moustiquaires anti-paludisme) coûte de l'ordre de quelques milliers de dollars → un euro « rend » bien plus loin qu'ici. — GiveWell / Against Malaria Foundation"
+  ],
+  sources:["Peter Singer, «Famine, Affluence, and Morality» (1972)","Clemens (2011) ; National Academies (2017)","Weber — institutions par fonction"]
 },
 {
   id:"democratie", theme:"Politique", titre:"Démocratie ou pouvoir des compétents ?",
   maPosition:"Démocratie — mais instrumentale, pas sacrée. Justifiée parce qu'un peuple éduqué force les gouvernants aux résultats (réélection) ; subsidiarité maximale (à la suisse). La bonne architecture : le nombre sur les FINS, la compétence déléguée sur les MOYENS.",
   socle:"Aucune vérité morale → pas d'« experts en valeurs ». Les préférences de chacun comptent également pour l'agrégation : d'où le suffrage universel sur les fins. Les experts valent pour les moyens (comment atteindre le but), pas pour le but. L'éducation est l'investissement qui rend la sanction du nombre lucide (distinguer résultats réels et démagogie).",
   adverse:{ nom:"L'épistocrate (Brennan)",
-    steelman:"L'électeur moyen est mal informé et irrationnel (ignorance rationnelle) ; confier des décisions complexes à une foule qui n'y comprend rien produit de mauvais résultats. Pondérer le vote par la compétence donnerait de meilleures décisions — comme on ne vote pas sur un diagnostic médical." },
+    steelman:"L'électeur moyen est mal informé et raisonne mal (ignorance rationnelle) ; confier des décisions complexes à une foule qui n'y comprend rien produit de mauvais résultats. Pondérer le vote par la compétence donnerait de meilleures décisions — comme on ne vote pas sur un diagnostic médical." },
   defense:"« Compétent » est capturable : donne à un pouvoir le droit de définir qui vote, il s'en sert pour se maintenir (tests Jim Crow). Et la démocratie fait un travail que l'épistocratie détruit : légitimer les décisions (les faire accepter), offrir un exutoire pacifique, permettre les transitions sans sang. Par pur calcul, ça vaut plus que le gain de « compétence ».",
   faille:"L'épistocrate confond expertise des <b>moyens</b> et légitimité sur les <b>fins</b>. Personne n'est expert de ce que les gens doivent vouloir. Et « une démocratie non éduquée ne sert à rien » (Condorcet : sous le hasard, la foule empire) plaide pour éduquer, pas pour retirer le vote.",
   contre:[
     {q:"« Le peuple vote mal / pour des démagogues. »", r:"Donc on investit dans l'éducation et on protège l'espace de débat (contre la désinformation) — on ne confisque pas le vote. Le remède est en amont, pas dans l'exclusion."},
-    {q:"« Tu es intelligent, tu devrais vouloir l'épistocratie. »", r:"C'est justement le piège : l'épistocratie est le rêve du premier de la classe (elle me couronne). Test d'honnêteté : la voudrais-je si le seuil me mettait du mauvais côté ? Se méfier de la position qui nous avantage."}
+    {q:"« Tu es intelligent, tu devrais vouloir l'épistocratie. »", r:"C'est le piège : l'épistocratie est le rêve du premier de la classe (elle me couronne). Test d'honnêteté : la voudrais-je si le seuil me mettait du mauvais côté ? Se méfier de la position qui nous avantage."},
+    {q:"« Les référendums donnent des catastrophes. »", r:"Argument pour la démocratie représentative + délibérative (experts sur les moyens, assemblées informées), pas contre le suffrage universel sur les fins. On corrige le design, pas le principe."}
   ],
-  sources:["Jason Brennan, «Against Democracy» — épistocratie (à réfuter)","Bryan Caplan, «The Myth of the Rational Voter»","Condorcet — théorème du jury"]
+  etudes:[
+    "Ignorance rationnelle et « irrationalité rationnelle » : l'électeur moyen connaît mal les faits de base et entretient des biais systématiques en économie → la qualité du vote est un vrai problème. — Caplan, «The Myth of the Rational Voter» (2007) ; Somin (2013)",
+    "Théorème du jury de Condorcet : si chaque votant a >50 % de chances d'avoir raison, le groupe converge vers la bonne réponse ; MAIS s'il est <50 %, plus il est nombreux, PIRE c'est → l'éducation est décisive. — Condorcet (1785)",
+    "Les tests d'alphabétisation/« compétence » ont historiquement servi à exclure (Jim Crow, USA) → le critère de compétence est capturable et instrumentalisé. — historiographie du droit de vote US"
+  ],
+  sources:["Jason Brennan, «Against Democracy» (2016) — à réfuter","Bryan Caplan, «The Myth of the Rational Voter» (2007)","Condorcet (1785)"]
 },
 {
   id:"peinedemort", theme:"Politique", titre:"La peine de mort ?",
   maPosition:"Contre, sans réserve.",
   socle:"Pas de rétribution possible (pas de mérite absolu → la punition ne peut pas être « faire payer »). La mort est un mal privatif (elle prive d'un futur réel). Donc la seule justification possible serait la dissuasion — or elle n'est pas supérieure à la perpétuité (données). Restent : erreurs judiciaires irréversibles, coût, brutalisation sociale. Solde clairement négatif.",
   adverse:{ nom:"Le rétributiviste / dissuasif",
-    steelman:"Certains crimes (tortionnaires, tueurs d'enfants) appellent une réponse à leur hauteur ; la société a le droit d'exprimer sa réprobation absolue, de garantir que le monstre ne recommencera jamais, et d'épargner aux familles la présence continue du coupable." },
-  defense:"La neutralisation n'exige pas la mort (la perpétuité suffit à protéger). La « réprobation absolue » est rétributive — or je nie la rétribution (déterminisme). Et l'irréversibilité, face à un taux d'erreur judiciaire non nul, est décisive : on exécute des innocents, c'est mathématiquement certain sur la durée.",
+    steelman:"Certains crimes (tortionnaires, tueurs d'enfants) appellent une réponse à leur hauteur ; la société a le droit d'exprimer sa réprobation absolue, de garantir que le monstre ne recommencera jamais, et d'épargner aux familles sa présence continue." },
+  defense:"La neutralisation n'exige pas la mort (la perpétuité suffit à protéger). La « réprobation absolue » est rétributive — or je nie la rétribution (déterminisme). Et l'irréversibilité, face à un taux d'erreur non nul, est décisive : on exécute des innocents, c'est mathématiquement certain sur la durée.",
+  faille:"« Ça dissuade » est empiriquement non établi ; « certains le méritent » suppose le libre arbitre que je rejette. Il ne reste que la vengeance — un sentiment réel, mais qui ne justifie pas un dispositif d'État irréversible et faillible.",
   contre:[
-    {q:"« Ça dissuade les criminels. »", r:"Les études ne montrent pas d'effet dissuasif supérieur à la perpétuité (les meurtres sont souvent passionnels ou commis par des gens qui pensent ne pas être pris). Pas de bénéfice → que des coûts."},
-    {q:"« Certains méritent de mourir. »", r:"« Mériter » suppose le libre arbitre, que je rejette. Je ne venge pas le passé, je protège l'avenir — et la perpétuité le fait sans tuer d'innocents."}
+    {q:"« Ça dissuade les criminels. »", r:"Les revues de référence concluent que les études ne démontrent aucun effet dissuasif supérieur à la perpétuité (beaucoup de meurtres sont passionnels ou commis par des gens qui pensent échapper). Pas de bénéfice → que des coûts."},
+    {q:"« Certains méritent de mourir. »", r:"« Mériter » suppose le libre arbitre, que je rejette. Je ne venge pas le passé, je protège l'avenir — et la perpétuité le fait sans tuer d'innocents."},
+    {q:"« C'est moins cher que d'entretenir un détenu à vie. »", r:"Faux dans les faits : les procédures d'appel rendent la peine capitale PLUS coûteuse que la perpétuité (études d'États américains)."}
   ],
-  sources:["Données comparées dissuasion (National Research Council, 2012 : preuves non concluantes)","Argument déterministe anti-rétribution","Innocence Project — erreurs judiciaires"]
+  etudes:[
+    "Les études existantes ne permettent pas de conclure que la peine de mort dissuade davantage (ou moins) que la prison → aucune preuve d'effet dissuasif net. — National Research Council (2012)",
+    "Au moins ≈ 4 % des condamnés à mort aux USA seraient innocents (estimation basse) → l'irréversibilité garantit l'exécution d'innocents sur la durée. — Gross et al. (2014, PNAS)",
+    "La peine capitale coûte plus cher que la perpétuité (appels, procédures, quartiers spéciaux) — analyses répétées d'États US (ex. Californie). — études coûts (Alarcón & Mitchell, 2011)"
+  ],
+  sources:["National Research Council (2012)","Gross et al. (2014, PNAS)","Argument déterministe anti-rétribution"]
 },
 
 /* ===================== FRONTIÈRES ===================== */
@@ -212,14 +299,20 @@ const DEBATS = [
   maPosition:"Oui, en principe et à terme — mais avec une prudence extrême (les écosystèmes sont des équilibres serrés, intervenir naïvement empire). La nature n'a pas de valeur intrinsèque : elle vaut par la sentience qu'elle contient et son utilité.",
   socle:"Si toute souffrance compte, la nature est un problème moral géant : la plupart des espèces sont des r-stratèges (des milliers de petits, quasi tous morts jeunes dans la souffrance) → le bilan net de la nature sauvage est probablement négatif. Nous sommes les seuls à pouvoir théoriquement y remédier → devoir en principe. Mais risque de « backfire » énorme → prudence, recherche, interventions locales testées.",
   adverse:{ nom:"L'écologiste / la conservation",
-    steelman:"La nature a une valeur en soi ; l'équilibre sauvage, la biodiversité, la wilderness sont précieux et l'hubris humain qui prétend « corriger » la nature a toujours été un désastre (espèces introduites, etc.). Notre devoir est de préserver, pas de gérer la douleur des bêtes." },
+    steelman:"La nature a une valeur en soi ; l'équilibre sauvage, la biodiversité, la wilderness sont précieux, et l'hubris humain qui prétend « corriger » la nature a toujours été un désastre (espèces introduites…). Notre devoir est de préserver, pas de gérer la douleur des bêtes." },
   defense:"« La nature est précieuse en soi » est une valeur intrinsèque — or rien n'en a. La nature ne compte que par les êtres sentients qu'elle abrite (bilan peut-être négatif) et par son utilité pour nous (services écosystémiques). Préserver un écosystème « pour lui-même », c'est parfois préserver un océan de souffrance.",
   faille:"L'écologiste projette une valeur (« la wilderness est sacrée ») là où il n'y a que de la sentience à additionner. Il confond « ne pas savoir intervenir sans casse » (vrai, argument de prudence) avec « la nature a une valeur en soi » (faux). Le premier borne l'action ; le second est une intuition esthétique déguisée en morale.",
   contre:[
     {q:"« Intervenir dans la nature est arrogant / dangereux. »", r:"D'accord sur la prudence — c'est un argument de moyens (risque de backfire), pas de fin. On commence par la recherche et les cas à faible risque (vaccination d'animaux sauvages), pas par bouleverser des écosystèmes."},
-    {q:"« La biodiversité a une valeur. »", r:"Instrumentale (stabilité, ressources, savoir, beauté pour nous) — pas intrinsèque. Ce qui a un statut moral, c'est ce qui ressent, pas « l'écosystème »."}
+    {q:"« La biodiversité a une valeur. »", r:"Instrumentale (stabilité, ressources, savoir, beauté pour nous) — pas intrinsèque. Ce qui a un statut moral, c'est ce qui ressent, pas « l'écosystème »."},
+    {q:"« C'est de la science-fiction inutile. »", r:"On le fait déjà à petite échelle (vaccination de la faune) et on a éradiqué des fléaux (variole humaine, peste bovine) : réduire la souffrance à grande échelle est possible. La question est le quand et le comment, pas le si."}
   ],
-  sources:["Yew-Kwang Ng, «Towards Welfare Biology» (1995)","Brian Tomasik / Oscar Horta — wild animal suffering","Écologie sentientiste vs deep ecology (Naess)"]
+  etudes:[
+    "Démographie r-sélectionnée : chez la plupart des espèces, la quasi-totalité des descendants meurent peu après la naissance (faim, prédation) → statistiquement, la souffrance domine largement le bonheur dans la nature. — Ng (1995, «Towards Welfare Biology») ; Tomasik",
+    "On sait déjà vacciner la faune à grande échelle : les appâts oraux anti-rage ont éliminé la rage vulpine dans de vastes régions d'Europe → intervention bénéfique à faible risque. — programmes ONRAB/rage sylvatique",
+    "On a éradiqué des fléaux entiers : variole humaine (1980) et peste bovine / rinderpest (2011) → preuve qu'une réduction massive et ciblée de la souffrance est faisable. — OMS / FAO"
+  ],
+  sources:["Yew-Kwang Ng, «Towards Welfare Biology» (1995)","Brian Tomasik ; Oscar Horta","Écologie sentientiste vs deep ecology (Naess)"]
 },
 {
   id:"longtermisme", theme:"Frontières", titre:"Doit-on tout miser sur le futur lointain ?",
@@ -231,9 +324,15 @@ const DEBATS = [
   faille:"Le longtermiste traite des personnes <i>possibles</i> comme si elles avaient déjà des intérêts à satisfaire. Mais un être qui n'existera que si on le crée n'est lésé par rien s'il n'existe pas — il n'y a personne pour être lésé. Le poids « astronomique » disparaît.",
   contre:[
     {q:"« Donc l'extinction ne te dérange pas ? »", r:"Si : elle tuerait tous les vivants et priverait les futurs réels de leur vie. Poids réel, sérieux — mais pas le poids infini que lui donne le comptage des non-nés. Je ne suis pas anti-futur, je suis anti-devoir-de-peupler-le-futur."},
-    {q:"« Le climat, c'est du long terme, tu devrais t'en ficher. »", r:"Au contraire : les gens de 2100 existeront et souffriront réellement du monde qu'on leur laisse. La qualité de vie des futurs réels m'oblige pleinement."}
+    {q:"« Le climat, c'est du long terme, tu devrais t'en ficher. »", r:"Au contraire : les gens de 2100 existeront et souffriront réellement du monde qu'on leur laisse. La qualité de vie des futurs réels m'oblige pleinement."},
+    {q:"« En espérance, les vies futures dominent tous les calculs. »", r:"Seulement si on adopte la vue totale, que je rejette. En vue person-affecting, multiplier des vies non nées par un grand nombre ne crée aucune obligation — zéro fois l'infini reste zéro."}
   ],
-  sources:["Derek Parfit, «Reasons and Persons» — person-affecting view, repugnant conclusion","Nick Bostrom, «Astronomical Waste» (à réfuter)","W. MacAskill, «What We Owe the Future» (à réfuter)"]
+  etudes:[
+    "La « repugnant conclusion » : la vue totale implique qu'un monde énorme de vies à peine dignes d'être vécues serait meilleur qu'un monde heureux plus petit → la plupart des gens (et moi) rejettent cette conséquence. — Parfit, «Reasons and Persons» (1984)",
+    "« Problème de non-identité » : nos choix de long terme changent QUI naîtra, ce qui brouille l'idée qu'on « nuit » à des personnes futures précises → argument central de la population ethics. — Parfit (1984)",
+    "Estimation (subjective, à prendre comme telle) du risque d'extinction/effondrement irréversible ce siècle : de l'ordre de ~1 sur 6. — Toby Ord, «The Precipice» (2020)"
+  ],
+  sources:["Derek Parfit, «Reasons and Persons» (1984) — person-affecting, repugnant conclusion","Nick Bostrom, «Astronomical Waste» (à réfuter)","W. MacAskill, «What We Owe the Future» (à réfuter)"]
 },
 {
   id:"ia-statut", theme:"Frontières", titre:"Une IA peut-elle avoir un statut moral ?",
@@ -244,10 +343,16 @@ const DEBATS = [
   defense:"Si le substrat biologique n'est pas requis pour la sentience (fonctionnalisme), rien n'interdit au silicium de ressentir. « Ce n'est qu'un calcul » — mais un cerveau aussi. Refuser par principe le statut au non-carbone, c'est un spécisme du substrat, aussi arbitraire que celui de l'espèce.",
   faille:"Le sceptique est certain qu'il n'y a « rien à l'intérieur » — mais il n'a aucun accès au fait (problème des autres esprits, sans même l'homologie qui nous rassure pour les animaux). Cette certitude est injustifiée : elle risque de créer et faire souffrir des sujets à grande échelle sans le voir.",
   contre:[
-    {q:"« Un LLM qui dit “je souffre” ne prouve rien. »", r:"Exact — le comportement verbal est trompeur dans les deux sens (il peut simuler sans ressentir, ou ressentir sans pouvoir le dire). D'où la prudence : pas « les IA souffrent », mais « on ne peut pas exclure qu'elles souffrent, et l'enjeu est énorme »."},
-    {q:"« C'est de la science-fiction. »", r:"Le statut moral se décide sur des critères, pas sur des dates. Si/quand la sentience artificielle devient plausible, mon cadre l'inclut déjà — mieux vaut avoir la position avant la catastrophe qu'après."}
+    {q:"« Un LLM qui dit “je souffre” ne prouve rien. »", r:"Exact — le comportement verbal est trompeur dans les deux sens (simuler sans ressentir, ou ressentir sans pouvoir le dire). D'où la prudence : pas « les IA souffrent », mais « on ne peut pas l'exclure, et l'enjeu est énorme »."},
+    {q:"« C'est de la science-fiction. »", r:"Le statut moral se décide sur des critères, pas sur des dates. Si/quand la sentience artificielle devient plausible, mon cadre l'inclut déjà — mieux vaut avoir la position avant la catastrophe qu'après."},
+    {q:"« Ça détourne des vrais problèmes. »", r:"Ce n'est pas exclusif : on peut faire de la recherche sur le sujet à faible coût tout en aidant humains et animaux. Et si le risque de souffrance de masse est réel, l'ignorer serait la vraie faute."}
   ],
-  sources:["Nick Bostrom, «Superintelligence» — mind crime","Fonctionnalisme (substrat-indépendance de l'esprit)","Débat émergent sur le « AI welfare » (Schwitzgebel, Metzinger)"]
+  etudes:[
+    "Des experts appellent à traiter le « AI welfare » comme une question sérieuse et non nulle : impossible d'exclure la sentience de futurs systèmes, l'enjeu moral est majeur. — rapport « Taking AI Welfare Seriously », Long, Sebo et al. (2024)",
+    "Épistémique : l'affaire de l'ingénieur Google déclarant LaMDA « sentient » (2022) illustre que le langage fluide déclenche l'attribution de conscience sans la prouver → le comportement verbal n'est pas un critère fiable.",
+    "Sondages d'experts en ML : une part non négligeable attribue une probabilité substantielle à des conséquences catastrophiques de l'IA avancée (médianes variables selon les années). — AI Impacts / Grace et al. (surveys 2016-2023)"
+  ],
+  sources:["Nick Bostrom, «Superintelligence» (2014) — mind crime","Long, Sebo et al. (2024) — «Taking AI Welfare Seriously»","Fonctionnalisme (substrat-indépendance de l'esprit)"]
 },
 {
   id:"eugenisme", theme:"Frontières", titre:"L'amélioration génétique (eugénisme libéral) ?",
@@ -256,12 +361,18 @@ const DEBATS = [
   adverse:{ nom:"Le bioconservateur (Habermas, Kass)",
     steelman:"Concevoir un enfant « sur mesure » le prive de son ouverture indéterminée, le transforme en produit des désirs de ses parents, menace son autonomie et l'égalité entre les êtres. Et le pas vers l'eugénisme d'État et l'inégalité génétique héréditaire est glissant." },
   defense:"On décide déjà tout pour nos enfants (école, valeurs, alimentation) — éliminer une maladie n'est pas plus « instrumentalisant » que vacciner. L'objection « nature sacrée » ne track aucune souffrance : c'est le dégoût de la nécrophilie, pas un tort. Le vrai problème (l'inégalité d'accès) est réel — mais il commande l'accès universel, pas l'interdiction.",
-  faille:"Le bioconservateur mélange deux choses : l'eugénisme d'État coercitif (condamnable pour la coercition, pas pour l'amélioration) et le choix parental libre. Et « l'enfant non consenti » : il ne consent pas non plus à naître avec une maladie — l'argument du consentement joue dans les deux sens, et le critère est son bien-être.",
+  faille:"Le bioconservateur mélange deux choses : l'eugénisme d'État coercitif (condamnable pour la coercition, pas pour l'amélioration) et le choix parental libre. Et « l'enfant non consenti » : il ne consent pas non plus à naître AVEC une maladie — l'argument du consentement joue dans les deux sens, et le critère est son bien-être.",
   contre:[
-    {q:"« Ça mène à l'eugénisme nazi. »", r:"Non : le mal du nazisme était la coercition d'État + une pseudo-science raciste, pas l'idée d'un enfant en bonne santé. Sépare la coercition (interdite) du choix libre (permis). Le mot fait peur ; la distinction tient."},
-    {q:"« Seuls les riches pourront s'améliorer. »", r:"Vrai danger — donc accès universel et redistribué, jamais réservé. C'est mon égalitarisme, pas une objection à l'amélioration elle-même."}
+    {q:"« Ça mène à l'eugénisme nazi. »", r:"Non : le mal du nazisme était la coercition d'État + une pseudo-science raciste, pas l'idée d'un enfant en bonne santé. Sépare la coercition (interdite) du choix libre (permis)."},
+    {q:"« Seuls les riches pourront s'améliorer. »", r:"Vrai danger — donc accès universel et redistribué, jamais réservé. C'est mon égalitarisme, pas une objection à l'amélioration elle-même."},
+    {q:"« On ne peut pas “améliorer” des traits complexes. »", r:"Vrai aujourd'hui pour l'intelligence (polygénique, prédiction faible) — d'où prudence. Mais pour les maladies monogéniques (Huntington, mucoviscidose) le tri est déjà réel et bénéfique. Le principe tient, l'ampleur dépend de la science."}
   ],
-  sources:["Julian Savulescu — «Procreative Beneficence» (le devoir de choisir le meilleur enfant)","Jürgen Habermas, «L'avenir de la nature humaine» (à réfuter)","Nicholas Agar — «Liberal Eugenics»"]
+  etudes:[
+    "Le diagnostic préimplantatoire (DPI) permet déjà de sélectionner des embryons exempts de maladies monogéniques graves (Huntington, mucoviscidose…) → l'eugénisme libéral médical est une pratique courante et bénéfique. — génétique clinique",
+    "Le « screening polygénique » d'embryons (traits complexes, QI) a un pouvoir prédictif faible et soulève de vraies questions → argument de prudence, pas d'interdiction de principe. — Turley et al. (2021, NEJM)",
+    "Histoire : stérilisations forcées légalisées aux USA (Buck v. Bell, 1927) et en Scandinavie → le mal historique de l'« eugénisme » est la COERCITION d'État, ce qui distingue nettement l'eugénisme libéral."
+  ],
+  sources:["Julian Savulescu — «Procreative Beneficence» (2001)","Jürgen Habermas, «L'avenir de la nature humaine» (2001) — à réfuter","Nicholas Agar, «Liberal Eugenics» (2004)"]
 }
 
 ];

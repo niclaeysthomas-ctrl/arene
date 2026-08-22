@@ -3,21 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="theme-color" content="#0c0a10">
+<meta name="theme-color" content="#0a0e18">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="L'Arène">
-<link rel="manifest" href='data:application/manifest+json,{"name":"L%27AR%C3%88NE","short_name":"Ar%C3%A8ne","display":"standalone","background_color":"%230c0a10","theme_color":"%230c0a10","start_url":".","icons":[]}'>
+<link rel="manifest" href='data:application/manifest+json,{"name":"L%27AR%C3%88NE","short_name":"Ar%C3%A8ne","display":"standalone","background_color":"%230a0e18","theme_color":"%230a0e18","start_url":".","icons":[]}'>
 <title>L'ARÈNE — dojo de tes convictions</title>
 <style>
   :root{
-    --bg:#0c0a10; --bg2:#15121c; --bg3:#1e1a29; --bg4:#282234; --line:#332c42;
-    --txt:#efeaf6; --dim:#9a90ad; --dim2:#6d6483;
-    --acc:#ff5d43; --acc2:#ff8266;        /* arène / rouge-orangé */
-    --def:#2ee0c0;                          /* ta défense */
-    --att:#f5b840;                          /* ton estocade */
-    --adv:#6ea8ff;                          /* la position adverse */
-    --ok:#3ecf7a; --bad:#ff5c6c; --r:16px;
+    --bg:#0a0e18; --bg2:#111726; --bg3:#182234; --bg4:#212d44; --line:#2b3750;
+    --txt:#eaf0fb; --dim:#96a3c0; --dim2:#64728f;
+    --acc:#4aa3ff; --acc2:#83c5ff;        /* bleu clair azur — l'app / toi */
+    --def:#34e0b0;                          /* ta défense (mint) */
+    --att:#ffc24d;                          /* ton estocade (or) */
+    --adv:#b98bff;                          /* la position adverse (violet doux) */
+    --study:#2fd6d0;                        /* études & données (cyan) */
+    --ok:#3ecf7a; --bad:#ff6b7a; --r:16px;
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{height:100%}
@@ -31,6 +32,7 @@
   .logo b{color:var(--acc)}
   .hbadges{display:flex;gap:7px}
   .hb{font-weight:800;font-size:13px;background:var(--bg2);border:1px solid var(--line);padding:6px 11px;border-radius:20px;display:flex;align-items:center;gap:4px}
+  .hb.lvl{color:var(--acc2)}
   .hb.streak{color:var(--att)}
 
   .card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-bottom:12px}
@@ -39,12 +41,12 @@
   .sub{color:var(--dim);font-size:13px}
   .mini{font-size:11px;color:var(--dim2);text-transform:uppercase;letter-spacing:1.3px;font-weight:800}
 
-  .hero{background:linear-gradient(140deg,#2a1420,#241528 55%,#101f26);position:relative;overflow:hidden;margin-bottom:14px}
-  .hero .lvltag{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:2px;font-weight:800}
-  .hero .lvlname{font-size:25px;font-weight:900;margin:3px 0 12px;background:linear-gradient(90deg,var(--acc2),var(--att));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .hero{background:linear-gradient(140deg,#102340,#123253 52%,#0d3340);position:relative;overflow:hidden;margin-bottom:14px;border-color:#243a5c}
+  .hero .lvltag{font-size:11px;color:#a9b8d6;text-transform:uppercase;letter-spacing:2px;font-weight:800}
+  .hero .lvlname{font-size:25px;font-weight:900;margin:3px 0 12px;background:linear-gradient(90deg,var(--acc2),var(--study));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   .xpbar{height:9px;background:#0009;border-radius:5px;overflow:hidden}
-  .xpbar i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--att));border-radius:5px;transition:width .5s}
-  .hero .xptxt{font-size:12px;color:var(--dim);margin-top:7px;display:flex;justify-content:space-between}
+  .xpbar i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--study));border-radius:5px;transition:width .5s}
+  .hero .xptxt{font-size:12px;color:#a9b8d6;margin-top:7px;display:flex;justify-content:space-between}
 
   .quest{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
   .quest:last-child{border-bottom:none}
@@ -54,41 +56,45 @@
   .quest .qt small{display:block;color:var(--dim);font-size:12px}
   .quest .qx{font-size:12px;font-weight:800;color:var(--dim2)}
   .quest.done .qx{color:var(--ok)}
-  .quest.done .qi{background:#12321f}
+  .quest.done .qi{background:#0f3328}
 
   .btn{display:block;border:none;border-radius:13px;padding:15px 20px;font-size:15.5px;font-weight:800;cursor:pointer;
-    background:var(--acc);color:#fff;width:100%;text-align:center;margin-top:12px;transition:transform .08s}
+    background:var(--acc);color:#04213f;width:100%;text-align:center;margin-top:12px;transition:transform .08s}
   .btn:active{transform:scale(.97)}
   .btn.ghost{background:var(--bg3);color:var(--txt);border:1px solid var(--line)}
-  .btn.def{background:var(--def);color:#052420}
+  .btn.def{background:var(--def);color:#04231d}
   .btn.att{background:var(--att);color:#3a2a00}
+  .btn.study{background:var(--study);color:#04231f}
   .btn.small{padding:11px 16px;font-size:14px}
   .btn:disabled{opacity:.4;cursor:default}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .row2 .btn,.row3 .btn{margin-top:0}
   .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-  .row4{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 
   .tag{display:inline-block;font-size:11px;font-weight:800;padding:4px 10px;border-radius:20px;letter-spacing:.3px}
-  .tag.th{background:#2a1d2e;color:var(--acc2)}
+  .tag.th{background:#16273f;color:var(--acc2)}
 
   .stance{border-radius:13px;padding:13px 15px;margin-top:10px;font-size:14.5px}
   .stance .lbl{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
-  .stance.me{background:#0f2c28;border:1px solid #1c4a42} .stance.me .lbl{color:var(--def)}
-  .stance.adv{background:#14233d;border:1px solid #244063} .stance.adv .lbl{color:var(--adv)}
+  .stance.me{background:#0f2c26;border:1px solid #1d4a41} .stance.me .lbl{color:var(--def)}
+  .stance.adv{background:#1e1735;border:1px solid #362a5e} .stance.adv .lbl{color:var(--adv)}
   .stance b{color:#fff}
 
-  .reveal{background:var(--bg3);border-left:3px solid var(--acc);border-radius:0 12px 12px 0;padding:13px 15px;margin-top:12px;font-size:14.5px;color:#ddd8ea;animation:fade .3s}
+  .reveal{background:var(--bg3);border-left:3px solid var(--acc);border-radius:0 12px 12px 0;padding:13px 15px;margin-top:12px;font-size:14.5px;color:#dde3f2;animation:fade .3s}
   .reveal.def{border-color:var(--def)} .reveal.att{border-color:var(--att)}
-  .reveal.src{border-color:var(--dim2)}
-  .reveal b{color:#fff} .reveal i{color:#c7cbe6}
+  .reveal.study{border-color:var(--study)} .reveal.src{border-color:var(--dim2)}
+  .reveal b{color:#fff} .reveal i{color:#c8cfe8}
   .reveal .lbl{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;color:var(--dim)}
+  .reveal.study .lbl{color:var(--study)}
+  .estudy{padding:7px 0;border-bottom:1px solid var(--line);font-size:13.5px;line-height:1.5}
+  .estudy:last-child{border-bottom:none}
+  .estudy .esrc{color:var(--study);font-weight:600}
   @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
 
   .step-h{display:flex;align-items:center;gap:9px;margin:4px 0 2px}
-  .step-h .n{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:900;flex-shrink:0}
-  .step-h .n.def{background:var(--def);color:#052420} .step-h .n.att{background:var(--att);color:#3a2a00}
-  .step-h .n.acc{background:var(--acc);color:#fff}
+  .step-h .n{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:900;flex-shrink:0;color:#04213f}
+  .step-h .n.def{background:var(--def);color:#04231d} .step-h .n.att{background:var(--att);color:#3a2a00}
+  .step-h .n.acc{background:var(--acc)}
   .step-h b{font-size:15.5px}
   .prompt{color:var(--dim);font-size:13.5px;margin:6px 0 8px}
 
@@ -101,7 +107,7 @@
 
   .srs-card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px 16px;min-height:150px;display:flex;flex-direction:column;justify-content:center}
   .srs-front{font-size:16.5px;font-weight:700;text-align:center}
-  .srs-back{margin-top:14px;font-size:14.5px;color:#d8dbee;border-top:1px solid var(--line);padding-top:14px;animation:fade .3s}
+  .srs-back{margin-top:14px;font-size:14.5px;color:#dae0f0;border-top:1px solid var(--line);padding-top:14px;animation:fade .3s}
 
   .positem{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:13px 15px;margin-bottom:9px;cursor:pointer}
   .positem .pt{display:flex;align-items:center;gap:8px}
@@ -112,18 +118,18 @@
 
   .stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:12px}
   .stat{background:var(--bg2);border:1px solid var(--line);border-radius:13px;padding:13px 8px;text-align:center}
-  .stat b{display:block;font-size:22px;font-weight:900}
+  .stat b{display:block;font-size:22px;font-weight:900;color:var(--acc2)}
   .stat small{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px}
   .thbar{display:flex;align-items:center;gap:10px;margin:7px 0;font-size:13px}
   .thbar .tn{width:92px;color:var(--dim);flex-shrink:0}
   .thbar .tt{flex:1;height:8px;background:#0008;border-radius:4px;overflow:hidden}
-  .thbar .tt i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--att))}
+  .thbar .tt i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--study))}
   .thbar .tv{color:var(--dim2);font-size:12px;width:34px;text-align:right}
 
   .divider{height:1px;background:var(--line);margin:16px 0}
   .empty{text-align:center;color:var(--dim2);padding:40px 20px;font-size:14px}
 
-  nav{position:fixed;bottom:0;left:0;right:0;background:rgba(12,10,16,.93);backdrop-filter:blur(16px);
+  nav{position:fixed;bottom:0;left:0;right:0;background:rgba(10,14,24,.93);backdrop-filter:blur(16px);
     border-top:1px solid var(--line);display:flex;padding:8px 4px calc(8px + env(safe-area-inset-bottom));z-index:50;max-width:580px;margin:0 auto}
   .nav-i{flex:1;text-align:center;padding:6px 2px;cursor:pointer;color:var(--dim2);transition:.15s}
   .nav-i .ic{font-size:21px;line-height:1}
@@ -131,8 +137,8 @@
   .nav-i.on{color:var(--acc)}
 
   .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(104px + env(safe-area-inset-bottom));
-    background:var(--acc);color:#fff;font-weight:800;padding:11px 20px;border-radius:24px;z-index:100;
-    box-shadow:0 6px 24px #0008;animation:pop .3s}
+    background:var(--acc);color:#04213f;font-weight:800;padding:11px 20px;border-radius:24px;z-index:100;
+    box-shadow:0 6px 24px #0009;animation:pop .3s}
   @keyframes pop{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1}}
 </style>
 </head>
@@ -141,7 +147,7 @@
   <header>
     <div class="logo">L'<b>ARÈNE</b></div>
     <div class="hbadges">
-      <div class="hb" id="hbLvl">◆ 1</div>
+      <div class="hb lvl" id="hbLvl">◆ 1</div>
       <div class="hb streak" id="hbStreak">🔥 0</div>
     </div>
   </header>
@@ -170,24 +176,32 @@ function dnum(d){return Math.floor(new Date(d).getTime()/864e5)}
 function levelIdx(){let i=0;for(let k=0;k<LEVELS.length;k++)if(S.xp>=LEVELS[k].xp)i=k;return i}
 function bumpStreak(){
   const t=today();if(S.lastDay===t)return;
-  if(S.lastDay && dnum(t)-dnum(S.lastDay)===1)S.streak++;else S.streak= (S.lastDay===t)?S.streak:1;
-  if(S.lastDay && dnum(t)-dnum(S.lastDay)>1)S.streak=1;
+  if(S.lastDay && dnum(t)-dnum(S.lastDay)===1)S.streak++;
+  else S.streak=1;
   S.lastDay=t;save();
 }
 function addXp(n){S.xp+=n;save();paintHead()}
 let TAB='arene';
 
 /* ---------- helpers ---------- */
-const $=s=>document.querySelector(s);
-function esc(x){return x}
 function toast(m){const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),1500)}
 function byId(id){return DEBATS.find(d=>d.id===id)}
-function paintHead(){
-  const li=levelIdx();$('#hbLvl').textContent='◆ '+(li+1);
-  $('#hbStreak').textContent='🔥 '+S.streak;
+function paintHead(){$('#hbLvl').textContent='◆ '+(levelIdx()+1);$('#hbStreak').textContent='🔥 '+S.streak;}
+function $(s){return document.querySelector(s)}
+function fmtEtude(e){
+  const i=e.lastIndexOf(' — ');
+  if(i<0)return '<div class="estudy">'+e+'</div>';
+  return '<div class="estudy">'+e.slice(0,i)+' <span class="esrc">— '+e.slice(i+3)+'</span></div>';
+}
+function etudesBlock(d){
+  if(!d.etudes||!d.etudes.length)return'';
+  return '<div class="reveal study"><span class="lbl">🔬 Études & données</span>'+d.etudes.map(fmtEtude).join('')+'</div>';
+}
+function sourcesBlock(d){
+  return '<div class="reveal src"><span class="lbl">📚 Sources & penseurs</span>'+d.sources.map(s=>'• '+s).join('<br>')+'</div>';
 }
 
-/* choisir le duel du jour : priorité non-vus, sinon le moins récemment vu */
+/* choisir le duel : priorité non-vus, sinon le moins récemment vu */
 function pickDuel(exclude){
   const unseen=DEBATS.filter(d=>!S.seen[d.id] && d.id!==exclude);
   if(unseen.length)return unseen[0].id;
@@ -198,36 +212,26 @@ function pickDuel(exclude){
 function duelOfDay(){
   const t=today();
   if(S.todayDuel && S.todayDuel.day===t) return S.todayDuel.id;
-  const id=pickDuel(null);
-  S.todayDuel={day:t,id};save();return id;
+  const id=pickDuel(null);S.todayDuel={day:t,id};save();return id;
 }
 
 /* ---------- SRS (SM-2 léger) ---------- */
 function srsCardsFor(id){return [id+':def',id+':fail']}
-function ensureSrs(cid){
-  if(!S.srs[cid])S.srs[cid]={ef:2.5,int:0,reps:0,due:today()};
-  return S.srs[cid];
-}
-function activateSrs(id){ srsCardsFor(id).forEach(ensureSrs); save(); }
-function dueCards(){
-  const t=dnum(today());
-  return Object.keys(S.srs).filter(cid=>dnum(S.srs[cid].due)<=t);
-}
-function gradeSrs(cid,q){ // q:0 again,3 ok,5 easy
+function ensureSrs(cid){if(!S.srs[cid])S.srs[cid]={ef:2.5,int:0,reps:0,due:today()};return S.srs[cid];}
+function activateSrs(id){srsCardsFor(id).forEach(ensureSrs);save();}
+function dueCards(){const t=dnum(today());return Object.keys(S.srs).filter(cid=>dnum(S.srs[cid].due)<=t);}
+function gradeSrs(cid,q){
   const c=ensureSrs(cid);
-  if(q<3){c.reps=0;c.int=0;c.due=today()} // revoir aujourd'hui
+  if(q<3){c.reps=0;c.int=0;c.due=today()}
   else{
-    c.ef=Math.max(1.3,c.ef+(0.1-(5-q)*(0.08+(5-q)*0.02)));
-    c.reps++;
+    c.ef=Math.max(1.3,c.ef+(0.1-(5-q)*(0.08+(5-q)*0.02)));c.reps++;
     if(c.reps===1)c.int=1;else if(c.reps===2)c.int=3;else c.int=Math.round(c.int*c.ef);
     const nd=new Date();nd.setDate(nd.getDate()+c.int);c.due=nd.toISOString().slice(0,10);
   }
   save();
 }
-function srsFront(cid){
-  const [id,kind]=cid.split(':');const d=byId(id);if(!d)return'';
-  return (kind==='def'?'🛡️ Ta meilleure DÉFENSE sur :':'⚔️ La FAILLE de l\'adversaire sur :')+'<br><b style="color:var(--acc2)">'+d.titre+'</b>';
-}
+function srsFront(cid){const [id,kind]=cid.split(':');const d=byId(id);if(!d)return'';
+  return (kind==='def'?'🛡️ Ta meilleure DÉFENSE sur :':'⚔️ La FAILLE de l\'adversaire sur :')+'<br><b style="color:var(--acc2)">'+d.titre+'</b>';}
 function srsBack(cid){const [id,kind]=cid.split(':');const d=byId(id);return kind==='def'?d.defense:d.faille}
 
 /* ================= RENDER ================= */
@@ -237,8 +241,7 @@ function render(){
   else if(TAB==='positions')renderPositions();
   else if(TAB==='revision')renderRevision();
   else renderProfil();
-  renderNav();
-  window.scrollTo(0,0);
+  renderNav();window.scrollTo(0,0);
 }
 function renderNav(){
   const items=[['arene','🥊','Arène'],['positions','📜','Positions'],['revision','🔁','Révision'],['profil','📊','Profil']];
@@ -247,14 +250,12 @@ function renderNav(){
 }
 function go(t){TAB=t;render()}
 
-/* ---------- ARÈNE (le duel) ---------- */
-let SESS=null; // session de duel en cours
+/* ---------- ARÈNE ---------- */
+let SESS=null;
 function renderArene(){
   const li=levelIdx();const lv=LEVELS[li];const nx=LEVELS[li+1];
   const cur=S.xp-lv.xp;const span=nx?nx.xp-lv.xp:1;const pct=nx?Math.min(100,cur/span*100):100;
-  const t=today();
-  const dueN=dueCards().length;
-  const duelDoneToday=(S.done[t]||[]).length>0;
+  const t=today();const dueN=dueCards().length;const duelDoneToday=(S.done[t]||[]).length>0;
 
   let h=`<div class="card hero">
     <div class="lvltag">Niveau ${li+1}</div>
@@ -263,9 +264,8 @@ function renderArene(){
     <div class="xptxt"><span>${S.xp} XP</span><span>${nx?(nx.xp-S.xp)+' → '+nx.n:'niveau max'}</span></div>
   </div>`;
 
-  if(SESS){ h+=renderSession(); $('#main').innerHTML=h; bindSession(); return; }
+  if(SESS){h+=renderSession();$('#main').innerHTML=h;return;}
 
-  // quêtes du jour
   h+=`<div class="card">
     <div class="mini" style="margin-bottom:6px">Séance du jour</div>
     <div class="quest ${duelDoneToday?'done':''}"><div class="qi">🥊</div><div class="qt"><b>Le duel du jour</b><small>Défends ta position, démonte l'adverse</small></div><div class="qx">${duelDoneToday?'✓':'à faire'}</div></div>
@@ -281,136 +281,92 @@ function renderArene(){
       <button class="btn" onclick="startDuel('${d.id}')">Entrer dans l'arène →</button>
       ${duelDoneToday?`<button class="btn ghost small" onclick="startDuel('${pickDuel(did)}')">Enchaîner un autre duel</button>`:''}
     </div>`;
-  if(dueN>0)h+=`<button class="btn att" onclick="go('revision')">🔁 Réviser ${dueN} munition${dueN>1?'s':''}</button>`;
+  if(dueN>0)h+=`<button class="btn study" onclick="go('revision')">🔁 Réviser ${dueN} munition${dueN>1?'s':''}</button>`;
   $('#main').innerHTML=h;
 }
-
-function startDuel(id){
-  const d=byId(id);
-  SESS={id, step:0, revealed:{}, ci:0};
-  render();
-}
+function startDuel(id){SESS={id,revealed:{}};render();}
 function renderSession(){
   const d=byId(SESS.id);
   let h=`<h1 class="page">${d.titre}</h1><div class="page-sub"><span class="tag th">${d.theme}</span></div>`;
-  // les deux positions
   h+=`<div class="card">
     <div class="stance me"><span class="lbl">🟢 Ta position</span>${d.maPosition}</div>
-    <div class="stance adv"><span class="lbl">🔵 ${d.adverse.nom} — steelman</span><i>${d.adverse.steelman}</i></div>
+    <div class="stance adv"><span class="lbl">🟣 ${d.adverse.nom} — steelman</span><i>${d.adverse.steelman}</i></div>
   </div>`;
 
-  // étape 1 — défense
-  h+=`<div class="card">
-    <div class="step-h"><div class="n def">1</div><b>Ta défense</b></div>
+  // 1 — défense
+  h+=`<div class="card"><div class="step-h"><div class="n def">1</div><b>Ta défense</b></div>
     <div class="prompt">Écris le <b>meilleur argument qui renforce ta position</b>. Puis révèle.</div>
     <textarea id="ta_def" placeholder="Ton argument…">${SESS.def||''}</textarea>`;
-  if(!SESS.revealed.def){
-    h+=`<button class="btn def small" onclick="reveal('def')">Révéler la munition 🛡️</button>`;
-  }else{
-    h+=`<div class="reveal def"><span class="lbl">🛡️ Ta munition</span>${d.defense}</div>
+  if(!SESS.revealed.def){h+=`<button class="btn def small" onclick="reveal('def')">Révéler la munition 🛡️</button>`;}
+  else{h+=`<div class="reveal def"><span class="lbl">🛡️ Ta munition</span>${d.defense}</div>
     <div class="prompt" style="margin-top:10px">Tu l'avais ?</div>
-    <div class="row3">
-      <button class="btn ghost small" onclick="grade('def',0)">À revoir</button>
+    <div class="row3"><button class="btn ghost small" onclick="grade('def',0)">À revoir</button>
       <button class="btn ghost small" onclick="grade('def',3)">L'essentiel</button>
-      <button class="btn def small" onclick="grade('def',5)">Maîtrisé</button>
-    </div>`;
-  }
+      <button class="btn def small" onclick="grade('def',5)">Maîtrisé</button></div>`;}
   h+=`</div>`;
 
-  // étape 2 — estocade (faille adverse) — visible après def révélée
+  // 2 — estocade
   if(SESS.revealed.def){
-    h+=`<div class="card">
-      <div class="step-h"><div class="n att">2</div><b>L'estocade</b></div>
+    h+=`<div class="card"><div class="step-h"><div class="n att">2</div><b>L'estocade</b></div>
       <div class="prompt">Trouve la <b>faille de l'adversaire</b> — pourquoi son steelman ne tient pas.</div>
       <textarea id="ta_fail" placeholder="La faille…">${SESS.fail||''}</textarea>`;
-    if(!SESS.revealed.fail){
-      h+=`<button class="btn att small" onclick="reveal('fail')">Révéler la faille ⚔️</button>`;
-    }else{
-      h+=`<div class="reveal att"><span class="lbl">⚔️ La faille</span>${d.faille}</div>
+    if(!SESS.revealed.fail){h+=`<button class="btn att small" onclick="reveal('fail')">Révéler la faille ⚔️</button>`;}
+    else{h+=`<div class="reveal att"><span class="lbl">⚔️ La faille</span>${d.faille}</div>
       <div class="prompt" style="margin-top:10px">Tu l'avais ?</div>
-      <div class="row3">
-        <button class="btn ghost small" onclick="grade('fail',0)">À revoir</button>
+      <div class="row3"><button class="btn ghost small" onclick="grade('fail',0)">À revoir</button>
         <button class="btn ghost small" onclick="grade('fail',3)">L'essentiel</button>
-        <button class="btn att small" onclick="grade('fail',5)">Maîtrisé</button>
-      </div>`;
-    }
+        <button class="btn att small" onclick="grade('fail',5)">Maîtrisé</button></div>`;}
     h+=`</div>`;
   }
 
-  // étape 3 — pièges (contre-arguments) — après faille révélée
+  // 3 — pièges
   if(SESS.revealed.fail){
-    h+=`<div class="card">
-      <div class="step-h"><div class="n acc">3</div><b>Les pièges</b></div>
+    h+=`<div class="card"><div class="step-h"><div class="n acc">3</div><b>Les pièges</b></div>
       <div class="prompt">On va t'attaquer avec ça en débat. Prépare ta riposte, puis révèle.</div>`;
-    d.contre.forEach((c,i)=>{
-      const rk='c'+i;
+    d.contre.forEach((c,i)=>{const rk='c'+i;
       h+=`<div class="qa"><div class="q">${c.q}</div>`;
-      if(!SESS.revealed[rk]){
-        h+=`<button class="btn ghost small" onclick="reveal('${rk}')" style="margin-top:8px">Voir la riposte</button>`;
-      }else{
-        h+=`<div class="reveal"><span class="lbl">Riposte</span>${c.r}</div>`;
-      }
-      h+=`</div>`;
-    });
+      if(!SESS.revealed[rk]){h+=`<button class="btn ghost small" onclick="reveal('${rk}')" style="margin-top:8px">Voir la riposte</button>`;}
+      else{h+=`<div class="reveal"><span class="lbl">Riposte</span>${c.r}</div>`;}
+      h+=`</div>`;});
     h+=`</div>`;
   }
 
-  // sources + fin
-  const allContreRevealed=d.contre.every((c,i)=>SESS.revealed['c'+i]);
-  if(SESS.revealed.fail && allContreRevealed){
-    h+=`<div class="card"><div class="reveal src"><span class="lbl">📚 Sources & penseurs</span>${d.sources.map(s=>'• '+s).join('<br>')}</div></div>`;
+  // 4 — études + sources
+  const allContre=d.contre.every((c,i)=>SESS.revealed['c'+i]);
+  if(SESS.revealed.fail && allContre){
+    h+=`<div class="card"><div class="step-h"><div class="n" style="background:var(--study)">4</div><b>Les preuves</b></div>
+      <div class="prompt">Les données pour clouer le débat.</div>
+      ${etudesBlock(d)}${sourcesBlock(d)}</div>`;
     h+=`<button class="btn def" onclick="finishDuel()">Duel remporté ✓</button>`;
   }
   h+=`<button class="btn ghost small" onclick="quitDuel()">Quitter le duel</button>`;
   return h;
 }
-function saveDrafts(){
-  const a=$('#ta_def'),b=$('#ta_fail');
-  if(a)SESS.def=a.value; if(b)SESS.fail=b.value;
-}
-function bindSession(){/* rien de spécial, textareas gardées via SESS on action */}
+function saveDrafts(){const a=$('#ta_def'),b=$('#ta_fail');if(a)SESS.def=a.value;if(b)SESS.fail=b.value;}
 function reveal(k){saveDrafts();SESS.revealed[k]=true;render()}
-function grade(k,q){
-  saveDrafts();
-  const cid=SESS.id+':'+(k==='def'?'def':'fail');
-  activateSrs(SESS.id); gradeSrs(cid,q);
-  addXp(q>=5?12:q>=3?8:4);
-  render();
-}
+function grade(k,q){saveDrafts();const cid=SESS.id+':'+(k==='def'?'def':'fail');activateSrs(SESS.id);gradeSrs(cid,q);addXp(q>=5?12:q>=3?8:4);render();}
 function finishDuel(){
-  const t=today();S.seen[SESS.id]=t;
-  S.done[t]=S.done[t]||[]; if(!S.done[t].includes(SESS.id))S.done[t].push(SESS.id);
-  activateSrs(SESS.id);
-  bumpStreak(); addXp(25);
-  const done=S.done[t].length;
-  SESS=null; save();
-  toast('Duel remporté ! +25 XP');
-  render();
+  const t=today();S.seen[SESS.id]=t;S.done[t]=S.done[t]||[];if(!S.done[t].includes(SESS.id))S.done[t].push(SESS.id);
+  activateSrs(SESS.id);bumpStreak();addXp(25);SESS=null;save();toast('Duel remporté ! +25 XP');render();
 }
 function quitDuel(){saveDrafts();SESS=null;render()}
 
 /* ---------- POSITIONS ---------- */
 let OPEN=null;
 function renderPositions(){
-  let h=`<h1 class="page">📜 Tes positions</h1><div class="page-sub">Ton profil, thème par thème. Le socle et les sources.</div>`;
+  let h=`<h1 class="page">📜 Tes positions</h1><div class="page-sub">Ton profil, thème par thème — le socle, les études, les sources.</div>`;
   THEMES.forEach(th=>{
-    const list=DEBATS.filter(d=>d.theme===th);
-    if(!list.length)return;
+    const list=DEBATS.filter(d=>d.theme===th);if(!list.length)return;
     h+=`<div class="mini" style="margin:16px 0 8px">${th}</div>`;
-    list.forEach(d=>{
-      const op=OPEN===d.id;
-      h+=`<div class="positem ${op?'open':''}" onclick="toggle('${d.id}')">
-        <div class="pt"><b>${d.titre}</b><span class="chev">▶</span></div>`;
-      if(op){
-        h+=`<div class="posbody" onclick="event.stopPropagation()">
+    list.forEach(d=>{const op=OPEN===d.id;
+      h+=`<div class="positem ${op?'open':''}" onclick="toggle('${d.id}')"><div class="pt"><b>${d.titre}</b><span class="chev">▶</span></div>`;
+      if(op){h+=`<div class="posbody" onclick="event.stopPropagation()">
           <div class="stance me"><span class="lbl">🟢 Ma position</span>${d.maPosition}</div>
           <div class="reveal"><span class="lbl">Le socle</span>${d.socle}</div>
-          <div class="reveal src"><span class="lbl">📚 Sources</span>${d.sources.map(s=>'• '+s).join('<br>')}</div>
+          ${etudesBlock(d)}${sourcesBlock(d)}
           <button class="btn ghost small" onclick="event.stopPropagation();fromPos('${d.id}')">🥊 S'entraîner sur ce débat</button>
-        </div>`;
-      }
-      h+=`</div>`;
-    });
+        </div>`;}
+      h+=`</div>`;});
   });
   $('#main').innerHTML=h;
 }
@@ -422,31 +378,22 @@ let REV=null;
 function renderRevision(){
   const due=dueCards();
   if(!due.length){
-    let total=Object.keys(S.srs).length;
+    const total=Object.keys(S.srs).length;
     $('#main').innerHTML=`<h1 class="page">🔁 Révision</h1><div class="page-sub">Rappel actif de tes munitions (répétition espacée).</div>
-      <div class="empty">${total? '✓ Rien à réviser aujourd\'hui.<br>Reviens demain — tes munitions reposent.' : 'Aucune munition encore.<br>Fais un duel dans l\'Arène pour en débloquer.'}</div>
-      <button class="btn ghost" onclick="go('arene')">← Retour à l'Arène</button>`;
-    return;
+      <div class="empty">${total?'✓ Rien à réviser aujourd\'hui.<br>Reviens demain — tes munitions reposent.':'Aucune munition encore.<br>Fais un duel dans l\'Arène pour en débloquer.'}</div>
+      <button class="btn ghost" onclick="go('arene')">← Retour à l'Arène</button>`;return;
   }
   if(!REV || !due.includes(REV.cid)){REV={cid:due[0],show:false}}
   const cid=REV.cid;
   let h=`<h1 class="page">🔁 Révision</h1><div class="page-sub">${due.length} munition${due.length>1?'s':''} à revoir.</div>
-    <div class="srs-card">
-      <div class="srs-front">${srsFront(cid)}</div>`;
-  if(REV.show){
-    h+=`<div class="srs-back">${srsBack(cid)}</div>`;
-  }
+    <div class="srs-card"><div class="srs-front">${srsFront(cid)}</div>`;
+  if(REV.show)h+=`<div class="srs-back">${srsBack(cid)}</div>`;
   h+=`</div>`;
-  if(!REV.show){
-    h+=`<button class="btn" onclick="revShow()">Montrer la munition</button>`;
-  }else{
-    h+=`<div class="prompt" style="text-align:center;margin-top:12px">Tu la ressors sans effort ?</div>
-      <div class="row3">
-        <button class="btn ghost small" onclick="revGrade(0)">Encore</button>
+  if(!REV.show)h+=`<button class="btn" onclick="revShow()">Montrer la munition</button>`;
+  else h+=`<div class="prompt" style="text-align:center;margin-top:12px">Tu la ressors sans effort ?</div>
+      <div class="row3"><button class="btn ghost small" onclick="revGrade(0)">Encore</button>
         <button class="btn ghost small" onclick="revGrade(3)">Bien</button>
-        <button class="btn def small" onclick="revGrade(5)">Facile</button>
-      </div>`;
-  }
+        <button class="btn def small" onclick="revGrade(5)">Facile</button></div>`;
   $('#main').innerHTML=h;
 }
 function revShow(){REV.show=true;render()}
@@ -455,8 +402,7 @@ function revGrade(q){gradeSrs(REV.cid,q);addXp(q>=5?6:q>=3?4:2);REV=null;render(
 /* ---------- PROFIL ---------- */
 function renderProfil(){
   const li=levelIdx();const lv=LEVELS[li];
-  const seenN=Object.keys(S.seen).length;
-  const srsN=Object.keys(S.srs).length;
+  const seenN=Object.keys(S.seen).length;const srsN=Object.keys(S.srs).length;
   const mature=Object.values(S.srs).filter(c=>c.int>=7).length;
   let h=`<h1 class="page">📊 Profil</h1><div class="page-sub">Ta progression de débatteur.</div>
   <div class="card hero"><div class="lvltag">Niveau ${li+1} · ${S.xp} XP</div><div class="lvlname">${lv.n}</div></div>
@@ -465,30 +411,20 @@ function renderProfil(){
     <div class="stat"><b>${S.streak}</b><small>jours de série</small></div>
     <div class="stat"><b>${mature}/${srsN||0}</b><small>munitions ancrées</small></div>
   </div>`;
-  // couverture par thème
   h+=`<div class="card"><div class="mini" style="margin-bottom:8px">Couverture par thème</div>`;
-  THEMES.forEach(th=>{
-    const list=DEBATS.filter(d=>d.theme===th);
-    const done=list.filter(d=>S.seen[d.id]).length;
+  THEMES.forEach(th=>{const list=DEBATS.filter(d=>d.theme===th);const done=list.filter(d=>S.seen[d.id]).length;
     const pct=list.length?done/list.length*100:0;
-    h+=`<div class="thbar"><div class="tn">${th}</div><div class="tt"><i style="width:${pct}%"></i></div><div class="tv">${done}/${list.length}</div></div>`;
-  });
+    h+=`<div class="thbar"><div class="tn">${th}</div><div class="tt"><i style="width:${pct}%"></i></div><div class="tv">${done}/${list.length}</div></div>`;});
   h+=`</div>`;
   h+=`<div class="card"><div class="mini" style="margin-bottom:6px">À propos</div>
-    <div class="sub">L'ARÈNE entraîne la défense de tes convictions : chaque duel te fait produire ta défense et l'estocade <i>avant</i> de révéler les vraies munitions et les sources. Profil construit avec Claude (2026). Enrichis-le en continuant à débattre.</div></div>`;
+    <div class="sub">L'ARÈNE entraîne la défense de tes convictions : chaque duel te fait produire ta défense et l'estocade <i>avant</i> de révéler les munitions, les études et les sources. Profil construit avec Claude (2026). Enrichis-le en continuant à débattre.</div></div>`;
   h+=`<button class="btn ghost small" onclick="resetConfirm()">Réinitialiser ma progression</button>`;
   $('#main').innerHTML=h;
 }
-function resetConfirm(){
-  if(confirm('Effacer XP, série et révisions ? (le contenu des débats reste)')){
-    localStorage.removeItem('arene_state');location.reload();
-  }
-}
+function resetConfirm(){if(confirm('Effacer XP, série et révisions ? (le contenu des débats reste)')){localStorage.removeItem('arene_state');location.reload();}}
 
 /* ---------- boot ---------- */
 render();
-
-/* SW offline */
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{})}
 </script>
 </body>
