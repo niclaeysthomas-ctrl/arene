@@ -156,6 +156,7 @@
 </div>
 
 <script src="data.js"></script>
+<script src="masterclass.js"></script>
 <script>
 /* ---------- état ---------- */
 const LEVELS=[
@@ -167,7 +168,7 @@ const S=loadState();
 function loadState(){
   let s={};try{s=JSON.parse(localStorage.getItem('arene_state')||'{}')}catch(e){}
   s.xp=s.xp||0; s.streak=s.streak||0; s.lastDay=s.lastDay||null;
-  s.seen=s.seen||{}; s.srs=s.srs||{}; s.done=s.done||{}; s.todayDuel=s.todayDuel||null;
+  s.seen=s.seen||{}; s.srs=s.srs||{}; s.done=s.done||{}; s.todayDuel=s.todayDuel||null; s.studied=s.studied||{};
   return s;
 }
 function save(){localStorage.setItem('arene_state',JSON.stringify(S))}
@@ -239,16 +240,17 @@ function render(){
   paintHead();
   if(TAB==='arene')renderArene();
   else if(TAB==='positions')renderPositions();
+  else if(TAB==='masterclass')renderMasterclass();
   else if(TAB==='revision')renderRevision();
   else renderProfil();
   renderNav();window.scrollTo(0,0);
 }
 function renderNav(){
-  const items=[['arene','🥊','Arène'],['positions','📜','Positions'],['revision','🔁','Révision'],['profil','📊','Profil']];
+  const items=[['arene','🥊','Arène'],['positions','📜','Positions'],['masterclass','🎓','Cours'],['revision','🔁','Révision'],['profil','📊','Profil']];
   $('#nav').innerHTML=items.map(([r,ic,l])=>
     `<div class="nav-i ${TAB===r?'on':''}" onclick="go('${r}')"><div class="ic">${ic}</div><span>${l}</span></div>`).join('');
 }
-function go(t){TAB=t;render()}
+function go(t){MCOPEN=null;OPEN=null;TAB=t;render()}
 
 /* ---------- ARÈNE ---------- */
 let SESS=null;
@@ -281,6 +283,7 @@ function renderArene(){
       <button class="btn" onclick="startDuel('${d.id}')">Entrer dans l'arène →</button>
       ${duelDoneToday?`<button class="btn ghost small" onclick="startDuel('${pickDuel(did)}')">Enchaîner un autre duel</button>`:''}
     </div>`;
+  h+=`<div class="card" onclick="go('masterclass')" style="cursor:pointer"><div class="quest" style="padding:2px 0;border:none"><div class="qi">🎓</div><div class="qt"><b>Masterclass</b><small>Te former sur un sujet avant d'avoir un avis</small></div><div class="qx">→</div></div></div>`;
   if(dueN>0)h+=`<button class="btn study" onclick="go('revision')">🔁 Réviser ${dueN} munition${dueN>1?'s':''}</button>`;
   $('#main').innerHTML=h;
 }
@@ -372,6 +375,46 @@ function renderPositions(){
 }
 function toggle(id){OPEN=OPEN===id?null:id;render()}
 function fromPos(id){TAB='arene';startDuel(id)}
+
+/* ---------- MASTERCLASS ---------- */
+let MCOPEN=null;
+function mcById(id){return MASTERCLASS.find(m=>m.id===id)}
+function renderMasterclass(){
+  if(MCOPEN){renderMCDetail();return;}
+  let h=`<h1 class="page">🎓 Masterclass</h1><div class="page-sub">Te former avant d'avoir un avis : les faits, les deux camps, les pièges — puis à toi de trancher.</div>`;
+  MC_THEMES.forEach(th=>{
+    const list=MASTERCLASS.filter(m=>m.theme===th);if(!list.length)return;
+    h+=`<div class="mini" style="margin:16px 0 8px">${th}</div>`;
+    list.forEach(m=>{
+      const done=S.studied&&S.studied[m.id];
+      h+=`<div class="positem" onclick="openMC('${m.id}')"><div class="pt"><b>${m.titre}</b><span class="chev" style="color:${done?'var(--ok)':'var(--dim2)'}">${done?'✓':'▶'}</span></div>
+        <div class="sub" style="margin-top:6px">${m.sub}</div></div>`;
+    });
+  });
+  $('#main').innerHTML=h;
+}
+function renderMCDetail(){
+  const m=mcById(MCOPEN);const done=S.studied&&S.studied[MCOPEN];
+  let h=`<button class="btn ghost small" onclick="closeMC()" style="margin:0 0 12px;width:auto;display:inline-block;padding:8px 14px">← Masterclass</button>
+    <h1 class="page">${m.titre}</h1><div class="page-sub">${m.sub}</div>`;
+  m.sections.forEach(s=>{
+    h+=`<div class="card"><div style="font-weight:900;font-size:16px;margin-bottom:8px;color:var(--acc2)">${s.t}</div><div style="font-size:14.5px;color:#dde3f2">${s.c}</div></div>`;
+  });
+  h+=`<div class="card"><div class="mini" style="margin-bottom:2px">⚔️ Les camps en présence (steelman)</div>`;
+  m.camps.forEach((c,i)=>{h+=`<div class="stance ${i===0?'me':'adv'}"><span class="lbl">${c.nom}</span>${c.pos}</div>`;});
+  h+=`</div>`;
+  if(m.chiffres&&m.chiffres.length)h+=`<div class="card"><div class="reveal study"><span class="lbl">🔢 Les chiffres à connaître</span>${m.chiffres.map(fmtEtude).join('')}</div></div>`;
+  if(m.pieges&&m.pieges.length)h+=`<div class="card"><div class="reveal att"><span class="lbl">⚠️ Les pièges à éviter</span>${m.pieges.map(x=>'• '+x).join('<br><br>')}</div></div>`;
+  if(m.trancher&&m.trancher.length)h+=`<div class="card"><div class="reveal def"><span class="lbl">🧭 Ce qui reste à trancher (tes valeurs, pas les faits)</span>${m.trancher.map(x=>'• '+x).join('<br><br>')}</div></div>`;
+  h+=`<div class="card">${sourcesBlock(m)}</div>`;
+  if(done)h+=`<div class="empty" style="padding:14px">✓ Masterclass étudiée</div>`;
+  else h+=`<button class="btn study" onclick="studyMC('${m.id}')">✓ Marquer comme étudiée (+15 XP)</button>`;
+  h+=`<div class="card" style="margin-top:12px"><div class="sub">Une fois que tu t'es forgé une position là-dessus, dis-le-moi : j'en fais un <b>duel</b> avec ta défense et les contre-arguments.</div></div>`;
+  $('#main').innerHTML=h;
+}
+function openMC(id){MCOPEN=id;render()}
+function closeMC(){MCOPEN=null;render()}
+function studyMC(id){if(!S.studied[id]){S.studied[id]=today();bumpStreak();addXp(15);toast('Masterclass étudiée ! +15 XP')}render()}
 
 /* ---------- RÉVISION ---------- */
 let REV=null;
