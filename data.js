@@ -373,6 +373,49 @@ const DEBATS = [
     "Histoire : stérilisations forcées légalisées aux USA (Buck v. Bell, 1927) et en Scandinavie → le mal historique de l'« eugénisme » est la COERCITION d'État, ce qui distingue nettement l'eugénisme libéral."
   ],
   sources:["Julian Savulescu — «Procreative Beneficence» (2001)","Jürgen Habermas, «L'avenir de la nature humaine» (2001) — à réfuter","Nicholas Agar, «Liberal Eugenics» (2004)"]
+},
+
+{
+  id:"laicite", theme:"Politique", titre:"Laïcité : jusqu'où afficher sa religion ?",
+  maPosition:"Liberté maximale pour l'individu (porter ce qu'on veut dans l'espace public), neutralité stricte pour l'État et ses agents. On n'interdit un signe que là où il y a un tort réel : coercition (surtout d'un mineur) ou incompatibilité fonctionnelle (sécurité, identification).",
+  socle:"Mon libéralisme millien : chacun est souverain sur lui-même ; porter un voile, une kippa, une croix ne nuit à personne → à autoriser. La laïcité n'est pas une valeur sacrée mais une fiction utile : la <b>neutralité de l'État</b> (pas de religion officielle ; agents publics neutres quand ils incarnent l'État) parce que ça garantit l'égalité de traitement. Mais la neutralité s'impose à l'ÉTAT, pas aux citoyens. Restriction seulement si tort réel : contrainte avérée, ou sécurité.",
+  adverse:{ nom:"La laïcité républicaine « de combat »",
+    steelman:"L'espace public commun doit être neutralisé des signes religieux pour émanciper l'individu de la pression communautaire et faire nation. Le voile n'est pas qu'un choix privé : c'est un marqueur qui assigne, qui pèse sur les autres femmes, et qui fragmente la communauté des citoyens. L'interdire à l'école protège les mineurs et l'unité républicaine." },
+  defense:"La liberté d'expression et de culte inclut de porter des signes ; l'interdire, c'est du paternalisme (protéger les gens contre leur propre choix) — que mon cadre refuse sauf contrainte prouvée. Et l'État reste neutre là où il le doit : ses agents, ses bâtiments, l'école comme institution — pas les corps des citoyens.",
+  faille:"La laïcité de combat glisse de « l'État est neutre » à « l'espace public est expurgé du religieux » — deux choses très différentes. Elle prétend émanciper en interdisant, mais retire de l'autonomie aux femmes qu'elle dit protéger ; et l'argument « ça pèse sur les autres » prouve trop (toute expression influence autrui).",
+  contre:[
+    {q:"« Le voile opprime les femmes ; l'interdire les libère. »", r:"Certaines le subissent (contrainte → à combattre), d'autres le choisissent (autonomie → à respecter). Interdire punit les deux pareil. La bonne cible est la contrainte (protéger les mineures, sanctionner qui impose), pas le tissu."},
+    {q:"« La religion doit rester dans le privé. »", r:"Pour l'État, oui (neutralité). Pour le citoyen, non : c'est du paternalisme — afficher sa foi ne nuit à personne. On ne « range » pas les convictions d'autrui au nom de notre confort."},
+    {q:"« Sans neutralisation de l'espace public, c'est le communautarisme. »", r:"Le lien social se construit par la coopération et des droits communs, pas par l'invisibilisation des différences (le modèle multiculturel tient aussi). C'est une hypothèse empirique à tester, pas une évidence."}
+  ],
+  etudes:[
+    "L'interdiction française du foulard à l'école (2004) a <b>dégradé</b> l'intégration des femmes musulmanes concernées : moins de réussite scolaire et d'emploi, plus de sentiment de discrimination. — Abdelgadir & Fouka (2020, American Political Science Review)",
+    "La Cour européenne des droits de l'homme a validé l'interdiction française du voile intégral au nom du « vivre-ensemble » — fondement jugé fragile par une partie des juristes. — CEDH, S.A.S. c. France (2014)",
+    "Les démocraties occidentales vont du très restrictif (France) au très permissif (anglo-saxon) sans corrélation nette avec la cohésion ou la sécurité → la restriction n'a pas d'effet bénéfique mesuré évident. — comparaisons internationales"
+  ],
+  sources:["J.S. Mill, «On Liberty» — autonomie & non-nuisance","Loi de 1905 (séparation) ; loi de 2004 (signes à l'école)","Abdelgadir & Fouka (2020, APSR)"]
+},
+
+{
+  id:"discrimination-positive", theme:"Justice", titre:"Discrimination positive / quotas ?",
+  maPosition:"Priorité à la discrimination positive <b>sociale</b> (fondée sur le désavantage réel : pauvreté, origine sociale), pas <b>identitaire</b> (quotas par race/sexe). Les quotas de groupe ne se justifient que comme remède temporaire et conséquentialiste, là où une discrimination est prouvée — jamais comme un « dû » attaché à une identité.",
+  socle:"Mon égalitarisme vise l'égalité des chances, à réaliser surtout <b>en amont</b> (redistribution, éducation dès la naissance — cf. mon anti-héritage). Traiter l'identité (race, sexe) comme moralement pertinente en soi, c'est réintroduire la catégorie arbitraire que j'ai rejetée (spécisme, tribalisme). Donc cibler le <b>désavantage</b> (mesurable, causal), pas l'étiquette. Les quotas identitaires restent envisageables, mais seulement s'ils réduisent empiriquement l'injustice mieux qu'autre chose, et à titre transitoire.",
+  adverse:{ nom:"Le partisan des mesures conscientes de la race/du genre",
+    steelman:"Les discriminations sont <b>systémiques</b> et liées à l'identité : une femme, une personne racisée subit des barrières qu'un pauvre « majoritaire » ne subit pas. Être « aveugle » à la race/au genre, c'est laisser jouer les biais et geler les inégalités. Seules des mesures conscientes du groupe (quotas, cibles) brisent le plafond de verre et changent vite la représentation." },
+  defense:"Le désavantage social capture l'essentiel de ce qui compte (un enfant pauvre part avec un vrai handicap, quelle que soit sa couleur) sans traiter l'identité comme un dû. Une politique ciblée sur le besoin est plus juste ET plus efficace (elle aide TOUS les défavorisés) qu'un quota qui peut favoriser un membre aisé d'un groupe au détriment d'un pauvre d'un autre.",
+  faille:"Le quota identitaire suppose que l'identité = le désavantage — faux au niveau individuel (un membre aisé du groupe ciblé en profite ; un pauvre hors-cible est ignoré). Il peut aussi <b>stigmatiser</b> les bénéficiaires (« il n'est là que pour le quota ») et figer les identités qu'il prétend dépasser.",
+  contre:[
+    {q:"« Sans quotas, rien ne bouge, les biais persistent. »", r:"Contre les biais avérés (embauche, logement), je préfère des outils ciblés sur l'acte : CV anonymes, testing, sanction de la discrimination prouvée. Ça attaque le tort réel sans distribuer selon l'étiquette."},
+    {q:"« La discrimination sociale ignore le racisme spécifique. »", r:"Là où une discrimination raciale/sexuelle est <b>prouvée</b> et qu'aucun autre levier ne marche, un remède conscient et <b>temporaire</b> se justifie — conséquentiellement, pas comme un droit permanent du groupe. La charge de la preuve porte sur l'efficacité."},
+    {q:"« La diversité a une valeur en soi. »", r:"Elle a surtout une valeur <b>instrumentale</b> (corriger des biais, élargir les perspectives, briser les entre-soi) — précieuse, mais à démontrer au cas par cas, pas à décréter comme une fin."}
+  ],
+  etudes:[
+    "Après l'interdiction de la discrimination positive raciale en Californie (Prop. 209, 1996), la part d'étudiants noirs et hispaniques a chuté dans les universités d'élite (Berkeley, UCLA), avant de remonter partiellement via d'autres leviers. — données Université de Californie",
+    "À CV équivalent, un nom à consonance étrangère reçoit nettement moins de réponses d'employeurs → la discrimination à l'embauche est réelle et mesurable. — Bertrand & Mullainathan (2004, American Economic Review) et nombreuses études d'audit",
+    "« Mismatch hypothesis » (Sander) : la discrimination positive placerait des étudiants dans des cursus trop exigeants pour eux — thèse <b>très contestée</b>, à connaître des deux côtés.",
+    "La Cour suprême des États-Unis a mis fin à la discrimination positive raciale dans l'admission universitaire. — SFFA v. Harvard (2023)"
+  ],
+  sources:["Bertrand & Mullainathan (2004, AER) — testing à l'embauche","Prop. 209 (Californie) ; SFFA v. Harvard (2023)","Débat « mismatch » (Sander, contesté) ; réservations en Inde"]
 }
 
 ];
