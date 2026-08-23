@@ -400,9 +400,10 @@ function renderMCDetail(){
   m.sections.forEach(s=>{
     h+=`<div class="card"><div style="font-weight:900;font-size:16px;margin-bottom:8px;color:var(--acc2)">${s.t}</div><div style="font-size:14.5px;color:#dde3f2">${s.c}</div></div>`;
   });
-  h+=`<div class="card"><div class="mini" style="margin-bottom:2px">⚔️ Les camps en présence (steelman)</div>`;
+  if(m.camps&&m.camps.length){h+=`<div class="card"><div class="mini" style="margin-bottom:2px">⚔️ Les camps en présence (steelman)</div>`;
   m.camps.forEach((c,i)=>{h+=`<div class="stance ${i===0?'me':'adv'}"><span class="lbl">${c.nom}</span>${c.pos}</div>`;});
-  h+=`</div>`;
+  h+=`</div>`;}
+  if(m.strategies&&m.strategies.length){h+=`<div class="card"><div class="mini" style="margin-bottom:2px">🎯 Ce que chaque camp cherche à prouver</div>`;m.strategies.forEach(s=>{h+=`<div class="reveal"><span class="lbl">${s.c}</span>${s.but}</div>`;});h+=`</div>`;}
   if(m.chiffres&&m.chiffres.length)h+=`<div class="card"><div class="reveal study"><span class="lbl">🔢 Les chiffres à connaître</span>${m.chiffres.map(fmtEtude).join('')}</div></div>`;
   if(m.pieges&&m.pieges.length)h+=`<div class="card"><div class="reveal att"><span class="lbl">⚠️ Les pièges à éviter</span>${m.pieges.map(x=>'• '+x).join('<br><br>')}</div></div>`;
   if(m.trancher&&m.trancher.length)h+=`<div class="card"><div class="reveal def"><span class="lbl">🧭 Ce qui reste à trancher (tes valeurs, pas les faits)</span>${m.trancher.map(x=>'• '+x).join('<br><br>')}</div></div>`;

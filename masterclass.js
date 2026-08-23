@@ -205,6 +205,102 @@ const MASTERCLASS = [
     "Face à une asymétrie de puissance, quelles formes de résistance et quelles ripostes sont légitimes ? (Renvoie à ton dossier « violence politique ».)"
   ],
   sources:["Benny Morris — « Righteous Victims » ; « 1948 » (Nouveaux Historiens)","Avi Shlaim — « The Iron Wall » (regard critique israélien)","Rashid Khalidi — « The Hundred Years' War on Palestine » (regard palestinien)","Résolutions de l'ONU (181, 242, 338) ; rapports d'organisations internationales (sources multiples)"]
+},
+
+{
+  id:"quest-femme", theme:"Genre", titre:"« Qu'est-ce qu'une femme ? »",
+  sub:"Le « gotcha » qui piège les deux camps. Sépare sexe, genre et définition avant de répondre.",
+  sections:[
+    {t:"Pourquoi la question est un piège",c:"« Qu'est-ce qu'une femme ? » est devenue une arme de débat (popularisée côté conservateur américain) parce qu'elle force l'adversaire à choisir entre une réponse qui paraît circulaire (« une femme est quelqu'un qui s'identifie comme femme ») et une réponse qu'il refuse (« une femelle adulte »). Le piège : la question fusionne <b>trois choses distinctes</b> qu'il faut d'abord séparer."},
+    {t:"Les trois concepts à ne jamais confondre",c:"<b>1. Le sexe biologique</b> — défini rigoureusement par le type de gamètes (mâle = petits gamètes/spermatozoïdes ; femelle = gros gamètes/ovules), pas par « les chromosomes » ni « les organes » seuls. Très majoritairement <b>bimodal</b>.<br><br><b>2. L'identité de genre</b> — le sentiment interne d'être homme, femme, ou autre. Fait psychologique réel, distinct du sexe.<br><br><b>3. Les rôles / l'expression de genre</b> — les normes sociales (« masculin »/« féminin ») qui varient selon les cultures et les époques.<br><br>« Femme » peut renvoyer à l'un OU l'autre selon le contexte — d'où le malentendu."},
+    {t:"Le sexe : binaire, bimodal, ou spectre ?",c:"Le sexe n'est pas un pur « spectre » continu : il est <b>bimodal</b> (deux catégories nettes, avec de rares intermédiaires). L'<b>intersexuation</b> (variations du développement sexuel) existe : de ~0,02 % (ambiguïté génitale réelle) à ~1,7 % (définition très large, incluant des variations subtiles). Réel mais rare — ça ne « casse » pas les catégories (comme le crépuscule ne supprime pas le jour et la nuit), mais ça montre que la frontière n'est pas parfaitement nette."},
+    {t:"Le vrai désaccord : une définition, pas un fait caché",c:"« Qu'est-ce qu'une femme ? » n'a pas de réponse « vraie » cachée dans l'univers : c'est un choix de <b>définition</b>, et une définition se juge à son <b>utilité selon l'usage</b>, pas à sa vérité. Le mot sert à des usages différents (médecine, sport, état civil, langage courant, espaces non mixtes) et la découpe pertinente peut changer d'un usage à l'autre. L'erreur commune aux deux camps : prétendre qu'il existe UNE seule bonne définition, valable partout, et l'imposer à tous les usages."}
+  ],
+  strategies:[
+    {c:"Ce que cherche le camp « sexe » (conservateurs + féministes « gender-critical »)",but:"Établir que « femme » = <b>femelle adulte humaine</b>, que le sexe est réel, biologique et immuable, et que c'est LUI qui doit compter là où il compte (sport, prison, données médicales, espaces non mixtes). Tactique : sommer l'adversaire de définir « femme » sans tourner en rond, et pointer les cas concrets où ignorer le sexe pose problème."},
+    {c:"Ce que cherche le camp « genre » (progressistes / théorie du genre)",but:"Établir que le genre ≠ le sexe, que l'identité de genre est réelle et socialement déterminante, et que « les femmes trans sont des femmes ». Tactique : distinguer sexe/genre, rappeler que « femme » a toujours eu une dimension sociale, invoquer la dignité et le vécu des personnes trans, et pointer l'intersexuation contre le binaire strict."}
+  ],
+  chiffres:[
+    "Définition biologique rigoureuse du sexe = par les gamètes (mâle/femelle), pas les chromosomes ni les organes seuls — critère standard en biologie.",
+    "Intersexuation : ~0,02 % (ambiguïté génitale réelle) à ~1,7 % (définition très large). Réel mais rare ; le sexe reste bimodal. — débat Blackless et al. (2000) vs Sax (2002)",
+    "L'identité de genre est reconnue comme réelle : la CIM-11 de l'OMS parle d'« incongruence de genre », dé-psychiatrisée en 2019.",
+    "Les rôles de genre (métiers, vêtements, comportements « féminins ») varient fortement selon les cultures → cette part-là est construite."
+  ],
+  pieges:[
+    "Confondre « le sexe est bimodal avec de rares exceptions » et « le sexe est un pur spectre » : l'intersexuation ne rend pas le sexe continu.",
+    "Croire qu'il existe UNE définition vraie de « femme » : c'est un choix d'outil selon l'usage, pas un fait à découvrir.",
+    "Glisser du descriptif (ce qu'est le sexe) au normatif (comment traiter les gens) sans le dire : deux questions séparées."
+  ],
+  trancher:[
+    "Pour chaque usage — sport de haut niveau, prison, état civil, langage, espaces non mixtes — quelle définition prime : le sexe, l'identité, ou un mélange ?",
+    "Comment peser la dignité/l'inclusion des personnes trans ET les intérêts liés au sexe (équité sportive, sécurité, données de santé) quand ils s'opposent ?",
+    "Le genre est-il surtout inné, surtout construit, ou les deux ? (Dans ton cadre anti-réaliste : les catégories sont des outils jugés à leur utilité, pas des essences à découvrir.)"
+  ],
+  sources:["Biologie du sexe par les gamètes (manuels standard)","Débat chiffres intersexuation : Blackless et al. (2000) vs Sax (2002)","CIM-11 (OMS, 2019)","Judith Butler (théorie du genre) vs Kathleen Stock (féminisme « gender-critical »)"]
+},
+
+{
+  id:"transidentite", theme:"Genre", titre:"Transidentité : ce que dit (et ne dit pas) la recherche",
+  sub:"Dysphorie, transition, mineurs, sport : l'état des preuves — et là où les autorités médicales divergent.",
+  sections:[
+    {t:"De quoi on parle",c:"La <b>dysphorie de genre</b> est la détresse liée à l'écart entre le sexe assigné à la naissance et l'identité de genre ressentie. Phénomène médicalement reconnu : la CIM-11 de l'OMS l'a reclassé en « incongruence de genre », <b>hors des troubles mentaux</b>, en 2019. La <b>transition</b> peut être sociale (prénom, pronoms, présentation), hormonale et/ou chirurgicale. Rappel : on parle de personnes réelles, pas d'un concept abstrait."},
+    {t:"Ce que montrent les preuves (adultes)",c:"Chez les adultes, la majorité des études observent une <b>amélioration du bien-être</b> et une baisse de la dysphorie après transition, pour ceux qui la souhaitent. Limite : ce sont surtout des études <b>observationnelles</b> ; il y a très peu d'essais randomisés (difficiles à mener éthiquement), donc la qualité formelle des preuves est jugée « faible à modérée » — ce que les deux camps interprètent en sens opposés."},
+    {t:"Le point le plus chaud : les mineurs",c:"Bloqueurs de puberté et hormones chez les adolescents divisent les autorités médicales <b>elles-mêmes</b> :<br>• La <b>Cass Review</b> (Angleterre, 2024) conclut que la base de preuves est <b>faible</b> et prône la prudence → le NHS a restreint les bloqueurs hors essais cliniques. Suède et Finlande ont aussi resserré.<br>• À l'inverse, de grandes associations américaines (WPATH, American Academy of Pediatrics) <b>soutiennent</b> l'accès à ces soins.<br>Cas rare où des systèmes de santé sérieux tirent des conclusions <b>opposées</b> de données proches. Fait neutre à retenir : pas de consensus international."},
+    {t:"Détransition, hausse des demandes, sport",c:"• <b>Détransition</b> : elle existe ; les taux sont débattus (souvent estimés bas dans les cohortes cliniques, mais le suivi long est limité).<br>• <b>Hausse des demandes</b> chez les jeunes : deux lectures — plus grande acceptation/visibilité, ou influence sociale (l'hypothèse « ROGD » de Littman est très <b>contestée</b>). Probablement un mélange, non tranché.<br>• <b>Sport</b> : les fédérations divergent (seuils de testostérone, exclusion, ou catégorie « ouverte ») ; l'avantage résiduel de la puberté masculine reste débattu."}
+  ],
+  strategies:[
+    {c:"Ce que cherche le camp « affirmatif »",but:"Établir que l'identité de genre est réelle et stable, que la transition <b>améliore le bien-être et réduit la souffrance</b>, et donc que l'accès aux soins — mineurs inclus, avec accompagnement — est vital. Tactique : mettre en avant les gains de bien-être et la détresse en cas de refus."},
+    {c:"Ce que cherche le camp « prudence médicale »",but:"Établir que la base de preuves est <b>faible surtout chez les mineurs</b>, qu'il existe des risques (surdiagnostic, influence sociale, regrets, irréversibilité), donc qu'il faut ralentir et mieux évaluer. Tactique : s'appuyer sur la Cass Review. ⚠️ À ne pas confondre avec le camp franchement <b>hostile</b>, qui nie la validité même de la transidentité."}
+  ],
+  chiffres:[
+    "CIM-11 (OMS, 2019) : l'« incongruence de genre » sort des troubles mentaux — la transidentité n'est pas une maladie mentale.",
+    "Cass Review (NHS Angleterre, 2024) : preuves jugées très faibles pour les soins hormonaux des mineurs → restriction des bloqueurs hors recherche. Suède et Finlande ont resserré.",
+    "WPATH et l'American Academy of Pediatrics soutiennent au contraire l'accès aux soins, mineurs inclus → pas de consensus international.",
+    "Hypothèse « Rapid-Onset Gender Dysphoria » (Littman, 2018) : très contestée méthodologiquement (échantillon issu de sites parentaux hostiles)."
+  ],
+  pieges:[
+    "Confondre le camp « prudence médicale » (débat sur les preuves) et le camp « hostile » (rejet des personnes trans) : ce ne sont pas les mêmes.",
+    "Appliquer les données des adultes aux mineurs (ou l'inverse) : les preuves et les enjeux diffèrent.",
+    "Lire « peu d'essais randomisés » comme « ça ne marche pas » (faux) OU comme « c'est prouvé » (faux) : preuve faible ≠ preuve d'absence."
+  ],
+  trancher:[
+    "Mineurs : jusqu'où l'autonomie et l'accès aux soins, jusqu'où la prudence et la protection ? (Ta tension autonomie/contrainte + le consentement d'un mineur.)",
+    "Sport : inclusion des femmes trans vs équité de la catégorie féminine — seuil hormonal, catégorie ouverte, ou exclusion ?",
+    "Qui décide quand les preuves sont incertaines : le patient (autonomie), le médecin, ou l'État (précaution) ?"
+  ],
+  sources:["CIM-11 (OMS, 2019)","Cass Review (NHS, 2024)","WPATH Standards of Care ; American Academy of Pediatrics","Débat Littman (2018) et ses critiques"]
+},
+
+{
+  id:"drogues-classer", theme:"Société", titre:"Drogues : classer la dangerosité, penser la légalisation",
+  sub:"Comment mesurer vraiment le danger d'une drogue — et ce que chaque modèle légal produit, substance par substance.",
+  sections:[
+    {t:"« Dangereux » veut dire quatre choses",c:"On mélange quatre axes très différents :<br>• <b>Toxicité</b> : marge entre dose active et dose létale (le fentanyl tue à quelques milligrammes ; le cannabis n'a pas de dose létale connue).<br>• <b>Potentiel addictif</b> : vitesse et force de la dépendance (héroïne, nicotine, crack très élevés).<br>• <b>Dommages à soi</b> (santé, déchéance).<br>• <b>Dommages à autrui</b> (violence, accidents, coût social).<br>Une drogue peut être basse sur un axe et haute sur un autre."},
+    {t:"Le classement scientifique (et sa surprise)",c:"L'étude multicritère de référence (Nutt et al., <i>The Lancet</i> 2010) note 20 drogues sur ces axes : l'<b>alcool</b> arrive <b>en tête des dommages globaux</b> (surtout par ses dommages à autrui : violence, accidents, coût social), devant l'héroïne et le crack (très nocifs pour soi). Cannabis, MDMA, champignons, LSD sont bien plus bas. <b>Conclusion dérangeante : la légalité ne suit pas la dangerosité</b> — les deux drogues les plus nocives (alcool, tabac) sont légales."},
+    {t:"Ce que produit chaque modèle légal",c:"• <b>Prohibition</b> → marché noir, produits coupés/non dosés (overdoses au fentanyl), criminalité, incarcération de masse. La drogue ne disparaît pas, elle devient plus dangereuse.<br>• <b>Décriminalisation de l'usage</b> (Portugal, 2001) → baisse des overdoses, du VIH, de l'incarcération, sans explosion de la consommation.<br>• <b>Légalisation régulée</b> (cannabis : Canada, Uruguay, États US) → contrôle qualité, recettes fiscales, marché noir réduit (pas éliminé) ; pas de hausse nette claire chez les ados jusqu'ici.<br>• <b>Décriminalisation large mal accompagnée</b> (Oregon, 2020) → résultats décevants, en partie abrogée en 2024 : décriminaliser sans investir dans le soin ne suffit pas."},
+    {t:"Le bon cadre de décision",c:"La question n'est pas « pour ou contre les drogues » mais : <b>quel régime, pour quelle substance, minimise la souffrance totale ?</b> (usage + effets de la politique). La réponse varie : le cannabis (peu toxique) et le fentanyl (ultra-létal, ultra-addictif) n'appellent pas le même régime. Et l'<b>addiction</b> est une contrainte interne (elle court-circuite les préférences réfléchies) → la traiter par le soin restaure l'autonomie, ce n'est pas du paternalisme."}
+  ],
+  strategies:[
+    {c:"Ce que cherche le prohibitionniste",but:"Établir que la légalisation <b>augmente</b> la consommation et les dommages, et que l'État doit envoyer un signal moral clair. Tactique : agiter les pires cas (fentanyl, jeunes) et assimiler « légaliser » à « encourager »."},
+    {c:"Ce que cherche le légalisateur / réducteur de risques",but:"Établir que la <b>prohibition fait plus de mal que les drogues elles-mêmes</b> (marché noir, overdoses, prison) et que réguler sauve des vies. Tactique : Portugal, comparaison alcool/cannabis, coût humain de la « guerre à la drogue »."}
+  ],
+  chiffres:[
+    "Classement multicritère (Nutt, King & Phillips, <i>The Lancet</i> 2010) : l'alcool = drogue la plus nocive globalement, devant héroïne et crack ; cannabis/MDMA/psychédéliques bien plus bas.",
+    "Portugal (décriminalisation de l'usage, 2001) : baisse des overdoses, du VIH et de l'incarcération, sans flambée de la consommation. — Hughes & Stevens (2010) ; EMCDDA",
+    "Cannabis légalisé (États US, Canada) : pas de hausse nette claire de l'usage chez les adolescents observée jusqu'ici, plus recettes fiscales et contrôle qualité.",
+    "Oregon (Measure 110, 2020) : décriminalisation large partiellement <b>abrogée en 2024</b> faute d'accompagnement par le soin → la décriminalisation seule ne suffit pas."
+  ],
+  pieges:[
+    "Confondre les quatre « dangers » (toxicité ≠ addiction ≠ dommage à soi ≠ dommage à autrui) : une drogue peut être basse sur l'un, haute sur l'autre.",
+    "Croire que « légal » = « sûr » : l'alcool et le tabac sont légaux et parmi les plus nocifs.",
+    "Raisonner en binaire (interdire/autoriser) alors qu'il existe un spectre de régimes (prohibition → décriminalisation → légalisation régulée)."
+  ],
+  trancher:[
+    "Jusqu'où respecter le droit de se faire du mal à soi-même (autonomie millienne) vs protéger (paternalisme) ?",
+    "Pour chaque substance, quel régime minimise la souffrance totale — sachant que la réponse diffère du cannabis au fentanyl ?",
+    "L'addiction : la punir (prohibition) ou la soigner (réduction des risques) ?"
+  ],
+  sources:["Nutt, King & Phillips (2010, The Lancet) — classement multicritère","Hughes & Stevens (2010) ; EMCDDA — Portugal","Données cannabis légal (Colorado, Canada) ; Oregon Measure 110 (2020, en partie abrogée 2024)"]
 }
 
 ];
