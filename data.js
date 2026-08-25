@@ -711,6 +711,75 @@ const DEBATS = [
     "Le coût par emploi « sauvé » par les tarifs (acier, machines à laver) se chiffre en centaines de milliers de dollars → protection très inefficace vs compensation directe. — Flaaen, Hortaçsu & Tintelnot (2020) ; Hufbauer & Elliott"
   ],
   sources:["David Ricardo (1817) — avantage comparatif","Autor, Dorn & Hanson (2013) — China shock","Banque mondiale / Our World in Data — pauvreté et ouverture","Flaaen et al. (2020) — coût des tarifs ; Hufbauer & Elliott"]
+},
+
+{
+  id:"revenu-universel", theme:"Justice", titre:"Un revenu universel de base ?",
+  maPosition:"Séduisant et cohérent avec mon cadre (un plancher inconditionnel, la dignité, la fin du soupçon sur les pauvres), mais l'arithmétique commande la prudence : un RU vraiment universel ET suffisant coûte une fortune. <b>⚖️ Ce que les expériences montrent</b> : l'argent inconditionnel ne rend PAS les gens oisifs (le mythe du fainéant est faux) ; mais un vrai RU national reste non testé à grande échelle. Ma préférence : impôt négatif ciblé / RU partiel, plutôt qu'un chèque égal versé aux milliardaires.",
+  socle:"Mon cadre : pas de mérite (la pauvreté n'est pas une faute), utilité marginale (le plancher produit beaucoup de bien-être), anti-paternalisme (les pauvres savent ce dont ils ont besoin — cash > bureaucratie). Le RU répond à ça : inconditionnel (pas de trappe à inactivité, pas de stigmate). MAIS deux problèmes : (1) coût — universel × suffisant = astronomique ; (2) verser autant au riche qu'au pauvre est inefficace (on le reprend par l'impôt → autant cibler). D'où : impôt négatif sur le revenu (Friedman) ou RU dégressif, qui gardent l'inconditionnalité utile sans le gaspillage.",
+  adverse:{ nom:"Le critique du RU (droite ET gauche)",
+    steelman:"Droite : donner de l'argent sans contrepartie détruit l'incitation au travail et coûte une fortune. Gauche : un RU sert de cheval de Troie pour démanteler les services publics (santé, logement) et payer les gens à rester pauvres au lieu de leur garantir un emploi et des droits. Dans les deux cas, mieux vaut des services et un emploi garanti qu'un chèque." },
+  defense:"Sur l'incitation, les données rassurent : les expériences (Finlande, transferts monétaires) ne montrent pas d'effondrement de l'emploi — le mythe du pauvre fainéant est faux. Sur le coût et le « cheval de Troie », je donne raison en partie : d'où un RU partiel / impôt négatif EN PLUS des services publics essentiels (santé, éducation), pas à leur place. Je garde l'inconditionnalité (ce qui marche) sans la version maximaliste (ce qui ruine).",
+  faille:"Le critique de droite universalise un effet (« l'argent gratuit rend oisif ») que les expériences ne confirment pas. Le critique de gauche a raison sur le risque politique (remplacer les services) — mais c'est un argument sur le PACKAGE (RU + services, pas RU à la place), pas contre l'inconditionnalité. Et « emploi garanti » se heurte à : garanti pour faire quoi, à quel coût, avec quelle bureaucratie ?",
+  contre:[
+    {q:"« Payer les gens à ne rien faire détruit le travail. »", r:"Les expériences ne le montrent pas : la baisse d'activité est faible, souvent bénéfique (études, soin d'un proche, meilleure recherche d'emploi). Le mythe du fainéant est empiriquement faux. Et l'impôt négatif garde l'incitation (chaque euro gagné rapporte encore)."},
+    {q:"« C'est infinançable. »", r:"Le RU maximaliste (universel + suffisant), oui, c'est colossal. D'où ma version : impôt négatif / RU dégressif, qui concentre l'argent en bas et coûte bien moins. Verser un chèque au milliardaire pour le reprendre à l'impôt est un détour inutile."},
+    {q:"« Mieux vaut des services publics qu'un chèque. »", r:"Faux dilemme : les deux. Santé, éducation, logement en nature ET un plancher monétaire inconditionnel pour le reste. Le cash respecte l'autonomie (chacun choisit), les services couvrent ce que le marché assure mal."},
+    {q:"« Ça marche dans les pays pauvres, pas chez nous. »", r:"L'inconditionnalité et l'absence d'effet-fainéant se retrouvent dans les deux contextes. Le calibrage diffère (montant, fiscalité), le principe tient : donner du cash sans fliquer marche mieux qu'on ne le croit."}
+  ],
+  etudes:[
+    "Expérience finlandaise de revenu de base (2017-2018) : pas de baisse de l'emploi, et un mieux-être / une meilleure santé mentale déclarés chez les bénéficiaires. — Kela (2020)",
+    "Les transferts monétaires inconditionnels n'augmentent pas les dépenses « tentation » (alcool, tabac) et améliorent souvent revenus et santé → le pauvre gère bien le cash. — Evans & Popova (2017, revue Banque mondiale)",
+    "L'impôt négatif sur le revenu (verser aux bas revenus, retirer progressivement) atteint le même but qu'un RU de façon ciblée et incitative. — Milton Friedman (1962) ; expériences NIT (USA, années 1970)",
+    "Un RU universel et suffisant coûterait plusieurs points de PIB → la version partielle/ciblée est plus soutenable. — chiffrages OCDE / think tanks"
+  ],
+  sources:["Kela (2020) — expérience finlandaise","Evans & Popova (2017) — transferts monétaires","Milton Friedman (1962) — impôt négatif","cf. mes débats redistribution & autonomie"]
+},
+
+{
+  id:"euthanasie", theme:"Vie / corps", titre:"Euthanasie et aide à mourir ?",
+  maPosition:"Pour, entre adultes lucides et consentants, avec des garde-fous. Mon libéralisme (souveraineté sur son corps) dit oui ; l'objection sérieuse n'est pas « la vie est sacrée » (valeur intrinsèque que je rejette) mais la PRESSION sur les vulnérables — un risque réel, à encadrer, pas à ériger en interdiction. <b>⚖️ Les données</b> des pays qui l'ont légalisé ne montrent pas le « massacre des vulnérables » annoncé.",
+  socle:"Autonomie millienne : tu es souverain sur ta propre vie ; si une existence n'est plus, pour son sujet, digne d'être vécue (souffrance réfractaire, perte d'autonomie), lui interdire d'en sortir est un paternalisme extrême. « La vie est sacrée » suppose une valeur intrinsèque — or rien n'en a ; ce qui compte, c'est le bien-être et la préférence du sujet. La seule objection non-magique est la PENTE : peur que « droit à mourir » devienne « devoir de mourir » (pression sur âgés, handicapés, pauvres). C'est empirique → on regarde les données et on cale les garde-fous.",
+  adverse:{ nom:"L'opposant (pente glissante / vulnérables)",
+    steelman:"Autoriser l'aide à mourir met une pression insidieuse sur les personnes âgées, handicapées ou dépendantes : « ne pas être un fardeau » devient une injonction. Les critères s'élargissent avec le temps (de la maladie terminale à la souffrance psychique). Et une société qui aide à mourir investit moins dans les soins palliatifs. Mieux vaut soulager que donner la mort." },
+  defense:"La pression sur les vulnérables est la SEULE objection que je prends au sérieux — et c'est un argument pour des garde-fous (consentement libre, répété, évalué indépendamment ; soins palliatifs garantis comme alternative réelle), pas pour l'interdiction, qui condamne les uns à souffrir pour protéger les autres. Sur la pente : les données des pays pionniers (Oregon, Benelux) ne montrent pas de sur-ciblage disproportionné des vulnérables. L'élargissement des critères est un choix politique révisable, pas une fatalité.",
+  faille:"L'opposant mélange l'objection magique (« vie sacrée », sans victime → à jeter) et l'objection empirique (pression, pente → réelle mais gérable). Sa pente est présentée comme automatique alors qu'elle dépend du design légal. Et interdire au nom des vulnérables sacrifie le patient lucide qui souffre : on le condamne à une agonie pour un risque qu'on peut encadrer autrement (palliatifs, contrôle).",
+  contre:[
+    {q:"« La vie est sacrée / seul Dieu décide. »", r:"C'est une valeur intrinsèque ou religieuse que je ne partage pas et qu'on n'impose pas à autrui (laïcité, autonomie). Ce qui compte, c'est le bien-être et la volonté du sujet — pas un principe qui le force à souffrir au nom d'une sacralité qu'il ne reconnaît pas."},
+    {q:"« Ça va faire pression sur les vieux (« ne sois pas un fardeau »). »", r:"C'est LE vrai risque → garde-fous : consentement libre, répété, évalué indépendamment ; soins palliatifs garantis comme alternative réelle. Les données des pays qui l'ont fait ne montrent pas de sur-risque disproportionné pour les vulnérables."},
+    {q:"« Les critères vont s'élargir sans fin (pente glissante). »", r:"L'élargissement (ex. souffrance psychique) est un choix politique, débattable et bornable, pas une fatalité mécanique. La pente dépend des garde-fous qu'on met — argument pour bien légiférer, pas pour interdire."},
+    {q:"« Développons plutôt les soins palliatifs. »", r:"Oui — et les deux ne s'opposent pas : palliatifs pour tous ET aide à mourir pour ceux que les palliatifs ne soulagent pas (souffrance réfractaire). Les opposer, c'est laisser souffrir ceux que le soin n'atteint pas."}
+  ],
+  etudes:[
+    "Oregon (« Death with Dignity », depuis 1997) : recours limité et stable, patients majoritairement déjà en soins palliatifs, sans sur-ciblage des vulnérables. — rapports annuels de l'Oregon Health Authority",
+    "Revue des données (Oregon, Pays-Bas) : pas de preuve d'un risque disproportionné pour les groupes vulnérables (âgés, handicapés, pauvres, minorités). — Battin et al. (2007, J. Medical Ethics)",
+    "Dans le Benelux, une part des décès relève de l'euthanasie légale, sous procédures de contrôle → le cadre encadre sans « dérapage » massif documenté, mais la vigilance reste nécessaire. — commissions de contrôle belges/néerlandaises",
+    "Soins palliatifs et aide à mourir ne s'excluent pas : les pays qui légalisent ont souvent aussi développé les palliatifs. — comparaisons internationales"
+  ],
+  sources:["Oregon Health Authority — rapports annuels","Battin et al. (2007, J. Medical Ethics) — vulnérables","J.S. Mill, «On Liberty» — souveraineté sur soi","cf. mon débat autonomie du corps"]
+},
+
+{
+  id:"wokisme-position", theme:"Société", titre:"Wokisme : progrès social ou dérive ?",
+  maPosition:"Ni sacralisation ni diabolisation. Le noyau (prendre au sérieux des injustices réelles : racisme, sexisme, discriminations) est légitime ; certaines DÉRIVES (essentialisme identitaire, procès en pureté, censure de l'enquête) trahissent mes principes (anti-essentialisme, liberté d'expression, universalisme). Je juge idée par idée selon le bien-être et la cohérence, pas selon le camp.",
+  socle:"Mon cadre tranche des deux côtés. POUR le noyau : les discriminations sont mesurées (testing, écarts) → les nier est faux, et élargir la considération est cohérent avec mon anti-tribalisme. CONTRE certaines dérives : (1) l'essentialisme identitaire (réduire quelqu'un à son groupe) réintroduit la catégorie arbitraire que je rejette ; (2) le « procès en pureté » / cancel disproportionné viole ma liberté d'expression (conséquentialisme de règle) ; (3) requalifier tout désaccord en oppression court-circuite l'enquête. Le critère reste le bien-être + la cohérence, jamais l'appartenance.",
+  adverse:{ nom:"Les deux caricatures (militant total / anti-woke total)",
+    steelman:"Le militant : les injustices systémiques sont si profondes qu'exiger de la « nuance » ou de la « liberté d'expression » sert surtout à protéger les dominants ; il faut nommer, corriger, parfois sanctionner fort. L'anti-woke : le wokisme est un fanatisme qui détruit le débat, la présomption d'innocence et l'universalisme au nom d'une victimisation permanente." },
+  defense:"Je refuse les deux blocs. Au militant : les injustices réelles ne justifient pas d'abandonner la liberté d'expression ni la présomption d'innocence — car le pouvoir de censurer/exclure est capturable et se retourne (conséquentialisme de règle). À l'anti-woke : « tout ça, c'est du délire » nie des discriminations mesurées et jette le noyau légitime avec les dérives. Ma boussole n'est pas « pour ou contre le wokisme » mais « cette idée précise augmente-t-elle le bien-être, tient-elle la cohérence ? ».",
+  faille:"Les deux camps font la même erreur : traiter « le wokisme » comme un bloc (tout bon / tout mauvais) au lieu de trier idée par idée. Le militant absolutise une fin juste jusqu'à écraser des moyens (débat, preuve) ; l'anti-woke absolutise une réaction jusqu'à nier des faits. Le tribalisme (juger au camp) est précisément le biais que mon cadre interdit.",
+  contre:[
+    {q:"« Le wokisme, c'est la justice sociale — tu es contre ? »", r:"Contre le noyau (lutter contre des discriminations réelles), non — il est mesuré et légitime. Contre certaines dérives (essentialisme, cancel disproportionné, censure de l'enquête), oui. Je trie ; je ne signe pas un chèque en blanc à une étiquette."},
+    {q:"« La cancel culture n'existe pas, c'est un fantasme de réac. »", r:"Il y a de vrais cas de sanctions disproportionnées ET une inflation rhétorique qui en exagère l'ampleur. Les deux sont vrais : des excès réels, souvent montés en épingle. Je regarde les cas, pas le slogan."},
+    {q:"« Nier le privilège, c'est nier le racisme. »", r:"Non : je reconnais des avantages statistiques de groupe (mesurés). Ce que je refuse, c'est d'en faire une essence qui déterminerait ou disqualifierait un individu — ça réintroduit le raisonnement par le groupe que l'antiracisme est censé combattre."},
+    {q:"« À force de nuance, tu ne fais rien. »", r:"La nuance n'est pas l'inaction : je soutiens des mesures concrètes contre les discriminations prouvées (testing, sanction de l'acte). Ce que je refuse, c'est l'action symbolique inefficace ou la censure — pas l'action. Trier, c'est agir mieux."}
+  ],
+  etudes:[
+    "Discriminations réelles et mesurées (le noyau légitime) : à CV équivalent, un nom à consonance étrangère reçoit moins de réponses. — Bertrand & Mullainathan (2004) et études d'audit",
+    "Le dégoût / l'indignation morale sont de mauvais guides quand ils tournent à la pureté : ils poussent au bannissement plus qu'à la réparation. — Nussbaum (cf. mon débat cas-limites)",
+    "Déplateformisation : parfois efficace contre des communautés toxiques (Reddit), parfois contre-productive (martyrisation, effet Streisand) → à évaluer au cas par cas, pas en principe. — Chandrasekharan et al. (2017)",
+    "Juger l'individu par sa classe d'appartenance est précisément le mécanisme du stéréotype que l'antidiscrimination combat. — psychologie des stéréotypes (Allport)"
+  ],
+  sources:["Bertrand & Mullainathan (2004) — discrimination mesurée","Nussbaum — dégoût/pureté (cf. mon débat cas-limites)","Chandrasekharan et al. (2017) — déplateformisation","cf. masterclass « Wokisme & cancel culture » (neutre) + mes débats expression & discrimination positive"]
 }
 
 ];
