@@ -462,9 +462,121 @@ const DEBATS = [
     "Fukushima : 1 décès attribué aux radiations ; l'essentiel des dommages sanitaires vient de l'évacuation (stress, déracinement), pas de la dose reçue. — UNSCEAR ; réévaluations post-2011"
   ],
   sources:["Markandya & Wilkinson (2007, The Lancet) ; Our World in Data — morts/TWh","GIEC AR5 (2014) — émissions cycle de vie","Jarvis, Deschênes & Jha (2022, NBER) — coût de l'arrêt allemand","UNSCEAR — bilan Fukushima ; coût du neuf : Flamanville, Hinkley, Vogtle"]
+},
+
+{
+  id:"decroissance", theme:"Politique", titre:"Décroissance ou croissance verte ?",
+  maPosition:"Ni l'un ni l'autre en dogme. <b>⚖️ Ce que les faits montrent</b> : le découplage absolu PIB/CO₂ est réel dans plusieurs pays riches (ils réduisent leurs émissions en croissant, empreinte importée comprise pour certains) → la décroissance n'est pas une nécessité physique. Mais découpler des matières/de l'énergie est bien plus dur. <b>Ce qui reste un choix de valeurs</b> : la sobriété du superflu. Ma ligne : agnostique sur le PIB, dogmatique sur les émissions et le bien-être.",
+  socle:"Mon cadre : devoir climat envers les générations réelles + utilité marginale (la croissance a sorti des milliards de la misère → l'interdire aux pays pauvres est une faute). Le PIB n'est ni sacré ni maudit : un indicateur, un moyen. La bonne question n'est pas « + ou − de PIB » mais « quelle trajectoire minimise la souffrance (climat + pauvreté) ». Décarboner vite (nucléaire + renouvelables, électrification) fait le gros du travail ; la sobriété cible le superflu des riches, pas le nécessaire des pauvres.",
+  adverse:{ nom:"Le décroissant (Jackson, Hickel)",
+    steelman:"Le découplage absolu, suffisant ET assez rapide pour 1,5-2 °C n'a jamais été observé à l'échelle mondiale : c'est un pari technologique. La croissance infinie sur une planète finie se heurte aux limites (matières, biodiversité, énergie). Courir après le PIB, c'est courir après un chiffre qui ne mesure pas le bien-être ; mieux vaut organiser une réduction planifiée de la production superflue des riches." },
+  defense:"Je prends la donnée au sérieux dans les deux sens (voir preuves) : oui, plusieurs pays riches ont découplé PIB et CO₂, empreinte importée comprise → « croissance = plus d'émissions » est faux. Mais oui, le rythme mondial est insuffisant et le découplage matières faible → « la technologie règle tout » est faux aussi. La sortie n'est pas idéologique (pour/contre le PIB) : décarboner l'énergie au plus vite ET rogner le superflu, sans bloquer le développement des pauvres.",
+  faille:"Le décroissant universalise une prescription (moins produire) qui a du sens pour l'Occident surconsommateur mais serait une catastrophe imposée au Sud (qui a besoin de croître pour manger, se soigner). Et il confond le PIB (indicateur) avec ce qu'il faut vraiment viser : l'énergie et les matières. On peut faire beaucoup plus de bien-être par tonne de CO₂ — c'est ça, le levier, pas le PIB en soi.",
+  contre:[
+    {q:"« Croissance infinie, planète finie : impossible. »", r:"Le PIB n'est pas de la matière : c'est de la valeur ajoutée, qui peut monter en dématérialisant (services, efficacité). Le vrai plafond est physique (énergie, CO₂, matières) — c'est LUI qu'il faut viser, pas un chiffre agrégé."},
+    {q:"« Le découplage est un mythe. »", r:"Faux en absolu : R.-U., France, USA ont baissé leur CO₂ en croissant, empreinte importée comprise pour plusieurs. Vrai comme insuffisance : pas assez vite, et peu sur les matières. Donc accélérer la décarbonation, pas nier qu'elle existe."},
+    {q:"« Tu défends le productivisme. »", r:"Non : agnostique sur le PIB, intransigeant sur les émissions et le bien-être. Décroître les SUV, jets, fast-fashion s'il réduit la souffrance nette : banco. Brider la croissance des pauvres : non. Le critère est le solde, pas le slogan."},
+    {q:"« Le PIB ne mesure pas le bonheur. »", r:"D'accord — d'où mon utilitarisme de la préférence comme boussole, pas le PIB. Mais en bas, croissance et bien-être vont ensemble (les pauvres) ; en haut, l'utilité marginale décroît (les riches). C'est un argument pour redistribuer et cibler, pas pour décroître partout."}
+  ],
+  etudes:[
+    "Découplage absolu observé : plusieurs pays riches (R.-U., France, Allemagne, USA…) ont réduit leur CO₂ tout en augmentant leur PIB, y compris en tenant compte des émissions importées pour une partie d'entre eux. — Our World in Data (Ritchie) ; Le Quéré et al. (2019, Nature Climate Change)",
+    "Mais le découplage mondial reste trop lent pour 1,5-2 °C, et le découplage PIB/matières est faible → « green growth » ne suffit pas seule. — Parrique et al. (2019, EEB « Decoupling Debunked ») ; Haberl et al. (2020, revue systématique)",
+    "La croissance a fait chuter l'extrême pauvreté mondiale (~36 % en 1990 → <10 % aujourd'hui) → freiner la croissance des pays pauvres a un coût humain massif. — Banque mondiale ; Our World in Data",
+    "Le coût social du carbone justifie une action forte et précoce (prix du carbone, décarbonation) plutôt qu'une contraction générale de l'activité. — Stern Review (2006) ; Nordhaus (DICE, 2018) — fourchette contestée"
+  ],
+  sources:["Our World in Data (Ritchie) ; Le Quéré et al. (2019) — découplage","Parrique et al. (2019) ; Haberl et al. (2020) — critique du découplage","Tim Jackson «Prosperity Without Growth» ; Jason Hickel «Less is More» (à steelman)","Stern Review (2006) ; Nordhaus (2018)"]
+},
+
+{
+  id:"ia-emploi", theme:"Justice", titre:"L'IA va-t-elle détruire l'emploi ?",
+  maPosition:"Le risque n'est pas le chômage de masse — c'est l'explosion des inégalités. <b>⚖️ L'histoire tranche sur un point</b> : l'automatisation a toujours détruit des tâches ET créé d'autres emplois (le « chômage technologique » permanent ne s'est jamais matérialisé). <b>Ce qui est vraiment ouvert</b> : la vitesse, et surtout QUI capte les gains. Ma cible : redistribuer les gains de l'IA (« qui possède les robots »), pas freiner l'IA.",
+  socle:"Sophisme du « volume de travail fixe » (lump of labor) : le nombre d'emplois n'est pas une quantité fixe qu'une machine épuise. Historiquement, la productivité libère du travail et crée de la demande ailleurs (Autor). MAIS l'IA touche des tâches cognitives, plus vite et plus large → deux vraies inquiétudes : (1) transition brutale pour les métiers frappés, (2) capture des gains par les propriétaires du capital (concentration). Mon cadre : pas de mérite, utilité marginale, redistribution → l'enjeu est distributif, pas malthusien.",
+  adverse:{ nom:"Le pessimiste « cette fois c'est différent »",
+    steelman:"Les révolutions passées remplaçaient les muscles ; l'IA remplace l'intelligence elle-même, y compris les tâches créées pour échapper aux machines. À terme, s'il n'y a plus de niche cognitive où l'humain surpasse la machine, la logique « de nouveaux emplois apparaîtront » s'effondre : on pourrait automatiser aussi les nouveaux." },
+  defense:"Je prends l'objection au sérieux (l'IA n'est pas qu'un tracteur). Mais le pari « plus aucune niche humaine » est spéculatif, alors que le bilan historique de la peur du chômage technologique est un échec répété (Luddites → aujourd'hui). Je ne mise donc pas ma politique sur la panique de l'emploi, mais sur le problème CERTAIN : la répartition. Si l'IA produit l'abondance, la question morale devient « pour qui ? » — réponse : redistribuée.",
+  faille:"Le pessimiste saute de « l'IA fait mieux beaucoup de tâches » à « donc plus d'emplois », en oubliant la demande (revenu libéré → nouveaux besoins), l'avantage comparatif (l'humain reste employé même s'il est battu partout), et le fait que les prédictions à la Frey-Osborne (« 47 % des emplois ») ont été fortement revues à la baisse. Il traite une hypothèse extrême comme un fait acquis.",
+  contre:[
+    {q:"« Caissiers, chauffeurs, traducteurs : c'est fini. »", r:"Des tâches disparaissent, oui — la douleur de transition est réelle et concentrée. Mais « des tâches » ≠ « le travail ». La réponse est d'amortir (formation, revenu) et de partager les gains, pas de figer la technologie qui produit l'abondance."},
+    {q:"« Cette fois l'IA remplace le cerveau, pas les bras. »", r:"C'est le vrai argument sérieux. Réponse : possible mais non démontré, et l'avantage comparatif fait qu'on emploie encore quelqu'un même battu partout. Et si l'humain devenait vraiment superflu productivement, le problème n'est plus l'emploi mais le PARTAGE d'une richesse quasi gratuite → UBI, propriété des gains."},
+    {q:"« Frey et Osborne : 47 % des emplois automatisables. »", r:"Chiffre célèbre et très contesté : les études par TÂCHE (OCDE) tombent bien plus bas, et « automatisable » ≠ « automatisé » (coût, réglementation, acceptabilité). L'ampleur est incertaine ; ma politique (redistribuer) tient dans tous les cas."},
+    {q:"« Alors on ne fait rien ? »", r:"Au contraire : impôt sur les gains du capital/IA, socle de revenu (UBI ou équivalent), formation continue, droit à la reconversion. On agit sur la DISTRIBUTION et la transition — les deux vrais problèmes — au lieu de courir après un chômage de masse peu probable."}
+  ],
+  etudes:[
+    "Le « lump of labor » est un sophisme : historiquement l'automatisation détruit des tâches et en crée d'autres ; l'emploi total ne s'effondre pas. — David Autor (2015, « Why Are There Still So Many Jobs? », JEP)",
+    "Effet local négatif mesuré : chaque robot industriel de plus pour 1000 travailleurs a réduit l'emploi et les salaires locaux aux USA → douleur de transition réelle et concentrée. — Acemoglu & Restrepo (2020, JPE)",
+    "La prédiction « 47 % des emplois US automatisables » a été fortement revue à la baisse par les approches par tâche (≈ 9-14 %). — Frey & Osborne (2013) vs Arntz, Gregory & Zierahn / OCDE (2016)",
+    "L'IA générative pourrait « exposer » une large part des tâches, mais exposé ≠ remplacé ; les gains dépendront surtout de leur répartition. — Eloundou et al. (2023, « GPTs are GPTs »)"
+  ],
+  sources:["David Autor (2015) — pourquoi il reste des emplois","Acemoglu & Restrepo (2020) — robots et emploi local","Frey & Osborne (2013) vs OCDE (Arntz et al., 2016) — ampleur contestée","Brynjolfsson & McAfee «The Second Machine Age»"]
+},
+
+{
+  id:"scrutin", theme:"Politique", titre:"Proportionnelle ou scrutin majoritaire ?",
+  maPosition:"Pas de système parfait : un arbitrage entre représentativité et gouvernabilité. Ma préférence : une proportionnelle avec seuil (ou un mixte à l'allemande) — elle représente mieux la diversité des préférences, ce que mon cadre (agréger les préférences sur les fins) privilégie — à condition de préserver la stabilité.",
+  socle:"Démocratie instrumentale : le vote agrège des préférences, il ne découvre pas une vérité. Deux critères conséquentialistes s'affrontent : (1) représentativité (le parlement reflète-t-il les préférences ?) → avantage proportionnelle ; (2) gouvernabilité/redevabilité (peut-on décider et sanctionner un sortant ?) → avantage majoritaire. Loi de Duverger : majoritaire à un tour → bipartisme ; proportionnelle → multipartisme. Le bon design dépend du poids mis sur chaque critère — un choix de valeurs, pas un théorème.",
+  adverse:{ nom:"Le partisan du scrutin majoritaire",
+    steelman:"La proportionnelle fabrique des parlements fragmentés, des coalitions instables et des marchandages opaques où le programme voté se dilue. Le majoritaire donne des majorités claires, un gouvernement qui peut agir et qu'on peut virer nettement — la redevabilité, cœur de la démocratie, y est plus forte." },
+  defense:"Je concède le risque d'instabilité — d'où un seuil (5 % à l'allemande) et éventuellement une dose de mixte. Mais le majoritaire paie sa stabilité par une distorsion massive : des millions d'électeurs sans député, des majorités absolues avec 35-40 % des voix. Si le vote sert à agréger les préférences, effacer un tiers du pays est un défaut plus grave que devoir négocier des coalitions.",
+  faille:"Le majoritariste traite la « gouvernabilité » comme la fin, alors que c'est un moyen : un gouvernement stable qui ne représente pas le pays n'est pas un progrès démocratique, c'est une minorité qui gouverne. Et « les coalitions sont opaques » vaut aussi pour les courants internes d'un grand parti : la négociation est déplacée, pas supprimée.",
+  contre:[
+    {q:"« La proportionnelle, c'est l'instabilité (IVᵉ République, Israël). »", r:"Risque réel, d'où seuils et mixte : l'Allemagne est stable depuis 1949 en proportionnelle mixte. L'instabilité vient surtout de l'absence de seuil et de règles de coalition, pas de la proportionnelle en soi. On corrige le design, on ne jette pas le principe."},
+    {q:"« Le majoritaire permet de virer les sortants. »", r:"Vrai, c'est sa force (redevabilité). Mais il le fait en sacrifiant la représentation : un parti à 40 % rafle 60 % des sièges. Le mixte cherche à garder l'ancrage local ET la proportionnalité globale."},
+    {q:"« La proportionnelle donne du pouvoir aux extrêmes. »", r:"Elle les rend visibles au lieu de les cacher — et un seuil filtre l'émiettement. Le majoritaire ne fait pas disparaître un courant à 15 % : il le prive de représentation, ce qui nourrit le ressentiment anti-système."}
+  ],
+  etudes:[
+    "Loi de Duverger : le scrutin majoritaire à un tour tend vers le bipartisme ; la proportionnelle favorise le multipartisme. — Duverger (1951)",
+    "Les systèmes proportionnels produisent des parlements plus représentatifs et une participation un peu plus élevée, au prix de coalitions plus fréquentes. — Lijphart, «Patterns of Democracy» (1999/2012)",
+    "Distorsion du majoritaire : au R.-U. (2005), un parti a obtenu la majorité absolue des sièges avec ~35 % des voix → fort écart voix/sièges. — données électorales britanniques",
+    "Aucun mode de scrutin ne peut agréger sans paradoxe des préférences multiples : il n'existe pas de système « parfait ». — théorème d'impossibilité d'Arrow (1951)"
+  ],
+  sources:["Maurice Duverger (1951) — loi de Duverger","Arend Lijphart, «Patterns of Democracy» (1999)","Kenneth Arrow (1951) — théorème d'impossibilité","Modèle mixte allemand ; expériences françaises"]
+},
+
+{
+  id:"ecriture-inclusive", theme:"Société", titre:"L'écriture inclusive ?",
+  maPosition:"Le but est légitime et empiriquement fondé ; le point médian, lui, est un mauvais outil. <b>⚖️ Ce que la recherche montre</b> : le masculin « générique » biaise réellement les représentations mentales vers les hommes → la gêne féministe n'est pas un caprice. <b>Ce qui reste discutable</b> : le MOYEN. Ma ligne : oui aux formes lisibles (doublets, termes épicènes, féminisation des métiers), réserve sur le point médian (coût de lisibilité/accessibilité).",
+  socle:"La langue est une convention, un outil (anti-essentialisme : pas de « génie de la langue » sacré) → on la juge à ses effets, pas à la tradition ni au dégoût. Or les effets sont mesurables : le masculin générique n'est pas neutre, il oriente les représentations. Viser une langue plus équitable est donc rationnel. Mais un outil se juge AUSSI à ses coûts : le point médian gêne la lecture à voix haute, les dyslexiques, les lecteurs d'écran. On garde le but, on choisit le meilleur moyen.",
+  adverse:{ nom:"L'opposant (Académie française / lisibilité)",
+    steelman:"Le point médian complique la lecture, l'apprentissage et l'accessibilité (dyslexie, malvoyants), pour un gain symbolique incertain ; « le masculin l'emporte » est une règle grammaticale, pas une idéologie. Bricoler la langue par décret militant fragmente l'écrit commun sans preuve que ça change les mentalités." },
+  defense:"Sur l'accessibilité du point médian, je donne partiellement raison — c'est pourquoi je ne le défends pas en bloc. Mais « ce n'est que de la grammaire, sans effet » est faux : les études montrent que le générique masculin biaise les représentations (moins de femmes imaginées dans un métier). Le désaccord n'est donc pas but vs pas-de-but, mais QUEL moyen : doublets et épicènes font le travail sans le coût du point médian.",
+  faille:"L'opposant glisse de « le point médian est un mauvais outil » (souvent vrai) à « le problème n'existe pas » (faux, mesuré). Invoquer « la règle grammaticale » comme argument, c'est le sophisme naturaliste version langue : « c'est la règle » ne dit ni « c'est sans effet » ni « ça doit rester ». À l'inverse, le camp militant a tort d'ériger LE point médian en seul test de vertu.",
+  contre:[
+    {q:"« Dire que le masculin l'emporte, c'est juste de la grammaire neutre. »", r:"Empiriquement, non : lire « les étudiants » évoque en moyenne plus d'hommes que la réalité. Le générique masculin n'est pas perçu comme neutre. Ça ne tranche pas le MOYEN, mais ça valide le problème."},
+    {q:"« L'écriture inclusive massacre la langue et la lecture. »", r:"Pour le point médian, il y a un vrai coût (accessibilité, oralisation) — je l'accorde. Mais l'écriture inclusive ≠ le seul point médian : doublets (« celles et ceux »), épicènes (« le corps enseignant »), féminisation (« autrice ») sont lisibles et déjà largement adoptés."},
+    {q:"« C'est un combat symbolique inutile. »", r:"Le symbolique a des effets réels (les représentations orientent les aspirations, ex. métiers genrés). Mais l'efficacité exacte est incertaine → d'où le pragmatisme : privilégier les formes à fort bénéfice et faible coût, pas en faire un totem identitaire."}
+  ],
+  etudes:[
+    "Le masculin dit « générique » n'est pas neutre : il oriente les représentations mentales vers les hommes (moins de femmes imaginées dans un rôle). — Gygax et al. (2008) ; Brauer & Landry (2008)",
+    "Les formes « équitables » (doublets, féminisation) augmentent la visibilité mentale des femmes et l'estimation de leur présence dans un métier. — Sczesny, Formanowicz & Moser (2016, revue)",
+    "La féminisation des noms de métier réduit le biais masculin dans la perception des professions (y compris chez les enfants sur leurs aspirations). — Vervecken & Hannover (2015)",
+    "Le point médian pose des difficultés spécifiques de lisibilité et d'accessibilité (dyslexie, lecteurs d'écran, oralisation) → argument fort contre CE procédé précis. — arguments d'accessibilité (FALC) ; position de l'Académie française (2017)"
+  ],
+  sources:["Gygax et al. (2008) ; Brauer & Landry (2008) — biais du masculin générique","Sczesny et al. (2016) — langage équitable","Vervecken & Hannover (2015) — féminisation et aspirations","Académie française (2017) ; arguments d'accessibilité (dyslexie, FALC)"]
+},
+
+{
+  id:"religion-science", theme:"Fondations", titre:"Science et religion sont-elles incompatibles ?",
+  maPosition:"Quand une religion fait une affirmation empirique, elle perd — <b>⚖️ là c'est net</b> (âge de la Terre, évolution : réglés). Mais « la science réfute Dieu » sur-promet : l'existence de Dieu n'est pas une question testable. Et le « conflit éternel science/religion » est un mythe historique. La vraie ligne : évidence vs dogme, partout où l'un empiète sur le terrain de l'autre.",
+  socle:"Athée et naturaliste, mais je distingue trois choses : (1) les affirmations empiriques religieuses (Terre de 6000 ans, déluge global, création en 6 jours) → falsifiables et falsifiées ; (2) l'existence de Dieu / un fondement ultime → non testable scientifiquement (ni prouvable ni réfutable), c'est de la métaphysique ; (3) l'histoire des rapports science/religion → bien plus mêlée que le récit de guerre (l'Église a aussi financé la science ; Galilée est un cas complexe). Mon critère n'est pas « religion contre science » mais « méthode fondée sur les preuves contre dogme », chaque fois qu'ils se disputent le même terrain empirique.",
+  adverse:{ nom:"Le partisan du « conflit » (Dawkins) et, en face, le concordiste",
+    steelman:"Côté conflit : la religion repose sur la foi (croire sans preuve), la science sur la preuve — deux méthodes opposées ; ménager la religion, c'est abandonner l'exigence de preuve. Côté concordiste : science et religion répondent à des questions différentes (comment vs pourquoi) et peuvent coexister sans se contredire (NOMA)." },
+  defense:"Je refuse les deux excès. Le concordisme (NOMA de Gould) est trop généreux : les religions FONT des affirmations empiriques (miracles, création) qui, elles, relèvent de la science — et perdent. Mais le tout-conflit sur-vend : que la méthode diffère (foi vs preuve) n'implique pas que la science puisse trancher l'existence d'un Dieu non interventionniste, hors de sa portée. Je garde donc : sur l'empirique, la science tranche ; sur le métaphysique pur, personne ne « prouve ».",
+  faille:"Le concordiste protège la religion en prétendant qu'elle ne dit rien d'empirique — faux, dès qu'elle affirme un miracle ou une création datée. Le tenant du conflit total, lui, étend la science à une question (Dieu existe-t-il ?) qu'elle ne peut pas régler par l'expérience → il confond « pas de preuve de Dieu » (vrai) et « preuve qu'il n'y a pas de Dieu » (hors de portée). Et le récit d'une « guerre perpétuelle » est largement une invention du XIXᵉ (Draper, White).",
+  contre:[
+    {q:"« La science a prouvé que Dieu n'existe pas. »", r:"Non : elle a réfuté des affirmations religieuses précises (âge de la Terre, création spéciale) et explique le monde sans avoir besoin de l'hypothèse Dieu (Laplace). Mais « pas nécessaire » et « pas de preuve » ≠ « réfuté ». L'athéisme est ma conclusion la plus probable, pas un théorème."},
+    {q:"« Science et foi répondent à des questions séparées, aucun conflit. »", r:"Vrai pour la métaphysique pure, faux dès que la religion marche sur le terrain des faits (miracles, jeune Terre). NOMA est un traité de paix commode mais malhonnête : il suppose que la religion ne dit rien de testable."},
+    {q:"« L'Église a toujours combattu la science (Galilée). »", r:"Récit simplifié : l'affaire Galilée mêle politique, ego et théologie, et l'Église médiévale a aussi financé l'astronomie et les universités. La thèse du conflit perpétuel est largement un mythe historiographique du XIXᵉ, corrigé par les historiens des sciences."}
+  ],
+  etudes:[
+    "La « thèse du conflit » (guerre perpétuelle science/religion) est rejetée par les historiens des sciences comme une simplification du XIXᵉ siècle. — Numbers (dir.), «Galileo Goes to Jail and Other Myths» (2009)",
+    "L'âge de la Terre (~4,54 milliards d'années) et l'évolution par sélection naturelle sont solidement établis, contredisant le créationnisme « jeune Terre ». — géochronologie ; biologie évolutive (consensus)",
+    "Une part notable de scientifiques restent croyants (variable selon les disciplines et pays) → « faire de la science » n'est pas incompatible en pratique avec une foi. — Ecklund (2010) ; Pew Research",
+    "« NOMA » (magistères non recouvrants) : séparation nette des domaines — utile mais critiquée, car les religions font aussi des affirmations empiriques. — Gould, «Rocks of Ages» (1999) ; critiques (Dawkins)"
+  ],
+  sources:["Stephen Jay Gould, «Rocks of Ages» (1999) — NOMA","Ronald Numbers, «Galileo Goes to Jail» (2009) — mythes du conflit","Richard Dawkins, «The God Delusion» (2006) — thèse du conflit (à nuancer)","Draper-White (thèse du conflit, XIXᵉ) — historiographie dépassée"]
 }
 
 ];
 
 /* Thèmes pour le regroupement dans l'onglet Positions */
-const THEMES = ["Fondations","Justice","Vie animale","Vie / corps","Politique","Frontières"];
+const THEMES = ["Fondations","Justice","Vie animale","Vie / corps","Politique","Société","Frontières"];
