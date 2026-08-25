@@ -780,6 +780,98 @@ const DEBATS = [
     "Juger l'individu par sa classe d'appartenance est précisément le mécanisme du stéréotype que l'antidiscrimination combat. — psychologie des stéréotypes (Allport)"
   ],
   sources:["Bertrand & Mullainathan (2004) — discrimination mesurée","Nussbaum — dégoût/pureté (cf. mon débat cas-limites)","Chandrasekharan et al. (2017) — déplateformisation","cf. masterclass « Wokisme & cancel culture » (neutre) + mes débats expression & discrimination positive"]
+},
+
+{
+  id:"prostitution", theme:"Vie / corps", titre:"Travail du sexe : abolir, légaliser, décriminaliser ?",
+  maPosition:"Décriminaliser l'activité entre adultes consentants et cibler ce qui fait vraiment du mal : la contrainte (traite, proxénétisme forcé, mineurs). Mon libéralisme dit oui à l'échange librement consenti ; la vraie question n'est pas « le sexe tarifé est-il digne ? » (dégoût) mais « comment réduire la souffrance et la contrainte ? ». <b>⚖️</b> Les données comparant les modèles ne donnent pas de gagnant écrasant, mais la criminalisation (même du seul client) tend à précariser les travailleuses.",
+  socle:"Autonomie millienne : disposer de son corps, y compris pour un service sexuel, ne lèse personne en soi ; l'objection « ça avilit » est un jugement de dégoût/dignité (valeur intrinsèque) que je rejette. Le vrai enjeu est la CONTRAINTE : traite, précarité qui pousse, violence. Test de la contrainte : le ferait-on sans être acculé ? → traiter la cause (pauvreté, traite), pas interdire l'activité. Trois modèles : prohibition totale ; « nordique » (pénaliser le client) ; décriminalisation (Nouvelle-Zélande). On les juge à leurs effets sur la sécurité et la contrainte, pas à la morale sexuelle.",
+  adverse:{ nom:"L'abolitionniste (modèle nordique)",
+    steelman:"La prostitution est intrinsèquement une violence patriarcale : presque personne ne la « choisit » vraiment, c'est la misère et les réseaux qui poussent. Pénaliser le client (pas la femme) assèche la demande, réduit la traite et pose un principe : le corps n'est pas une marchandise. Décriminaliser, c'est offrir un marché légal aux proxénètes." },
+  defense:"Je prends au sérieux la contrainte — c'est mon critère. Mais l'abolitionnisme confond « certaines sont contraintes » (vrai → combattre traite et misère) et « toutes le sont » (faux → nie l'autonomie de celles qui choisissent). Pénaliser le client précarise en pratique : moins de temps pour filtrer, plus de clandestinité, moins de recours en cas de violence. Le bon test est empirique (sécurité, santé, sortie de la traite), pas le symbole « le corps n'est pas une marchandise ».",
+  faille:"L'abolitionniste pose une essence (« intrinsèquement une violence ») là où il y a un continuum (de la contrainte pure au choix). Il traite le dégoût/la dignité comme un fait moral. Et « pénaliser le client protège » est une hypothèse empirique contestée : les données suggèrent souvent un déplacement vers plus de risque, sans tarir la demande ni la traite comme promis.",
+  contre:[
+    {q:"« Personne ne choisit vraiment de se prostituer. »", r:"Certaines sont contraintes (traite, misère) → priorité absolue à combattre ; d'autres choisissent (les travailleuses organisées le disent). Nier ce choix, c'est le paternalisme qui décide à leur place. On cible la contrainte, on ne supprime pas l'option pour toutes."},
+    {q:"« Le modèle nordique protège les femmes. »", r:"Intention louable (viser le client, pas la victime), mais effet souvent mesuré = précarisation : moins de temps pour filtrer les clients, plus de clandestinité, moins de recours. À juger sur les faits, pas sur le symbole."},
+    {q:"« Décriminaliser, c'est légaliser le proxénétisme. »", r:"Non : décriminaliser l'activité des travailleuses ≠ tolérer la contrainte. On garde et on renforce la répression de la traite, du proxénétisme forcé, des mineurs. La Nouvelle-Zélande décriminalise le travail ET poursuit l'exploitation."},
+    {q:"« C'est indigne de vendre son corps. »", r:"« Indigne » est un jugement de dégoût, pas un tort (cf. mes cas-limites). On vend déjà son corps et son temps dans mille métiers. Ce qui compte moralement, c'est la contrainte et la sécurité — pas notre malaise esthétique."}
+  ],
+  etudes:[
+    "Nouvelle-Zélande (décriminalisation, 2003) : la loi a amélioré la capacité des travailleuses à faire valoir leurs droits et leur sécurité, sans hausse démontrée de l'ampleur du secteur. — Prostitution Law Review Committee (2008)",
+    "Amnesty International recommande la décriminalisation du travail du sexe consenti comme meilleure protection des droits humains des travailleuses. — Amnesty International (2016)",
+    "La pénalisation (y compris du client) est associée à davantage de risques pour les travailleuses (violence, moindre accès à la santé et à la police). — revue systématique Platt et al. (2018, PLoS Medicine)",
+    "La traite des êtres humains est un phénomène distinct, à combattre spécifiquement, à ne pas confondre avec le travail du sexe consenti. — cadre ONUDC"
+  ],
+  sources:["Prostitution Law Review Committee (NZ, 2008)","Amnesty International (2016)","Platt et al. (2018, PLoS Medicine)","Mill / autonomie & contrainte (cf. mes débats autonomie & drogues)"]
+},
+
+{
+  id:"intervention", theme:"Politique", titre:"Faut-il intervenir militairement à l'étranger ?",
+  maPosition:"Présomption forte contre — mais pas « jamais ». Une intervention peut se justifier par le solde (empêcher un génocide, aider un agressé) sous conditions strictes de guerre juste ; le problème récurrent est que les interventions « humanitaires » tournent mal (Irak, Libye). Je juge au bilan attendu réel, pas à la bonne intention affichée.",
+  socle:"Conséquentialisme + conséquentialisme de règle. La guerre tue massivement → présomption très forte contre (comme la violence politique interne). Override possible si : cause grave (génocide, agression), dernier recours, proportionnalité, chances de succès réelles, discrimination (épargner les civils) — les critères de la guerre juste, relus sans droit naturel. Mais un biais guette : surestimer sa capacité à « reconstruire » (hubris), sous-estimer le chaos post-intervention. Aider un pays agressé à se défendre (fournir des armes) diffère d'envahir pour « libérer ».",
+  adverse:{ nom:"L'interventionniste ET le non-interventionniste absolu",
+    steelman:"Interventionniste : laisser un dictateur massacrer quand on pourrait l'en empêcher, c'est de la complicité par inaction ; la « responsabilité de protéger » est un progrès moral. Non-interventionniste : les interventions occidentales, même bien intentionnées, sèment le chaos (Irak, Libye), servent des intérêts cachés et tuent au nom du bien — mieux vaut ne jamais s'en mêler." },
+  defense:"Je refuse les deux absolus. Contre le non-interventionniste : l'inaction a AUSSI un bilan (Rwanda : ne rien faire a coûté ~800 000 morts). Contre l'interventionniste : la bonne intention ne suffit pas, il faut des chances de succès réelles ET un plan de l'après — sans quoi on remplace un mal par un chaos (Libye). Le critère est le solde attendu honnête, avec prudence maximale sur notre capacité à reconstruire.",
+  faille:"L'interventionniste sous-estime systématiquement le coût du chaos post-intervention et surestime sa maîtrise (hubris du « nation-building »). Le non-interventionniste absolu traite « ne pas agir » comme neutre, alors que c'est un choix avec un bilan (les morts qu'on laisse faire). Les deux fuient le calcul difficile : quel est le solde RÉEL, effets de second ordre compris ?",
+  contre:[
+    {q:"« On ne peut pas laisser massacrer sans rien faire. »", r:"D'accord — c'est mon exception (le Rwanda hante). Mais « faire quelque chose » ≠ « envahir » : il y a un spectre (sanctions, armes défensives, zones d'exclusion, justice internationale). L'action doit avoir des chances réelles de faire MOINS de morts, pas juste soulager notre conscience."},
+    {q:"« Les interventions ne font qu'empirer les choses (Irak, Libye). »", r:"Souvent vrai — argument de prudence puissant, pas une loi absolue. Irak/Libye ont échoué faute de plan de l'après et par hubris. Ça condamne les interventions mal pensées, pas le principe d'empêcher un génocide imminent."},
+    {q:"« Aider l'Ukraine, c'est jouer avec le feu. »", r:"Aider un agressé à se défendre (armes, renseignement) diffère d'envahir : le solde inclut la dissuasion (laisser une agression payer en encourage d'autres). Le risque d'escalade est réel et à peser — mais « ne jamais aider un agressé » a aussi un coût, mondial."},
+    {q:"« Ces guerres cachent toujours des intérêts (pétrole). »", r:"Souvent, oui — raison de plus pour un critère exigeant et transparent (guerre juste), pas pour l'abstention de principe. Le cynisme sur les motifs ne dispense pas d'évaluer le bilan réel pour les populations concernées."}
+  ],
+  etudes:[
+    "Rwanda (1994) : l'inaction internationale a laissé un génocide faire ~800 000 morts en 100 jours → « ne rien faire » a un bilan, parfois pire que l'action. — rapports ONU ; Roméo Dallaire",
+    "La « responsabilité de protéger » (R2P) a été adoptée par l'ONU en 2005 — mais son application (Libye, 2011) reste très contestée quant à ses effets. — Sommet mondial de l'ONU (2005)",
+    "Reconstruction post-conflit : les interventions sans plan crédible de l'« après » (Irak 2003, Libye 2011) ont produit instabilité durable et coûts humains élevés. — littérature en relations internationales",
+    "Les critères classiques de la guerre juste (cause juste, dernier recours, proportionnalité, chances de succès, discrimination) restent le cadre d'évaluation dominant. — Michael Walzer, «Just and Unjust Wars» (1977)"
+  ],
+  sources:["Michael Walzer, «Just and Unjust Wars» (1977)","R2P / Sommet mondial de l'ONU (2005)","Rwanda (rapports ONU ; Dallaire)","cf. mon débat violence politique"]
+},
+
+{
+  id:"antinatalisme", theme:"Frontières", titre:"Est-il moral de faire des enfants ?",
+  maPosition:"Faire un enfant n'est ni un dû ni un cadeau qu'on lui fait (il n'existait pas pour en manquer) — mais ce n'est pas non plus une faute en soi. Je prends au sérieux l'asymétrie de Benatar sans y céder : ma vue « person-affecting » dit qu'on ne doit rien aux non-nés → ni devoir de procréer, ni interdit. Le devoir naît ENVERS l'enfant une fois qu'on choisit de le faire advenir.",
+  socle:"Cohérent avec mon cadre (avortement, longtermisme) : les êtres purement potentiels n'ont pas d'intérêts → aucun devoir de les faire exister (ni de s'en abstenir « pour eux », personne n'étant lésé par la non-naissance). L'argument de Benatar : l'asymétrie plaisir/douleur (l'absence de douleur est bonne même sans personne pour en profiter ; l'absence de plaisir n'est mauvaise que s'il y a quelqu'un privé) → il vaudrait toujours mieux ne pas naître. Puissant mais pas décisif : il suppose une comptabilité de la valeur des états non vécus que ma vue person-affecting refuse. Résultat : procréation permise, et devoir FORT envers l'enfant réel (lui devoir une vie bonne).",
+  adverse:{ nom:"Benatar (antinataliste) et, en face, le pro-nataliste",
+    steelman:"Benatar : venir au monde, c'est nécessairement subir des douleurs (maladie, deuil, mort), qu'on inflige à quelqu'un qui n'a rien demandé et qui ne manquait de rien avant. Puisque le non-né ne manque de rien, ne pas créer ne prive personne — procréer fait donc courir un risque gratuit à un tiers. Pro-nataliste : la vie est un bien, perpétuer l'humanité est un devoir, et une vie majoritairement heureuse justifie largement de la donner." },
+  defense:"Contre le pro-nataliste : « la vie est un cadeau » suppose un bénéficiaire préexistant — il n'y en a pas (on ne fait de faveur à personne en le créant). Pas de devoir de peupler. Contre Benatar : son asymétrie attribue une valeur (« l'absence de douleur est bonne ») à un état où personne n'existe pour que ce soit bon — le même saut que je refuse au longtermisme. Ma sortie : ni devoir ni interdit de procréer ; mais un devoir réel de ne le faire que si l'on peut offrir une vie digne (sinon on lèse l'enfant réel à venir).",
+  faille:"Benatar veut le person-affecting dans un sens (la non-naissance ne prive personne d'un bien) et pas dans l'autre (elle « évite » un mal comme si c'était un gain pour quelqu'un). Cette asymétrie est le point contesté. Le pro-nataliste, symétriquement, traite un non-existant comme un bénéficiaire à qui l'on ferait un don. Les deux peuplent de valeur un endroit où il n'y a encore personne.",
+  contre:[
+    {q:"« La vie est un cadeau qu'on fait à l'enfant. »", r:"On ne peut pas faire un cadeau à qui n'existe pas encore : pas de bénéficiaire en attente. Créer une vie n'est pas rendre service à un non-né — c'est faire advenir un sujet, envers qui on aura alors des devoirs."},
+    {q:"« Alors il ne faut pas faire d'enfants (Benatar) ? »", r:"Non plus : son asymétrie suppose qu'« éviter une douleur » sans personne à protéger est un bien — ce que ma vue person-affecting refuse (comme au longtermisme). Sans personne, ni gain ni perte. Donc ni devoir de créer, ni interdit."},
+    {q:"« On impose la souffrance et la mort à quelqu'un sans son accord. »", r:"Vrai qu'on ne peut pas demander le consentement d'un non-né (logique de la cage). C'est pourquoi le devoir est ENVERS l'enfant réel : ne le faire naître que dans des conditions où sa vie vaudra probablement la peine — pas dans la misère ou la maladie certaine."},
+    {q:"« Perpétuer l'humanité est un devoir. »", r:"Envers qui ? Pas envers les non-nés (ils n'ont pas d'intérêts). Il peut y avoir des raisons instrumentales (les vivants tiennent à un futur), mais pas un devoir de peupler. Ni pro- ni anti-nataliste par principe : pour le bien-être des sujets réels."}
+  ],
+  etudes:[
+    "Asymétrie de Benatar : l'absence de douleur est « bonne » même sans sujet ; l'absence de plaisir n'est « mauvaise » que pour un sujet privé → il conclut que ne jamais naître est préférable. — David Benatar, «Better Never to Have Been» (2006)",
+    "Vue « person-affecting » et problème de non-identité : nos choix déterminent QUI naîtra, brouillant l'idée de « nuire » à une personne future précise. — Derek Parfit, «Reasons and Persons» (1984)",
+    "Asymétrie de procréation (intuition partagée) : on a une raison de ne pas créer une vie misérable, mais pas de devoir de créer une vie heureuse. — Jeff McMahan ; Nils Holtug (éthique de la population)",
+    "Absence de consentement à naître (on n'a pas choisi d'exister) → pas de dette ascendante due à ses parents. — cf. mon débat « dette asymétrique »"
+  ],
+  sources:["David Benatar, «Better Never to Have Been» (2006)","Derek Parfit, «Reasons and Persons» (1984) — person-affecting","Débats en éthique de la population (McMahan, Holtug)","cf. mes débats avortement, longtermisme & dette"]
+},
+
+{
+  id:"dissuasion", theme:"Politique", titre:"Faut-il garder l'arme nucléaire (dissuasion) ?",
+  maPosition:"Paradoxe assumé : je hais l'arme mais je garde la dissuasion, faute de mieux, tant que d'autres en ont. <b>⚖️ Le fait le plus solide</b> : depuis 1945, aucune guerre directe entre grandes puissances nucléaires — la dissuasion a probablement évité des guerres majeures, au prix d'un risque catastrophique de faible probabilité. Ma ligne : dissuasion minimale + désarmement multilatéral vérifiable, pas désarmement unilatéral.",
+  socle:"Conséquentialisme sous incertitude. La dissuasion (MAD) brandit une menace horrible pour empêcher un mal pire (la guerre entre grandes puissances). Deux faits pèsent : (1) la « paix nucléaire » — pas de guerre directe entre puissances nucléaires depuis 1945, ce qui suggère un effet dissuasif réel ; (2) le risque de queue — une erreur, un accident, une escalade peut tuer des centaines de millions (on a frôlé plusieurs fois). Mon calcul : tant que d'autres sont armés, désarmer seul expose au chantage (dilemme de sécurité) → dissuasion minimale ; mais viser activement la réduction multilatérale, car le risque de catastrophe s'accumule dans le temps.",
+  adverse:{ nom:"Le désarmeur unilatéral ET le faucon nucléaire",
+    steelman:"Désarmeur : garder de quoi tuer l'humanité est fou et immoral ; la dissuasion est un pari qui, statistiquement, finira par rater (un accident, un dément) → désarmer, quitte à montrer l'exemple. Faucon : la faiblesse invite l'agression ; il faut une supériorité crédible, pas une dissuasion « minimale » qui doute d'elle-même." },
+  defense:"Au désarmeur : je partage l'horreur et le but final (un monde sans ces armes), mais désarmer UNILATÉRALEMENT ne supprime pas les bombes des autres — ça t'expose au chantage sans réduire le risque global. Le chemin est le désarmement MULTILATÉRAL vérifiable. Au faucon : la « supériorité » relance la course et augmente le risque d'accident/escalade sans gain de sécurité — la dissuasion minimale suffit à rendre une attaque irrationnelle.",
+  faille:"Le désarmeur unilatéral confond « ces armes sont un mal » (vrai) et « m'en débarrasser seul réduit le mal » (faux, tant que les autres restent armés — dilemme de sécurité). Le faucon ignore que la recherche de supériorité est déstabilisante (course, escalade). Les deux sous-estiment un point commun : le risque n'est pas nul et s'accumule → l'urgence est la réduction coordonnée, pas la posture.",
+  contre:[
+    {q:"« Garder de quoi détruire le monde est immoral. »", r:"Oui, l'arme est un mal. Mais le désarmement unilatéral ne détruit pas les arsenaux adverses — il te livre au chantage. Le mal se réduit par la baisse multilatérale vérifiable, pas par un geste moral qui laisse les autres armés."},
+    {q:"« La dissuasion finira statistiquement par rater. »", r:"Argument sérieux : le risque n'est pas nul et s'accumule (on a frôlé la catastrophe plusieurs fois). C'est justement pourquoi je pousse la réduction des stocks et des niveaux d'alerte — mais désarmer seul augmenterait, pas diminuerait, le risque d'agression."},
+    {q:"« Sans nucléaire, l'Ukraine n'aurait pas été envahie ? »", r:"L'Ukraine a rendu ses armes (Budapest, 1994) et a été envahie — argument fort que la dissuasion protège, et que la prolifération tente. C'est le drame : la dissuasion marche, ce qui la rend dure à abolir. D'où le multilatéral, seul chemin crédible."},
+    {q:"« Il faut la supériorité, pas la parité. »", r:"La recherche de supériorité relance la course et augmente le risque d'accident/escalade sans rendre l'attaque « plus irrationnelle » qu'une dissuasion minimale crédible ne le fait déjà. Plus d'armes ≠ plus de sécurité au-delà du seuil de dissuasion."}
+  ],
+  etudes:[
+    "« Paix nucléaire » : depuis 1945, aucune guerre directe entre grandes puissances dotées de l'arme → indice (contesté) d'un effet dissuasif. — débat Waltz vs Sagan, «The Spread of Nuclear Weapons» (1995)",
+    "Risque d'accident réel : plusieurs fausses alertes ont frôlé un lancement (ex. Stanislav Petrov, 1983) → la dissuasion comporte un risque de catastrophe non nul. — Eric Schlosser, «Command and Control» (2013)",
+    "L'Ukraine a renoncé aux armes nucléaires héritées de l'URSS (mémorandum de Budapest, 1994) contre des garanties, puis a été envahie (2014, 2022) → illustre le dilemme dissuasion/prolifération.",
+    "Le Traité de non-prolifération engage les États dotés à négocier le désarmement : la voie retenue est multilatérale et vérifiable, pas unilatérale. — TNP (1968)"
+  ],
+  sources:["Waltz vs Sagan (1995) — débat sur la dissuasion","Eric Schlosser, «Command and Control» (2013) — near misses","Mémorandum de Budapest (1994) ; TNP (1968)","Conséquentialisme sous incertitude (cf. mon débat violence)"]
 }
 
 ];
