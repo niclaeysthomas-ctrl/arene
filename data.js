@@ -574,6 +574,52 @@ const DEBATS = [
     "« NOMA » (magistères non recouvrants) : séparation nette des domaines — utile mais critiquée, car les religions font aussi des affirmations empiriques. — Gould, «Rocks of Ages» (1999) ; critiques (Dawkins)"
   ],
   sources:["Stephen Jay Gould, «Rocks of Ages» (1999) — NOMA","Ronald Numbers, «Galileo Goes to Jail» (2009) — mythes du conflit","Richard Dawkins, «The God Delusion» (2006) — thèse du conflit (à nuancer)","Draper-White (thèse du conflit, XIXᵉ) — historiographie dépassée"]
+},
+
+{
+  id:"europe", theme:"Politique", titre:"Europe : plus ou moins d'intégration ?",
+  maPosition:"Plus d'intégration là où elle produit un bien-être qu'aucun État seul ne peut produire (climat, défense, marché, régulation des géants) ; subsidiarité stricte ailleurs. La souveraineté nationale n'est pas sacrée — c'est un outil de coordination parmi d'autres, à l'échelle qui marche. Fédéraliste fonctionnel, pas par amour du drapeau étoilé.",
+  socle:"Cohérent avec mon cosmopolitisme fonctionnel (cf. immigration) : la nation est un outil de coopération, pas une valeur en soi. Beaucoup de problèmes (climat, évasion fiscale, plateformes, défense face à une grande puissance) ont une échelle qui dépasse l'État-nation → l'échelon pertinent devient supranational. Mais l'intégration se justifie problème par problème (subsidiarité : au plus petit échelon efficace), pas comme une fin. Le « déficit démocratique » est un vrai enjeu de <i>design</i>, pas une raison de rejeter le principe.",
+  adverse:{ nom:"Le souverainiste",
+    steelman:"La démocratie vit dans un demos : un peuple, une langue, une histoire, un espace de débat commun. Transférer le pouvoir à Bruxelles, c'est l'éloigner des citoyens vers une technocratie non élue, diluer la responsabilité et imposer des règles qu'aucun peuple n'a vraiment choisies. Sans nation, pas de solidarité ni de contrôle démocratique réels." },
+  defense:"Le demos est un argument sérieux — mais fonctionnel, pas magique : là où un problème dépasse la nation (carbone, fisc des multinationales, sécurité), l'absence d'échelon commun ne « protège » pas la démocratie, elle la rend impuissante. La réponse au déficit démocratique est de démocratiser l'UE (plus de pouvoir au Parlement élu), pas de la défaire. Et le marché commun a produit des gains réels (paix, échanges, niveau de vie).",
+  faille:"Le souverainiste traite la souveraineté nationale comme une fin en soi (mon « spécisme au drapeau »), alors qu'elle vaut par ce qu'elle permet. Il oppose « peuple » et « Bruxelles » en oubliant que le Conseil et le Parlement SONT composés d'élus. Et « reprendre le contrôle » sur un problème transnational (climat, fiscalité) tout seul, c'est souvent reprendre le contrôle d'un volant débranché.",
+  contre:[
+    {q:"« L'UE est une technocratie non élue. »", r:"En partie vrai (la Commission n'est pas élue au suffrage direct) — d'où : renforcer le Parlement européen, seul organe élu. Le remède au déficit démocratique est plus de démocratie européenne, pas le retour à des États impuissants face aux problèmes transnationaux."},
+    {q:"« Chaque nation doit décider pour elle-même. »", r:"Pour ce qui est local, oui (subsidiarité). Mais pour le carbone, l'évasion fiscale, les plateformes, la défense : décider « chacun chez soi » = ne rien décider (passager clandestin, course au moins-disant). L'échelon doit épouser le problème."},
+    {q:"« L'euro et l'austérité ont fait des dégâts. »", r:"Concession réelle : une monnaie sans budget commun ni transferts est bancale (crise grecque). Mais ça plaide pour PLUS d'intégration budgétaire (vrai budget, emprunt commun — cf. le plan post-COVID), pas pour l'éclatement."},
+    {q:"« Le Brexit prouve qu'on peut vivre sans. »", r:"« Vivre sans », oui ; « mieux », non établi — les bilans du Brexit sont négatifs à ce jour (commerce, investissement). La souveraineté regagnée est réelle mais payée cher : c'est un arbitrage, pas une évidence."}
+  ],
+  etudes:[
+    "Le marché unique et l'intégration ont un effet positif estimé sur le commerce et le revenu par habitant des membres. — In 't Veld (2019, Commission européenne) ; littérature sur les gains du marché unique",
+    "Le « déficit démocratique » est débattu : certains politologues jugent l'UE à peu près aussi redevable que des démocraties multi-niveaux comparables. — Moravcsik (2002) vs Hix, «What's Wrong with the EU?» (2008)",
+    "Coûts du Brexit : baisse mesurée des échanges et de l'investissement du R.-U. vs un scénario sans Brexit. — Office for Budget Responsibility (R.-U.) ; CEP/LSE",
+    "Les biens publics transnationaux (climat, fiscalité des multinationales) souffrent du passager clandestin → l'action coordonnée fait mieux que l'action isolée. — accord OCDE sur l'impôt minimum mondial (2021)"
+  ],
+  sources:["Andrew Moravcsik (2002) vs Simon Hix (2008) — déficit démocratique","In 't Veld (2019) — gains du marché unique","OBR / CEP-LSE — coûts du Brexit","Cosmopolitisme fonctionnel (cf. mon débat immigration)"]
+},
+
+{
+  id:"prison", theme:"Politique", titre:"Prison : punir, protéger ou réinsérer ?",
+  maPosition:"Punir pour l'avenir, jamais pour le passé. <b>⚖️ Ce que les données montrent</b> : c'est la CERTITUDE de la sanction qui dissuade, pas sa DURÉE ; et les longues peines « dures » n'améliorent pas la récidive, souvent l'aggravent. Donc : neutralisation quand c'est nécessaire, réinsertion partout où c'est possible, sévérité calibrée sur l'effet réel — pas sur la vengeance.",
+  socle:"Pas de libre arbitre métaphysique → pas de rétribution (« faire payer » est une souffrance sans bénéfice). La punition ne se justifie que par ses effets futurs : dissuasion, neutralisation, réhabilitation. Or l'empirie est nette sur la dissuasion : ce qui compte, c'est la probabilité d'être pris, pas la longueur de la peine (Nagin). Et l'incarcération longue a des effets criminogènes (désocialisation, « école du crime »). Le modèle qui minimise la récidive — donc les futures victimes — est réinsérant, pas punitif.",
+  adverse:{ nom:"Le partisan de la fermeté (rétributif / incapacitant)",
+    steelman:"Un crime mérite une peine à sa hauteur ; la société doit exprimer sa réprobation et protéger les honnêtes gens en mettant les dangereux hors d'état de nuire. Des peines plus longues, c'est mécaniquement moins de récidive pendant la détention, et un signal clair que le crime ne paie pas." },
+  defense:"« Mériter » suppose le libre arbitre que je rejette : je ne venge pas, je préviens. Sur la protection, la neutralisation vaut pour les individus réellement dangereux — mais l'appliquer massivement coûte cher, désocialise, et produit plus de récidive à la sortie (donc plus de victimes futures). Le « signal » suppose un calcul coût/bénéfice par le criminel : or ce qui pèse dans ce calcul, c'est le risque d'être pris, pas la durée théorique.",
+  faille:"Le partisan de la fermeté confond incapacitation (réelle, mais coûteuse et temporaire) et dissuasion (où la sévérité marche mal), et il ignore l'effet criminogène de la prison. Il traite la récidive à la sortie comme extérieure au problème, alors qu'elle EST le problème : une politique qui fabrique des récidivistes fait plus de victimes, pas moins.",
+  contre:[
+    {q:"« Les criminels doivent payer leur dette. »", r:"« Payer » suppose le mérite, que je rejette. Je ne cherche pas à équilibrer une balance cosmique mais à éviter le prochain crime. Faire souffrir un détenu sans éviter aucun mal futur, c'est de la cruauté pure."},
+    {q:"« Des peines plus longues protègent la société. »", r:"Pendant la détention, oui (incapacitation). Mais presque tous sortent — et les longues peines dures augmentent la récidive à la sortie. Sur le bilan complet (victimes futures comprises), la fermeté peut faire PLUS de mal."},
+    {q:"« La prison ne dissuade donc de rien ? »", r:"Si, mais par la CERTITUDE, pas la durée : augmenter la probabilité d'être pris (police, élucidation) dissuade bien plus que rallonger les peines. On investit au mauvais endroit."},
+    {q:"« Le modèle réinsérant est laxiste. »", r:"La Norvège (prisons réhabilitatives) a une récidive parmi les plus basses du monde ; les USA (incarcération de masse) parmi les plus hautes. « Doux » qui fait moins de victimes n'est pas laxiste — c'est efficace."}
+  ],
+  etudes:[
+    "La CERTITUDE de la sanction dissuade, pas sa sévérité : rallonger les peines a peu d'effet dissuasif, augmenter la probabilité d'arrestation en a un. — Daniel Nagin (2013, «Deterrence in the 21st Century»)",
+    "Effets criminogènes : l'incarcération (surtout longue) tend à augmenter la récidive vs des peines alternatives, par désocialisation et apprentissage du crime. — Cullen, Jonson & Nagin (2011)",
+    "Comparaison internationale : la Norvège (modèle réhabilitatif, Halden) affiche une récidive parmi les plus basses ; les USA (incarcération de masse) parmi les plus élevées. — statistiques pénitentiaires comparées",
+    "La peine capitale n'a pas d'effet dissuasif supérieur à la perpétuité → cohérent avec « la sévérité extrême ne dissuade pas plus ». — National Research Council (2012)"
+  ],
+  sources:["Daniel Nagin (2013) — dissuasion : certitude > sévérité","Cullen, Jonson & Nagin (2011) — effets de l'incarcération","Modèle norvégien (Halden) vs incarcération de masse US","Argument déterministe anti-rétribution (cf. mes débats libre arbitre & peine de mort)"]
 }
 
 ];

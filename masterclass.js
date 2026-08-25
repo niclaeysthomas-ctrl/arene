@@ -492,6 +492,49 @@ const MASTERCLASS = [
     "La plus grande variance masculine : se soucier autant de la queue basse (échec scolaire des garçons, SDF, prison) que du plafond de verre en haut ?"
   ],
   sources:["Su, Rounds & Armstrong (2009) — things/people","Stoet & Geary (2018, corr. 2020) ; Falk & Hermle (2018, Science) — paradoxe de l'égalité","Deary et al. (2003) ; Johnson, Carothers & Deary (2008) — variabilité","Hyde (2005) — gender similarities (contre) ; Del Giudice et al. (2012) — multivarié (contesté)","Kleven (child penalty) ; Goldin (2021) ; CONSAD/DoL (2009) — écart salarial"]
+},
+
+{
+  id:"immigration-chiffres", theme:"Société", titre:"Immigration : lire les chiffres sans se faire avoir",
+  sub:"Économie, budget, délinquance, intégration : ce que disent — et ne disent pas — les données. De quoi ne te faire piéger dans aucun sens.",
+  sections:[
+    {t:"Trois questions qu'on mélange sans arrêt",c:"Le débat s'embrouille parce qu'on répond à une question en croyant répondre à une autre :<br>• <b>Économie</b> : l'immigration enrichit-elle ou appauvrit-elle le pays (croissance, salaires) ?<br>• <b>Budget</b> : coûte-t-elle ou rapporte-t-elle aux finances publiques ?<br>• <b>Sécurité / culture</b> : effet sur la délinquance, la cohésion ?<br>Ce sont <b>trois questions empiriques distinctes</b>, aux réponses différentes — plus une 4ᵉ, <b>morale</b> (que doit-on aux étrangers ?), qui n'est pas un chiffre. Mélanger les quatre = la source n°1 des débats de sourds."},
+    {t:"Salaires et emploi des natifs",c:"Résultat le plus robuste : l'effet moyen de l'immigration sur les salaires des natifs est <b>faible, souvent proche de zéro</b> — les migrants consomment, créent des emplois et complètent autant qu'ils concurrencent. Le désaccord porte sur les <b>moins qualifiés</b> : <b>Card</b> (étude du Mariel, 1980) trouve un effet ~nul ; <b>Borjas</b> le réanalyse et trouve un effet négatif sur les natifs sans diplôme. Vérité probable : effet net petit, concentré sur les vagues d'immigrés <b>précédentes</b> (les plus substituables), pas sur l'ensemble des natifs."},
+    {t:"Le bilan budgétaire : ça dépend de QUI, pas de « l'immigré »",c:"Pas de réponse « l'immigration coûte/rapporte » en général : le solde dépend surtout de l'<b>âge</b> et de la <b>qualification</b> à l'arrivée. Un jeune actif qualifié rapporte (il cotise avant de coûter) ; un arrivant âgé ou peu qualifié pèse davantage. Sur le cycle de vie, l'OCDE trouve un impact budgétaire <b>faible</b> (souvent entre −1 % et +1 % du PIB), variable selon pays et vagues. Distinguer <b>réfugiés</b> (coût initial élevé, convergence ensuite) et <b>migration de travail</b> (positive plus vite)."},
+    {t:"Délinquance : corrélation n'est pas causalité",c:"Le terrain le plus miné. Méthode : (1) une <b>surreprésentation</b> dans les statistiques ≠ « l'immigration cause le crime » tant qu'on n'a pas contrôlé l'<b>effet de composition</b> (âge, sexe, pauvreté : les jeunes hommes pauvres commettent plus de délits <i>quelle que soit l'origine</i>) ; (2) les résultats <b>divergent selon les pays</b>. Fait établi côté USA : les immigrés (sans-papiers compris) ont des taux d'incarcération <b>plus bas</b> que les natifs. En Europe, le tableau est <b>plus mitigé</b> et dépend des groupes. Prudence exigée <b>des deux côtés</b> : ni « aucun lien », ni « lien évident »."},
+    {t:"Intégration : ce qui marche vraiment",c:"Le premier vecteur d'intégration est l'<b>emploi</b> : plus l'accès au marché du travail est rapide, meilleure est l'intégration (économique et culturelle). La <b>2ᵉ génération</b> converge largement vers les natifs (langue, diplômes, valeurs) — mais des <b>écarts persistent</b>, en partie à cause d'une <b>discrimination mesurée</b> (à CV équivalent, un nom « étranger » reçoit moins de réponses — testing). L'intégration n'est ni automatique ni impossible : elle dépend de politiques (emploi, école, lutte contre les discriminations)."},
+    {t:"Le point de vue mondial : « des billets sur le trottoir »",c:"Du point de vue de la <b>planète</b>, la migration de travail est un des plus gros gisements de richesse connus : les mêmes bras produisent beaucoup plus dans une économie riche → lever les barrières pourrait presque <b>doubler le PIB mondial</b> (Clemens). Le premier gagnant est le <b>migrant lui-même</b> (son revenu est multiplié). Mais ce gain mondial ne dit pas comment le répartir ni à quelle cadence absorber : la question <b>empirique</b> (ça enrichit) et la question <b>morale/politique</b> (à qui doit-on, à quel rythme) restent séparées."}
+  ],
+  camps:[
+    {nom:"Camp « ouverture »",pos:"L'immigration est globalement bénéfique (croissance, démographie, comblement de pénuries), l'effet sur les salaires est faible, la délinquance s'explique par la composition sociale, et l'intégration marche avec les bonnes politiques. Fermer, c'est se priver de gains réels et abandonner des gens qu'on pourrait aider — pour des peurs mal étayées."},
+    {nom:"Camp « maîtrise / restriction »",pos:"Le rythme et la composition comptent : une immigration rapide, peu qualifiée ou mal intégrée pèse sur les bas salaires, les finances locales, les services publics et la cohésion. Un pays a le droit de choisir qui entre et à quelle cadence ; la solidarité et la confiance ont besoin d'un cadre, pas d'ouverture illimitée."}
+  ],
+  strategies:[
+    {c:"Ce que cherche le camp « ouverture »",but:"Établir que les coûts sont surestimés et les bénéfices sous-estimés. Tactique : citer l'effet ~nul sur les salaires et les taux de criminalité plus bas (USA), et requalifier les inquiétudes en « peurs irrationnelles »."},
+    {c:"Ce que cherche le camp « restriction »",but:"Établir que l'immigration (surtout non choisie) coûte et déstabilise. Tactique : brandir des statistiques de délinquance <b>brutes</b> (sans contrôler âge/pauvreté), le coût budgétaire des vagues récentes, et présenter tout gain comme capté par les migrants, pas par les natifs."}
+  ],
+  chiffres:[
+    "Effet moyen de l'immigration sur les salaires des natifs : faible, souvent proche de zéro ; débat sur les moins qualifiés. — Card (Mariel, 1990) vs Borjas ; National Academies (2017)",
+    "Impact budgétaire : généralement faible (souvent entre −1 % et +1 % du PIB), très dépendant de l'âge et de la qualification à l'arrivée. — OCDE, «International Migration Outlook» (2013)",
+    "2ᵉ génération : forts contributeurs nets dans les projections (jeunes, actifs) → l'horizon temporel change tout le bilan. — National Academies of Sciences (2017)",
+    "USA : les immigrés, sans-papiers compris, ont des taux d'incarcération plus bas que les natifs. — Light & Miller (2018) ; études Cato. Europe : résultats plus mitigés selon les groupes.",
+    "Discrimination à l'embauche mesurée : à CV équivalent, un nom à consonance étrangère reçoit nettement moins de réponses. — testing (Bertrand & Mullainathan, 2004 ; études françaises)",
+    "Gain mondial : lever les barrières à la migration de travail pourrait quasi doubler le PIB mondial → « des billets de mille milliards sur le trottoir ». — Clemens (2011, JEP)"
+  ],
+  pieges:[
+    "Confondre les 4 questions (économie / budget / sécurité / morale) : on « gagne » un point en changeant de terrain en douce.",
+    "Statistiques de délinquance brutes sans contrôler âge, sexe et pauvreté : l'effet de composition explique une grande part de l'écart.",
+    "Parler de « l'immigré » en général : tout dépend de l'âge, de la qualification, du statut (travail vs réfugié) et du pays d'accueil.",
+    "Prendre l'effet ~nul sur LES salaires moyens pour « aucun effet sur personne » : les vagues précédentes d'immigrés peu qualifiés peuvent être touchées.",
+    "Confondre « ça enrichit le monde » (vrai, Clemens) et « ça enrichit forcément CE pays à CE rythme » : échelle et cadence comptent."
+  ],
+  trancher:[
+    "À qui doit-on quoi ? Compatriotes d'abord, ou considération égale des étrangers (ton cosmopolitisme fonctionnel) ? C'est une valeur, pas un chiffre.",
+    "Quel poids donner au RYTHME d'absorption (services, logement, confiance) vs au principe d'ouverture ?",
+    "Immigration « choisie » (selon les besoins) ou « droit » (asile, regroupement familial) : où mettre le curseur ?",
+    "Si l'intégration dépend de politiques (emploi, anti-discrimination), es-tu prêt à les financer avant de juger l'immigration « réussie » ou « ratée » ?"
+  ],
+  sources:["Card (Mariel, 1990) vs Borjas — salaires ; National Academies (2017)","OCDE, «International Migration Outlook» (2013) — budget","Light & Miller (2018) ; Cato — délinquance (USA) ; résultats européens mitigés","Bertrand & Mullainathan (2004) — discrimination à l'embauche","Michael Clemens (2011) — gain mondial de la migration"]
 }
 
 ];
