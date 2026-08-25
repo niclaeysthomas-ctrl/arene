@@ -620,6 +620,97 @@ const DEBATS = [
     "La peine capitale n'a pas d'effet dissuasif supérieur à la perpétuité → cohérent avec « la sévérité extrême ne dissuade pas plus ». — National Research Council (2012)"
   ],
   sources:["Daniel Nagin (2013) — dissuasion : certitude > sévérité","Cullen, Jonson & Nagin (2011) — effets de l'incarcération","Modèle norvégien (Halden) vs incarcération de masse US","Argument déterministe anti-rétribution (cf. mes débats libre arbitre & peine de mort)"]
+},
+
+{
+  id:"meritocratie", theme:"Justice", titre:"La méritocratie est-elle juste ?",
+  maPosition:"Comme idéal d'efficacité et d'égalité des chances : utile. Comme théorie du MÉRITE moral (« les gagnants méritent, les perdants aussi ») : fausse et toxique. <b>⚖️ Le point dur</b> : puisque talents ET effort sont hérités de la loterie génétique et sociale, personne ne mérite au sens fort sa place. La méritocratie est un bon outil d'allocation, un mauvais récit de justice.",
+  socle:"Deux sens à démêler. (1) Méritocratie-<b>outil</b> : mettre la bonne personne au bon poste selon la compétence → efficace, je garde. (2) Méritocratie-<b>morale</b> : le succès est mérité (donc juste), l'échec aussi (donc de sa faute) → faux à la racine, car pas de libre arbitre + les talents sont « moralement arbitraires » (Rawls) + le milieu façonne l'effort lui-même. Conséquence : on récompense la performance parce qu'elle <i>produit</i> (incitation), jamais parce qu'elle serait <i>due</i>. Et la méritocratie-morale a un coût : elle humilie les perdants et rend les gagnants arrogants (Sandel).",
+  adverse:{ nom:"Le défenseur de la méritocratie",
+    steelman:"Récompenser le mérite est juste ET efficace : ceux qui travaillent dur et réussissent doivent en récolter les fruits, sinon plus personne ne se donne de mal. C'est le contraire du privilège de naissance : la méritocratie ouvre la voie au talent, d'où qu'il vienne. Nier le mérite, c'est insulter l'effort et niveler par le bas." },
+  defense:"Je garde l'efficacité (récompenser ce qui produit) et l'anti-privilège (le talent ne doit pas être bloqué). Ce que je nie, c'est le saut du descriptif au moral : « ça marche de récompenser » ≠ « ils le méritent ». L'effort lui-même dépend de gènes, d'éducation, d'un tempérament reçus. Donc oui aux incitations, non à l'idée que le pauvre « a ce qu'il mérite » — c'est ce récit qui justifie l'indifférence.",
+  faille:"Le méritocrate confond incitation et mérite : on peut avoir la première sans le second (récompenser la performance comme on paie un outil efficace, sans y voir un dû cosmique). Et il ignore que sa propre « valeur travail » est en partie un trait chanceux. Empiriquement, la mobilité réelle est faible : la méritocratie proclamée sert souvent d'alibi à l'hérédité des positions.",
+  contre:[
+    {q:"« Sans mérite récompensé, plus personne ne bosse. »", r:"Les incitations restent — je les garde. On récompense la performance parce qu'elle produit, pas parce qu'elle est méritée. Le curseur est l'efficacité, pas le dû. Nier le mérite moral ne supprime pas les carottes."},
+    {q:"« Nier le mérite, c'est excuser la paresse. »", r:"Non : la responsabilité fonctionnelle demeure (on tient les gens comptables pour que ça marche). Ce qui saute, c'est le mépris envers ceux qui échouent — pas les incitations à agir. Exigeant sans être cruel."},
+    {q:"« La méritocratie a remplacé l'aristocratie, c'est un progrès. »", r:"En partie vrai (mieux vaut le talent que le sang). Mais elle a produit un mal neuf : les gagnants se croient légitimes et méprisent les perdants, qui intériorisent l'échec. Le progrès serait l'égalité des chances SANS le récit du mérite mérité (Sandel)."},
+    {q:"« Tu es bon élève — facile de critiquer le mérite. »", r:"Piège retourné : justement, mon cadre m'interdit de m'attribuer un mérite pour une intelligence que je n'ai pas choisie. Test d'honnêteté : si je dois ma place à la chance, je dois la partager, pas m'en glorifier."}
+  ],
+  etudes:[
+    "Les talents (et le tempérament qui pousse à l'effort) sont « moralement arbitraires » : nul ne les mérite au sens fort. — John Rawls, «A Theory of Justice» (1971)",
+    "La foi méritocratique nourrit l'arrogance des gagnants et l'humiliation des perdants → coût social et politique (ressentiment). — Michael Sandel, «The Tyranny of Merit» (2020)",
+    "Mobilité intergénérationnelle faible : le revenu des parents et le lieu où l'on grandit prédisent fortement le revenu adulte → le « mérite » est en grande partie hérité. — Chetty et al., Opportunity Insights",
+    "« Just-world hypothesis » : le biais de croire que chacun a ce qu'il mérite conduit à blâmer les victimes. — Melvin Lerner (1980)"
+  ],
+  sources:["John Rawls (1971) — arbitraire moral des talents","Michael Sandel, «The Tyranny of Merit» (2020)","Chetty et al. — mobilité","Melvin Lerner (1980) — just-world hypothesis","cf. mes débats redistribution & libre arbitre"]
+},
+
+{
+  id:"fiscalite", theme:"Justice", titre:"Flat tax ou impôt progressif ? Taxer le capital ?",
+  maPosition:"Impôt progressif, et taxer le capital au moins autant que le travail. <b>⚖️ Deux appuis solides</b> : l'utilité marginale décroissante (un euro pèse plus pour un pauvre → prélever en haut coûte moins de bien-être) et le fait que le patrimoine est bien plus concentré et plus « rente » que le revenu. La flat tax est plus simple, mais elle achète sa simplicité en renonçant à la justice.",
+  socle:"Pas de mérite (les hauts revenus tiennent largement à la loterie) → aucune inégalité n'est due, on ne les tolère que pour l'incitation. Utilité marginale décroissante → transférer du haut vers le bas augmente le bien-être net à revenu constant. Le capital : détention très concentrée, transmission (héritage = rente zéro-mérite), et taxer le travail plus que le capital revient à taxer l'effort plus que la rente — l'inverse de ce qu'un conséquentialiste veut. Donc progressivité + imposition sérieuse du capital, calibrées pour ne pas tuer l'incitation ni provoquer la fuite.",
+  adverse:{ nom:"Le partisan de la flat tax / faible taxation du capital",
+    steelman:"Un taux unique est simple, lisible, difficile à contourner, et ne « punit » pas la réussite. Taxer le capital, c'est frapper l'épargne et l'investissement (donc la croissance et l'emploi), pousser capitaux et talents à fuir, et imposer deux fois un argent déjà taxé. Mieux vaut une assiette large à taux bas." },
+  defense:"La simplicité est réelle mais secondaire : on peut simplifier un barème progressif sans le supprimer. « Punir la réussite » suppose le mérite, que je rejette : on ne punit pas, on prélève là où ça coûte le moins de bien-être. La fuite et l'investissement sont de vraies contraintes → elles fixent le taux OPTIMAL (coopération internationale, distinguer capital productif et rente), pas le principe.",
+  faille:"Le partisan de la flat tax érige une valeur instrumentale (simplicité) et une prémisse fausse (le mérite) en principes de justice. « Argent déjà taxé » est un sophisme (tout euro est taxé à chaque transaction — TVA, revenu). Et « le capital fuit » plaide pour la coordination fiscale (impôt minimum mondial), pas pour capituler : sinon toute justice fiscale est otage du moins-disant.",
+  contre:[
+    {q:"« Taxer les riches les fait fuir. »", r:"Effet réel mais souvent surestimé, et combattable : impôt minimum mondial (OCDE 2021), exit tax, imposition à la source. La mobilité du capital fixe le taux optimal, elle n'abolit pas le devoir de justice. Capituler, c'est laisser le moins-disant écrire les règles."},
+    {q:"« La flat tax, plus simple et plus juste (tous le même taux). »", r:"Même TAUX ≠ même SACRIFICE : 20 % ôtent l'essentiel au pauvre et l'accessoire au riche (utilité marginale). L'égalité de taux est une inégalité de bien-être. La vraie équité pèse le sacrifice, pas le pourcentage affiché."},
+    {q:"« Taxer le capital tue l'investissement. »", r:"Distinguer capital PRODUCTIF (à ménager, il crée) et RENTE (à taxer, elle ne crée rien — héritage, plus-values spéculatives, immobilier de rente). Bien conçu, l'impôt sur le capital cible la rente sans étrangler l'investissement utile."},
+    {q:"« C'est confiscatoire. »", r:"Non, calibré au taux optimal : capter la rente non méritée, préserver l'incitation à créer, financer l'égalité réelle des chances. La propriété est une fiction utile, pas un droit sacré (cf. mon débat redistribution) — elle cède devant le bien-être, à la bonne dose."}
+  ],
+  etudes:[
+    "L'utilité marginale du revenu décroît → un prélèvement en haut coûte moins de bien-être qu'en bas ; base de la progressivité optimale. — Diamond & Saez (2011, JEP) ; Mirrlees (1971)",
+    "Le patrimoine est bien plus concentré que le revenu (part du capital du top 1 % très supérieure à sa part du revenu) → le capital est surtout de la rente. — Saez & Zucman (2016)",
+    "L'accord OCDE/G20 sur un impôt minimum mondial de 15 % sur les multinationales montre que la « fuite » se combat par la coordination, pas la capitulation. — OCDE (2021)",
+    "Taxation optimale : le taux marginal supérieur optimal est élevé quand les hauts revenus réagissent peu à l'impôt (élasticité faible). — Saez (2001) ; Piketty, Saez & Stantcheva (2014)"
+  ],
+  sources:["Diamond & Saez (2011) ; Mirrlees (1971) — taxation optimale","Saez & Zucman (2016) — concentration du capital","OCDE (2021) — impôt minimum mondial","cf. mes débats redistribution & héritage"]
+},
+
+{
+  id:"surveillance", theme:"Politique", titre:"Sécurité vs vie privée : jusqu'où surveiller ?",
+  maPosition:"Présomption forte pour la vie privée ; la surveillance de masse doit prouver son efficacité ET sa proportionnalité — ce qu'elle échoue souvent à faire. <b>⚖️ Ce que les données montrent</b> : la collecte massive de métadonnées n'a pas démontré d'efficacité claire contre le terrorisme, alors que son coût (effet dissuasif sur les libertés, dérive) est réel. Je préfère une surveillance ciblée, sous contrôle judiciaire, à la collecte de tous.",
+  socle:"Mon libéralisme (souveraineté sur soi) + conséquentialisme de règle : « l'État peut surveiller largement pour la sécurité » est une règle à l'espérance dangereuse (capturable, effet cliquet — les pouvoirs d'exception ne se rendent jamais). La vie privée n'est pas un luxe : c'est la condition de la liberté d'expression, de la dissidence, de l'intimité. On met donc la charge de la preuve sur le surveillant : efficacité démontrée + proportionnalité + contrôle indépendant + réversibilité. Sinon, présomption pour la liberté.",
+  adverse:{ nom:"Le partisan de la sécurité",
+    steelman:"Face au terrorisme et au crime organisé, l'État doit pouvoir collecter et croiser des données pour prévenir les attentats — « qui n'a rien à cacher n'a rien à craindre ». Refuser ces outils au nom d'une vie privée abstraite, c'est accepter des morts évitables. La sécurité est la première des libertés." },
+  defense:"« Rien à cacher » est faux : la vie privée protège aussi l'innocent (la liberté suppose un for intérieur ; la dissidence suppose de ne pas être fiché). Et « ça sauve des vies » doit être PROUVÉ : les bilans des programmes de masse (métadonnées) ne montrent pas d'efficacité claire, tandis que les dérives (usage politique, cliquet, chilling effect) sont documentées. Je ne refuse pas la surveillance CIBLÉE (mandat, juge) ; je refuse la collecte de tous.",
+  faille:"Le partisan de la sécurité pose « sécurité vs vie privée » comme un curseur linéaire, alors que la surveillance de masse peut RÉDUIRE la sécurité (elle noie le signal dans le bruit et concentre un pouvoir dangereux). « Rien à cacher » confond « je n'ai rien fait » et « donnons à un pouvoir futur les moyens de tout voir » — les mêmes outils serviront le régime suivant.",
+  contre:[
+    {q:"« Qui n'a rien à cacher n'a rien à craindre. »", r:"Tout le monde a quelque chose à protéger (opinions, santé, relations) — et le danger n'est pas toi aujourd'hui, c'est l'usage futur de l'outil par un pouvoir moins bienveillant. La vie privée protège l'innocent, pas le coupable."},
+    {q:"« La surveillance de masse déjoue des attentats. »", r:"À prouver : les revues des programmes de métadonnées n'ont pas établi de rôle décisif clair, la plupart des attentats déjoués venant du renseignement ciblé. Efficacité non démontrée + coût réel = mauvais solde."},
+    {q:"« La reconnaissance faciale rend la ville plus sûre. »", r:"Gain marginal incertain, risques élevés (erreurs, biais, fichage généralisé, cliquet). À n'admettre qu'avec preuves d'efficacité, garde-fous stricts et réversibilité — pas par défaut « au cas où »."}
+  ],
+  etudes:[
+    "Le programme américain de collecte massive de métadonnées téléphoniques n'a pas eu de rôle décisif démontré dans la prévention d'attentats. — Privacy and Civil Liberties Oversight Board (PCLOB, 2014) ; groupe d'examen de la Maison-Blanche (2013)",
+    "« Chilling effect » : après les révélations Snowden, le trafic vers des pages Wikipédia sensibles a baissé → la surveillance dissuade la recherche légitime d'information. — Penney (2016)",
+    "Effet cliquet : les pouvoirs d'exception (post-2001, états d'urgence) tendent à se normaliser et à rester → une capacité de surveillance créée est rarement rendue. — littérature sur l'état d'exception",
+    "La reconnaissance faciale a des taux d'erreur plus élevés sur certaines populations (femmes, peaux foncées) → risque d'injustice à grande échelle. — Buolamwini & Gebru (2018, «Gender Shades»)"
+  ],
+  sources:["PCLOB (2014) ; White House Review Group (2013) — (in)efficacité des métadonnées","Penney (2016) — chilling effect","Buolamwini & Gebru (2018) — biais de la reconnaissance faciale","Mill / conséquentialisme de règle (cf. mon débat liberté d'expression)"]
+},
+
+{
+  id:"libre-echange", theme:"Politique", titre:"Libre-échange ou protectionnisme ?",
+  maPosition:"Le libre-échange enrichit globalement — <b>⚖️ là l'économie est assez nette</b> (gains à l'échange, avantage comparatif, sortie de pauvreté de masse) — MAIS il fait des perdants concentrés et réels qu'on a criminellement négligés. Ma position : ouverture + compensation et reconversion sérieuses des perdants. Le problème n'est pas l'échange, c'est qu'on a empoché les gains sans les partager.",
+  socle:"Avantage comparatif (Ricardo) : l'échange augmente la production totale, même entre partenaires inégaux. Empiriquement, l'ouverture a accompagné la plus forte baisse de pauvreté de l'histoire (Asie). MAIS les gains sont diffus (consommateurs, un peu partout) et les pertes concentrées (telle usine, telle région) → explosif politiquement et dur humainement. Mon conséquentialisme additionne les deux : garder l'échange (gain net) ET redistribuer aux perdants (sinon le solde local est atroce et le rejet politique justifié).",
+  adverse:{ nom:"Le protectionniste",
+    steelman:"Le libre-échange a désindustrialisé des régions entières, détruit des emplois ouvriers, tiré salaires et normes vers le bas (dumping social et environnemental) et rendu les nations dépendantes (masques, semi-conducteurs). Protéger, c'est défendre ses travailleurs, son industrie et sa souveraineté face à une concurrence déloyale." },
+  defense:"Je concède le cœur empirique : le « choc chinois » a détruit des emplois durablement dans les régions exposées — réel, mesuré, et on l'a ignoré. Mais la réponse n'est pas de bloquer l'échange (qui appauvrit tout le monde, surtout les pauvres d'ici via les prix et les pauvres d'ailleurs via l'emploi) : c'est de COMPENSER et reconvertir les perdants, et de réguler les vraies distorsions (dumping, normes). Protéger l'emploi par les tarifs coûte très cher par emploi « sauvé ».",
+  faille:"Le protectionniste voit les pertes (visibles, concentrées) et pas les gains (diffus : prix bas pour tous, emplois à l'export, développement des pays pauvres). Il traite un problème de DISTRIBUTION (perdants non compensés) comme un problème d'ÉCHANGE (l'ouverture elle-même). Et « l'indépendance » a un prix : l'autarcie appauvrit ; la résilience ciblée (stocks, diversification) suffit sans tout fermer.",
+  contre:[
+    {q:"« Le libre-échange a tué nos usines. »", r:"En partie vrai et gravement sous-traité : le choc des importations a détruit des emplois concentrés, durables. Mais bloquer l'échange appauvrit tout le monde ; la bonne réponse est de compenser/reconvertir les perdants et de réguler le dumping — pas de renoncer aux gains de l'échange."},
+    {q:"« Les tarifs protègent les emplois. »", r:"À un coût énorme par emploi sauvé (le consommateur paie plus cher, des emplois à l'export sont perdus). Les études chiffrent des centaines de milliers d'euros par emploi « protégé » : très mauvais usage de l'argent public vs une vraie reconversion."},
+    {q:"« On doit être indépendants (masques, puces). »", r:"Vrai pour quelques secteurs stratégiques (santé, défense, semi-conducteurs) → diversifier, stocker, relocaliser ciblé. Mais généraliser l'autarcie au nom de rares dépendances, c'est jeter les gains massifs de l'échange pour un risque marginal."},
+    {q:"« Le libre-échange creuse les inégalités. »", r:"Entre nations, il les a plutôt réduites (rattrapage asiatique) ; dans les pays riches, il peut les creuser SI on ne redistribue pas. C'est un argument pour la redistribution et la reconversion, pas contre l'échange."}
+  ],
+  etudes:[
+    "Avantage comparatif : l'échange augmente la production totale même entre partenaires d'inégale productivité. — David Ricardo (1817)",
+    "L'ouverture commerciale a accompagné la plus forte baisse de l'extrême pauvreté mondiale (Asie de l'Est) → gain de masse pour les plus pauvres. — Banque mondiale ; Our World in Data",
+    "« China shock » : les régions américaines exposées aux importations chinoises ont subi des pertes d'emploi durables et peu de reconversion → perdants réels et concentrés. — Autor, Dorn & Hanson (2013, AER)",
+    "Le coût par emploi « sauvé » par les tarifs (acier, machines à laver) se chiffre en centaines de milliers de dollars → protection très inefficace vs compensation directe. — Flaaen, Hortaçsu & Tintelnot (2020) ; Hufbauer & Elliott"
+  ],
+  sources:["David Ricardo (1817) — avantage comparatif","Autor, Dorn & Hanson (2013) — China shock","Banque mondiale / Our World in Data — pauvreté et ouverture","Flaaen et al. (2020) — coût des tarifs ; Hufbauer & Elliott"]
 }
 
 ];
