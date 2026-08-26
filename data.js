@@ -872,6 +872,75 @@ const DEBATS = [
     "Le Traité de non-prolifération engage les États dotés à négocier le désarmement : la voie retenue est multilatérale et vérifiable, pas unilatérale. — TNP (1968)"
   ],
   sources:["Waltz vs Sagan (1995) — débat sur la dissuasion","Eric Schlosser, «Command and Control» (2013) — near misses","Mémorandum de Budapest (1994) ; TNP (1968)","Conséquentialisme sous incertitude (cf. mon débat violence)"]
+},
+
+{
+  id:"ia-risque", theme:"Frontières", titre:"Faut-il freiner/réguler l'IA (le risque) ?",
+  maPosition:"Réguler oui, geler non. <b>⚖️ Ce qui est établi</b> : l'IA crée des risques concrets DÉJÀ là (désinformation, biais, armes autonomes, concentration de pouvoir) qui justifient une régulation. <b>Ce qui reste incertain</b> : le risque existentiel (une IA hors de contrôle). Ma ligne : traiter sérieusement les risques présents ET prendre une assurance contre le risque de queue — ni panique, ni déni.",
+  socle:"Mon cadre : conséquentialisme + devoir envers les générations réelles + le risque existentiel compte (mais pas de façon quasi-infinie, cf. longtermisme). Deux registres à distinguer : (1) risques ACTUELS et probables (biais, surveillance, désinformation, cyber, armes autonomes, chômage de transition, concentration) → régulation classique, urgente, faisable ; (2) risque de PERTE DE CONTRÔLE d'une IA très avancée → incertain, contesté, mais d'espérance non négligeable → assurance (recherche en sécurité, capacité de pause, transparence). L'erreur symétrique : tout miser sur l'apocalypse (en négligeant les torts présents) OU nier tout risque au nom du progrès.",
+  adverse:{ nom:"L'accélérationniste ET le catastrophiste",
+    steelman:"Accélérationniste : l'IA va guérir des maladies, sortir de la pauvreté, aider sur le climat ; freiner, c'est retarder ces bienfaits et laisser les labos les moins prudents gagner. Catastrophiste : une IA plus intelligente que nous et mal alignée pourrait nous échapper irréversiblement ; face à un risque d'extinction, même improbable, il faut ralentir massivement maintenant." },
+  defense:"Contre l'accélérationniste : « ça apporte des bienfaits » ne dispense pas de gérer les torts (on régule les médicaments sans interdire la médecine) ; et la course « sinon un autre le fera » est l'argument qui justifie de couper tous les freins — dangereux. Contre le catastrophiste : je prends le risque de queue au sérieux (assurance), mais je refuse de tout lui subordonner (mon rejet du longtermisme du nombre : ne pas sacrifier des torts réels présents à une probabilité spéculative). Réguler le présent, s'assurer contre le futur.",
+  faille:"L'accélérationniste traite tout frein comme un renoncement aux bienfaits (faux : on peut avoir les deux) et utilise la course géopolitique pour disqualifier toute prudence. Le catastrophiste fait un pari pascalien (probabilité minuscule × enjeu infini = tout justifier), qui peut légitimer n'importe quelle mesure et détourner des torts actuels, déjà là et mesurables.",
+  contre:[
+    {q:"« Réguler l'IA va tuer l'innovation / faire gagner les autres. »", r:"On régule les médicaments, l'aviation, le nucléaire sans les interdire — et ils innovent. La course « sinon un autre le fera » est précisément ce qui pousse à supprimer tous les garde-fous : c'est un argument pour la coordination internationale, pas contre la régulation."},
+    {q:"« Le risque existentiel, c'est de la science-fiction. »", r:"Incertain et contesté — mais pas nul, et l'enjeu est énorme : ça justifie une assurance (recherche sécurité, transparence, capacité de pause), pas la panique. Refuser d'y penser parce que c'est spéculatif serait le même déni que je reproche au sceptique de la sentience IA."},
+    {q:"« On s'affole pour l'apocalypse en oubliant les vrais problèmes. »", r:"D'accord — c'est ma critique du catastrophisme : les torts ACTUELS (biais, désinformation, surveillance, armes autonomes) sont déjà là et prioritaires. Mais traiter le présent n'interdit pas de s'assurer contre le futur : les deux, pas l'un contre l'autre."},
+    {q:"« Qui es-tu pour arrêter le progrès ? »", r:"Réguler ≠ arrêter. Le progrès n'est pas une valeur en soi (rien ne l'est) : il vaut par le bien-être qu'il produit. Une IA qui concentre le pouvoir ou désinforme massivement n'est pas « le progrès », c'est un tort à corriger."}
+  ],
+  etudes:[
+    "L'UE a adopté un cadre réglementaire par niveaux de risque (AI Act, 2024) → on peut réguler l'IA sans l'interdire, en ciblant les usages dangereux. — Règlement européen sur l'IA (2024)",
+    "Des experts de premier plan ont jugé publiquement le risque d'extinction lié à l'IA « à prendre au sérieux » au même titre que pandémies et guerre nucléaire — position contestée mais non marginale. — déclaration du Center for AI Safety (2023)",
+    "Risques ACTUELS documentés : biais algorithmiques (reconnaissance faciale — Buolamwini & Gebru, 2018), diffusion accélérée de la désinformation (Vosoughi et al., 2018).",
+    "Sondages d'experts en apprentissage automatique : une part non négligeable attribue une probabilité substantielle à des conséquences très graves de l'IA avancée. — Grace et al. / AI Impacts (surveys)"
+  ],
+  sources:["Règlement européen sur l'IA — AI Act (2024)","Center for AI Safety (2023) — déclaration sur le risque","Buolamwini & Gebru (2018) ; Vosoughi et al. (2018) — risques actuels","cf. mes débats IA & statut moral, IA & emploi, longtermisme"]
+},
+
+{
+  id:"vaccination", theme:"Vie / corps", titre:"Peut-on rendre un vaccin obligatoire ?",
+  maPosition:"Oui, quand il protège les AUTRES (pas seulement soi) et que le bénéfice collectif est établi. <b>⚖️ Ce que la science tranche</b> : les vaccins majeurs sont sûrs et efficaces, et certains (rougeole) exigent une couverture élevée pour protéger ceux qui ne peuvent pas se vacciner (immunité de groupe). L'autonomie s'arrête où commence le risque imposé à autrui (Mill). Obligation proportionnée, pas pour tout vaccin ni à tout prix.",
+  socle:"Principe de non-nuisance de Mill : ta liberté sur ton corps est quasi-absolue TANT QUE tu ne nuis pas à autrui. Or ne pas se vacciner contre une maladie contagieuse impose un risque à des tiers (nourrissons, immunodéprimés, personnes qui ne peuvent pas être vaccinées) via l'immunité de groupe. Ce n'est donc pas du pur paternalisme (t'obliger « pour ton bien ») mais de la prévention d'un tort à autrui — le seul motif que mon libéralisme accepte. Conditions : (1) bénéfice collectif établi (contagiosité + efficacité), (2) sûreté démontrée, (3) proportionnalité (préférer l'incitation quand elle suffit).",
+  adverse:{ nom:"Le partisan de la liberté vaccinale",
+    steelman:"Mon corps, mon choix : imposer une injection est une violation grave de l'intégrité corporelle et un précédent dangereux (jusqu'où l'État peut-il aller « pour la santé publique » ?). L'obligation nourrit la défiance et le complotisme ; mieux vaut convaincre que contraindre. Et le risque individuel doit être assumé par l'individu." },
+  defense:"« Mon corps, mon choix » vaut pleinement quand le choix ne touche que toi (d'où mon oui à l'euthanasie et aux drogues). Le vaccin contre une maladie contagieuse est différent : ton abstention peut TUER un tiers qui, lui, n'a pas choisi (nourrisson, immunodéprimé). Ce n'est plus « ton corps seulement ». Sur la défiance : c'est un argument pour privilégier l'incitation et la pédagogie QUAND elles suffisent — pas un principe interdisant l'obligation quand la couverture s'effondre et que des gens meurent.",
+  faille:"Le libertaire vaccinal applique le principe d'autonomie à un cas où il ne s'applique pas : la contagion crée une externalité (un coût imposé à autrui), exactement la limite que Mill pose à la liberté. « Précédent dangereux » est un argument de pente à examiner (proportionnalité, garde-fous), pas un blanc-seing : on peut borner l'obligation aux maladies contagieuses graves à vaccin sûr, sans glisser vers l'arbitraire.",
+  contre:[
+    {q:"« Mon corps, mon choix. »", r:"Pleinement d'accord quand ça ne touche que toi (euthanasie, drogues : je dis oui). Mais un virus contagieux ne reste pas dans ton corps : ne pas te vacciner peut infecter un nourrisson ou un immunodéprimé qui n'a rien choisi. Là, ta liberté croise le tort à autrui — la limite de Mill."},
+    {q:"« Les vaccins sont dangereux / non prouvés. »", r:"Faux pour les vaccins établis : bénéfice/risque massivement favorable, et le lien autisme-vaccin est une fraude démontrée (Wakefield, radié). L'obligation ne se justifie QUE pour des vaccins sûrs et efficaces — la sûreté est une condition, pas un détail."},
+    {q:"« L'obligation nourrit la défiance. »", r:"Risque réel → préférer l'incitation et la pédagogie quand elles maintiennent la couverture. Mais quand la couverture s'effondre et que la rougeole retue, l'obligation ciblée protège ceux qui ne peuvent pas se défendre. Proportionnalité, pas dogme."},
+    {q:"« Où ça s'arrête ? L'État va tout imposer. »", r:"Argument de pente → garde-fous : obligation limitée aux maladies contagieuses graves, à vaccin sûr, bénéfice collectif établi, exemptions médicales. Borner n'est pas glisser : on n'impose pas un vaccin sans externalité (le tien seul)."}
+  ],
+  etudes:[
+    "Immunité de groupe : pour une maladie très contagieuse comme la rougeole, il faut ~95 % de couverture pour protéger ceux qui ne peuvent pas être vaccinés (nourrissons, immunodéprimés). — épidémiologie standard (OMS)",
+    "Le prétendu lien vaccin ROR–autisme est une fraude : l'étude de Wakefield (1998) a été rétractée et son auteur radié ; aucune étude ultérieure n'a trouvé de lien. — Lancet (rétraction 2010) ; méta-analyses (Taylor et al., 2014)",
+    "Le principe de non-nuisance (Mill) fonde la limite : la liberté individuelle cède quand l'acte impose un risque à autrui — cas de la contagion. — J.S. Mill, «On Liberty» (1859)",
+    "Les obligations vaccinales ciblées (ex. entrée à l'école) sont associées à des couvertures plus élevées et à moins d'épidémies, la contrainte restant proportionnée. — littérature en santé publique"
+  ],
+  sources:["OMS — immunité de groupe (rougeole)","Wakefield : rétraction du Lancet (2010) ; Taylor et al. (2014)","J.S. Mill, «On Liberty» (1859) — principe de non-nuisance","cf. mes débats autonomie & liberté d'expression"]
+},
+
+{
+  id:"homoparentalite", theme:"Société", titre:"Mariage gay et homoparentalité ?",
+  maPosition:"Oui, sans réserve. <b>⚖️ C'est un cas où tout converge</b> : aucun tort à autrui, un bénéfice réel pour les personnes concernées, et les études ne trouvent pas de désavantage pour les enfants élevés par des couples de même sexe. L'opposition repose sur le dégoût ou la tradition — ni l'un ni l'autre n'est un argument moral dans mon cadre.",
+  socle:"Deux personnes qui s'aiment et veulent s'engager ou élever un enfant : où est la victime ? Nulle part. Mon critère (bien-être + non-nuisance) donne un oui immédiat : bénéfice pour le couple et pour l'enfant (avoir des parents aimants), tort pour personne. Les objections sont : (1) le dégoût (« c'est contre-nature ») → émotion désalignée du bien-être, mauvais guide (Nussbaum, cf. mes cas-limites) ; (2) la tradition (« le mariage a toujours été… ») → sophisme naturaliste, et le mariage a en fait beaucoup changé ; (3) « l'intérêt de l'enfant » → hypothèse empirique, testée, et infirmée (pas de désavantage mesuré).",
+  adverse:{ nom:"L'opposant (nature / intérêt de l'enfant)",
+    steelman:"Le mariage et la filiation ont une fonction anthropologique : donner à l'enfant un père et une mère, une altérité sexuée qui structure. Bouleverser cela au nom du désir des adultes fait de l'enfant un objet de droit ; et priver délibérément un enfant d'un père ou d'une mère lui manque quelque chose, même si les parents sont aimants." },
+  defense:"« L'enfant a besoin d'un père ET d'une mère » est une hypothèse empirique — et les études ne la confirment pas : ce qui compte, c'est la qualité et la stabilité du lien, pas le sexe des parents. « L'altérité sexuée structurante » est une intuition, pas un fait mesuré de développement. Quant à « priver » : l'enfant élevé par un couple de même sexe n'est pas « privé » d'un parent existant qu'on lui retirerait — à comparer à un enfant sans ce foyer, pas à un idéal abstrait.",
+  faille:"L'opposant fait passer une intuition (l'altérité sexuée serait nécessaire) pour un fait de développement, alors que la recherche ne le soutient pas. Il invoque « la nature » et « la tradition » — deux sophismes (ce qui est / ce qui fut ≠ ce qui est bien). Et « l'intérêt de l'enfant » sonne noble mais, empiriquement infirmé, il sert surtout à habiller le dégoût ou la tradition d'un argument présentable.",
+  contre:[
+    {q:"« Un enfant a besoin d'un père et d'une mère. »", r:"Hypothèse testée, non confirmée : les études ne trouvent pas de désavantage significatif pour les enfants de couples de même sexe. Ce qui compte, c'est l'amour et la stabilité, pas le sexe des parents. L'intuition ne survit pas aux données."},
+    {q:"« C'est contre-nature. »", r:"Sophisme naturaliste : « naturel » ne fait pas « bien » (la maladie est naturelle ; l'altruisme envers les lointains ne l'est guère). Et l'homosexualité existe dans la nature. « Contre-nature » traduit un dégoût, pas un tort — et le dégoût est un mauvais juge moral."},
+    {q:"« Le mariage, c'est par définition un homme et une femme. »", r:"Définition historique, pas vérité éternelle : le mariage a déjà beaucoup changé (mariages arrangés, statut de la femme, divorce). Une définition est un outil qu'on ajuste à son utilité — et l'étendre n'enlève rien aux couples hétéros."},
+    {q:"« On fabrique des enfants pour des adultes (PMA/GPA). »", r:"C'est un autre débat (les modalités de la procréation), distinct du mariage et de l'homoparentalité en tant que tels. Sur le fond, l'enjeu reste le bien-être de l'enfant réel et le consentement des parties — pas le sexe des parents."}
+  ],
+  etudes:[
+    "Les grandes associations professionnelles concluent que les enfants élevés par des parents de même sexe ne présentent pas de désavantage de développement lié à l'orientation des parents. — American Psychological Association ; American Academy of Pediatrics (Perrin et al., 2013)",
+    "Ce qui prédit le bon développement de l'enfant, c'est la qualité des relations et la stabilité, pas la structure ni le sexe des parents. — revues en psychologie du développement",
+    "L'homosexualité n'est pas un trouble : retirée du DSM en 1973 (APA) → l'argument « pathologie » est caduc.",
+    "Le dégoût moral (« contre-nature ») track mal le tort réel : il a historiquement condamné des pratiques sans victime (homophobie, mixité raciale). — Nussbaum, «From Disgust to Humanity» (cf. mes cas-limites)"
+  ],
+  sources:["APA ; American Academy of Pediatrics (Perrin et al., 2013)","DSM — déclassification (1973)","Nussbaum, «From Disgust to Humanity»","cf. mes débats cas-limites, sentience & autonomie"]
 }
 
 ];
