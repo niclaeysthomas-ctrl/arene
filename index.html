@@ -157,6 +157,7 @@
 
 <script src="data.js"></script>
 <script src="masterclass.js"></script>
+<script src="verdicts.js"></script>
 <script>
 /* ---------- état ---------- */
 const LEVELS=[
@@ -168,7 +169,7 @@ const S=loadState();
 function loadState(){
   let s={};try{s=JSON.parse(localStorage.getItem('arene_state')||'{}')}catch(e){}
   s.xp=s.xp||0; s.streak=s.streak||0; s.lastDay=s.lastDay||null;
-  s.seen=s.seen||{}; s.srs=s.srs||{}; s.done=s.done||{}; s.todayDuel=s.todayDuel||null; s.studied=s.studied||{}; s.carnet=s.carnet||[];
+  s.seen=s.seen||{}; s.srs=s.srs||{}; s.done=s.done||{}; s.todayDuel=s.todayDuel||null; s.studied=s.studied||{}; s.carnet=s.carnet||[]; s.verdictsSeen=s.verdictsSeen||{};
   return s;
 }
 function save(){localStorage.setItem('arene_state',JSON.stringify(S))}
@@ -241,6 +242,7 @@ function render(){
   if(TAB==='arene')renderArene();
   else if(TAB==='positions')renderPositions();
   else if(TAB==='masterclass')renderMasterclass();
+  else if(TAB==='verdict')renderVerdict();
   else if(TAB==='carnet')renderCarnet();
   else if(TAB==='revision')renderRevision();
   else renderProfil();
@@ -251,7 +253,42 @@ function renderNav(){
   $('#nav').innerHTML=items.map(([r,ic,l])=>
     `<div class="nav-i ${TAB===r?'on':''}" onclick="go('${r}')"><div class="ic">${ic}</div><span>${l}</span></div>`).join('');
 }
-function go(t){MCOPEN=null;OPEN=null;CARNET_EDIT=null;CARNET_EXPORT=null;TAB=t;render()}
+function go(t){MCOPEN=null;OPEN=null;CARNET_EDIT=null;CARNET_EXPORT=null;VREV={};TAB=t;render()}
+
+/* ---------- LE VERDICT (⚖️ faits vs valeurs) ---------- */
+let VREV={};
+function revealVerdict(id){
+  VREV[id]=true;
+  if(!S.verdictsSeen[id]){S.verdictsSeen[id]=today();addXp(3);toast('+3 XP · verdict');}
+  render();
+}
+function verdictToDuel(id){TAB='arene';startDuel(id);}
+function renderVerdict(){
+  const seen=Object.keys(S.verdictsSeen).length, tot=Object.keys(VERDICTS).length;
+  let h=`<button class="btn ghost small" onclick="go('arene')">← Arène</button>
+    <h1 class="page">⚖️ Le Verdict</h1>
+    <div class="page-sub">Ce que les <b>faits tranchent</b> vs ce qui reste ton <b>choix de valeurs</b>. Pense d'abord, puis révèle. — <b>${seen}/${tot}</b> révélés</div>`;
+  THEMES.forEach(th=>{
+    const list=DEBATS.filter(d=>d.theme===th && VERDICTS[d.id]);
+    if(!list.length)return;
+    h+=`<div class="mini" style="margin:16px 2px 4px">${th}</div>`;
+    list.forEach(d=>{
+      const v=VERDICTS[d.id];
+      h+=`<div class="card"><span class="tag th">${d.theme}</span>
+        <div style="font-size:16px;font-weight:900;margin:8px 0 2px">${d.titre}</div>`;
+      if(!VREV[d.id]){
+        h+=`<div class="prompt">Qu'est-ce que les faits tranchent ici — et qu'est-ce qui reste un choix de valeurs ?</div>
+          <button class="btn study small" onclick="revealVerdict('${d.id}')">Révéler le verdict ⚖️</button>`;
+      }else{
+        h+=`<div class="reveal study"><span class="lbl">🔬 Ce que les faits tranchent</span>${v.faits}</div>
+          <div class="reveal def"><span class="lbl">🧭 Ce qui reste ton choix de valeurs</span>${v.valeurs}</div>
+          <button class="btn ghost small" onclick="verdictToDuel('${d.id}')">→ Le débat complet</button>`;
+      }
+      h+=`</div>`;
+    });
+  });
+  $('#main').innerHTML=h;
+}
 
 /* ---------- ARÈNE ---------- */
 let SESS=null;
@@ -285,6 +322,8 @@ function renderArene(){
       ${duelDoneToday?`<button class="btn ghost small" onclick="startDuel('${pickDuel(did)}')">Enchaîner un autre duel</button>`:''}
     </div>`;
   h+=`<div class="card" onclick="go('masterclass')" style="cursor:pointer"><div class="quest" style="padding:2px 0;border:none"><div class="qi">🎓</div><div class="qt"><b>Masterclass</b><small>Te former sur un sujet avant d'avoir un avis</small></div><div class="qx">→</div></div></div>`;
+  const _vseen=Object.keys(S.verdictsSeen).length, _vtot=Object.keys(VERDICTS).length;
+  h+=`<div class="card" onclick="go('verdict')" style="cursor:pointer"><div class="quest" style="padding:2px 0;border:none"><div class="qi">⚖️</div><div class="qt"><b>Le Verdict</b><small>Où les faits tranchent — et où c'est ton choix (${_vseen}/${_vtot})</small></div><div class="qx">→</div></div></div>`;
   const _lastC=S.carnet.length?Math.max.apply(null,S.carnet.map(e=>e.updated)):0;
   if(!_lastC || (Date.now()-_lastC)/864e5>=2)h+=`<div class="card" onclick="carnetPrompt()" style="cursor:pointer;border-color:var(--acc)"><div class="quest" style="padding:2px 0;border:none"><div class="qi">✍️</div><div class="qt"><b>Ta prise du moment</b><small>Consigne ta position sur un sujet — exportable ensuite</small></div><div class="qx">→</div></div></div>`;
   if(dueN>0)h+=`<button class="btn study" onclick="go('revision')">🔁 Réviser ${dueN} munition${dueN>1?'s':''}</button>`;
