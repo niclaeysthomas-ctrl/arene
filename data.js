@@ -941,6 +941,75 @@ const DEBATS = [
     "Le dégoût moral (« contre-nature ») track mal le tort réel : il a historiquement condamné des pratiques sans victime (homophobie, mixité raciale). — Nussbaum, «From Disgust to Humanity» (cf. mes cas-limites)"
   ],
   sources:["APA ; American Academy of Pediatrics (Perrin et al., 2013)","DSM — déclassification (1973)","Nussbaum, «From Disgust to Humanity»","cf. mes débats cas-limites, sentience & autonomie"]
+},
+
+{
+  id:"salaire-minimum", theme:"Justice", titre:"Le salaire minimum : bonne ou mauvaise idée ?",
+  maPosition:"Un salaire minimum modéré est justifié : il rend du pouvoir de négociation aux bas salaires sans détruire l'emploi comme le prédisait la théorie. <b>⚖️ Ce que l'empirie a renversé</b> : « salaire minimum = chômage » ne tient pas aux niveaux observés (Card-Krueger et la littérature qui a suivi). <b>Ce qui reste vrai</b> : trop haut, trop vite, il peut nuire. La question n'est pas pour/contre mais À QUEL NIVEAU.",
+  socle:"La théorie naïve (marché parfaitement concurrentiel) dit : un prix plancher du travail au-dessus de l'équilibre crée du chômage. Mais le marché du travail n'est pas parfaitement concurrentiel : les employeurs ont souvent un pouvoir de marché (monopsone) → un salaire minimum peut augmenter salaire ET emploi jusqu'à un seuil. Mon cadre : pas de mérite, utilité marginale (l'euro du smicard pèse lourd), contrainte (le salarié précaire n'a pas de vrai pouvoir de négociation) → un plancher corrige un rapport de force, il ne « fausse » pas un marché idéal qui n'existe pas. Curseur, pas dogme.",
+  adverse:{ nom:"L'économiste orthodoxe / libéral",
+    steelman:"Un salaire minimum au-dessus de la productivité d'un travailleur le rend inemployable : on protège ceux qui ont un emploi en excluant les moins qualifiés (jeunes, peu diplômés). Mieux vaut laisser le marché fixer les salaires et compléter par des transferts (prime d'activité) qui n'attaquent pas l'emploi." },
+  defense:"La prédiction « ça détruit l'emploi » a été testée et largement infirmée aux niveaux réels (Card & Krueger sur le fast-food NJ/PA, et la littérature ultérieure). Raison : le monopsone. Je concède le vrai point : TROP haut ou TROP vite, l'effet négatif réapparaît → d'où un minimum indexé et prudent, éventuellement régionalisé, PLUS des transferts (les deux, pas l'un contre l'autre).",
+  faille:"L'orthodoxe raisonne dans un modèle (concurrence parfaite) qui ne décrit pas le marché du travail réel (pouvoir des employeurs, frictions, information asymétrique). Il présente une prédiction théorique comme un fait, alors que trois décennies d'études l'ont nuancée. Et « compléter par des transferts » subventionne de facto les bas salaires patronaux (le contribuable paie ce que l'employeur ne paie pas).",
+  contre:[
+    {q:"« Le salaire minimum détruit des emplois. »", r:"Aux niveaux observés, l'empirie ne le confirme pas (Card-Krueger et la suite) : le monopsone explique pourquoi. Ça devient vrai si on le pousse trop haut trop vite → argument pour bien calibrer, pas pour supprimer le plancher."},
+    {q:"« Ça exclut les jeunes et les moins qualifiés. »", r:"Effet possible aux niveaux élevés → prudence (indexation, aménagements pour l'apprentissage). Mais les inclure « en les payant une misère » n'est pas un progrès : le but est un emploi qui fait vivre, pas un emploi à n'importe quel prix."},
+    {q:"« Mieux vaut la prime d'activité que le smic. »", r:"Les deux se complètent, mais la prime seule subventionne les bas salaires avec l'argent public (l'employeur sous-paie, le contribuable comble). Un plancher fait porter une part du coût à l'employeur qui capte la valeur. Combinés, ils sont plus justes."},
+    {q:"« C'est de l'idéologie anti-marché. »", r:"Non : c'est corriger un marché réel imparfait (monopsone, rapport de force), pas nier le marché. Mon cadre traite la propriété et les prix comme des outils, pas des sacralités — on les ajuste au bien-être."}
+  ],
+  etudes:[
+    "L'étude fondatrice : une hausse du salaire minimum dans le New Jersey n'a pas réduit l'emploi de la restauration rapide vs la Pennsylvanie voisine → « minimum = chômage » ne tient pas aux niveaux réels. — Card & Krueger (1994, AER)",
+    "Le monopsone (pouvoir de marché des employeurs) explique qu'un salaire minimum puisse augmenter salaire ET emploi jusqu'à un seuil. — Alan Manning, «Monopsony in Motion» (2003)",
+    "Méta-analyses et études récentes : effets sur l'emploi faibles à nuls aux niveaux courants, plus incertains pour des minima très élevés. — Cengiz et al. (2019, QJE) ; Dube (revues)",
+    "Prix Nobel d'économie 2021 (David Card) en partie pour ces travaux d'économie empirique du marché du travail. — comité Nobel (2021)"
+  ],
+  sources:["Card & Krueger (1994, AER)","Alan Manning, «Monopsony in Motion» (2003)","Cengiz et al. (2019, QJE) ; Dube","Nobel d'économie 2021 (Card)"]
+},
+
+{
+  id:"taxe-carbone", theme:"Politique", titre:"La taxe carbone : efficace mais injuste ?",
+  maPosition:"L'outil le plus efficace pour décarboner — <b>⚖️ là les économistes sont quasi unanimes</b> — MAIS il échoue politiquement s'il frappe d'abord les modestes (gilets jaunes). La solution n'est pas d'y renoncer : c'est de redistribuer intégralement la recette (« dividende carbone »). Taxe + chèque égal = efficace ET progressif.",
+  socle:"Le CO₂ est une externalité négative : celui qui émet ne paie pas le coût qu'il inflige aux autres (climat). Le corriger par un PRIX (taxe ou quotas) est le moyen le moins coûteux de réduire les émissions (chacun réduit là où c'est le moins cher pour lui) — consensus des économistes. Problème : une taxe carbone est régressive brute (les modestes dépensent une part plus grande de leur revenu en énergie) et frappe visiblement (carburant) → échec des « gilets jaunes ». Mon cadre : garder l'efficacité, corriger la distribution → redistribuer la recette (dividende carbone), qui rend le dispositif progressif net (les modestes reçoivent plus qu'ils ne paient).",
+  adverse:{ nom:"L'opposant (social OU « ça ne sert à rien »)",
+    steelman:"Social : la taxe carbone fait payer la transition aux gens modestes (essence, chauffage) pendant que les gros pollueurs (avions, multinationales) s'en tirent — une punition des pauvres déguisée en écologie. Relativiste : notre taxe pèse sur notre industrie et la délocalise vers des pays sans contrainte (fuite de carbone), sans effet sur le climat mondial." },
+  defense:"L'objection sociale est juste SUR LA FORME actuelle, pas sur le principe : d'où le dividende carbone (rendre la recette par un chèque égal → les modestes gagnent net). L'objection « fuite de carbone » est réelle → réponse : un ajustement carbone aux frontières (taxer l'empreinte des importations), que l'UE met en place. Renoncer à tarifer le carbone, c'est abandonner l'outil le plus efficace pour un problème d'externalité, au profit de mesures qui le sont moins (normes, subventions dispersées).",
+  faille:"L'opposant social a raison de refuser une taxe régressive, mais il jette l'outil au lieu de corriger sa distribution (le dividende règle son objection). Le relativiste utilise « ça ne suffira pas seul » pour ne rien faire — alors que l'ajustement aux frontières traite la fuite, et que « les autres ne font rien » est le raisonnement du passager clandestin qui bloque toute action collective.",
+  contre:[
+    {q:"« La taxe carbone punit les pauvres (gilets jaunes). »", r:"Vrai de la version SANS redistribution. Le dividende carbone (rendre 100 % de la recette en chèque égal) rend le dispositif progressif net : les modestes, qui polluent moins en absolu, reçoivent plus qu'ils ne paient. L'erreur française fut de taxer sans redistribuer."},
+    {q:"« Les gros pollueurs (avions, industrie) s'en sortent. »", r:"Argument pour ÉLARGIR le prix du carbone (kérosène, industrie), pas pour l'abandonner. Une taxe bien faite couvre toutes les émissions ; l'exemption des gros est un défaut politique à corriger, pas une fatalité de l'outil."},
+    {q:"« Ça délocalise notre industrie (fuite de carbone). »", r:"Réel → réponse : l'ajustement carbone aux frontières (taxer l'empreinte des importations), que l'UE déploie. Sans ça on exporte nos émissions ; avec, on protège l'efficacité du signal-prix sans avantager les pollueurs étrangers."},
+    {q:"« Autant faire des normes et des subventions. »", r:"Moins efficaces : les normes imposent COMMENT réduire (uniforme, coûteux), le prix laisse chacun réduire là où c'est le moins cher. Les subventions dispersent l'argent sans signal clair. Le prix du carbone reste central — complété, pas remplacé."}
+  ],
+  etudes:[
+    "Consensus large des économistes : tarifer le carbone (taxe ou quotas) est le moyen le plus efficace de réduire les émissions ; une déclaration signée par des milliers d'économistes (dont de nombreux Nobel) recommande une taxe carbone avec dividende. — «Economists' Statement on Carbon Dividends» (2019)",
+    "Un « dividende carbone » (redistribution égale de la recette) rend le dispositif progressif : les ménages modestes reçoivent en moyenne plus qu'ils ne paient. — analyses d'incidence (Climate Leadership Council, etc.)",
+    "La tarification du carbone réduit effectivement les émissions là où elle s'applique (Colombie-Britannique depuis 2008, sans dommage économique net détecté). — évaluations de la taxe carbone de C.-B.",
+    "L'UE met en place un mécanisme d'ajustement carbone aux frontières (CBAM) pour limiter la fuite de carbone. — Règlement européen CBAM (2023)"
+  ],
+  sources:["«Economists' Statement on Carbon Dividends» (2019)","Taxe carbone de Colombie-Britannique (2008) — évaluations","CBAM / ajustement aux frontières (UE, 2023)","Théorie des externalités (Pigou) ; cf. mon débat décroissance"]
+},
+
+{
+  id:"justice-climat", theme:"Frontières", titre:"Climat : qui doit payer (Nord/Sud) ?",
+  maPosition:"Ceux qui ont le plus émis et qui en ont le plus les moyens doivent payer le plus — pas par culpabilité historique en soi, mais par conséquence de mon cadre (les victimes réelles comptent également, où qu'elles soient). <b>⚖️ Les faits sont clairs</b> : les pays riches ont causé l'essentiel du stock de CO₂ et en subissent le moins les effets ; les pays pauvres émettent peu et souffrent le plus. La justice conséquentialiste penche nettement d'un côté.",
+  socle:"Mon cosmopolitisme (la souffrance d'un Bangladais pèse autant que celle d'un Français) + devoir envers les générations réelles. Trois faits structurent le problème : (1) le climat dépend du STOCK cumulé de CO₂ → la responsabilité est historique (l'Occident a émis l'essentiel) ; (2) les émissions par habitant restent très inégales ; (3) les impacts frappent d'abord les pays pauvres, qui ont le moins émis et le moins de moyens de s'adapter. Conséquence : les riches doivent (a) décarboner le plus vite, (b) financer l'adaptation et la transition du Sud. Non par « dette morale » mystique, mais parce que le solde de souffrance le commande — et le Sud a besoin de croître (donc pas de lui interdire l'énergie sans alternative).",
+  adverse:{ nom:"Le partisan du « chacun pour soi » climatique",
+    steelman:"On n'est pas responsables de ce qu'ont émis nos ancêtres sans savoir ; payer pour le reste du monde est un puits sans fond qui pénalise nos citoyens. Et à quoi bon se ruiner quand la Chine et l'Inde émettent désormais l'essentiel ? Que chacun gère ses émissions et son adaptation." },
+  defense:"« Pas responsables du passé » a du vrai sur la culpabilité individuelle — mais mon argument n'est pas la culpabilité, c'est la conséquence : le stock émis (surtout par l'Occident) cause aujourd'hui des torts réels à des gens réels, et ceux qui en ont les moyens doivent réparer/prévenir (ma responsabilité distribuée). Sur la Chine/l'Inde : leurs émissions ACTUELLES montent, vrai — mais par habitant et en cumulé, l'Occident reste devant, et le Sud a besoin de développement. La coordination (financer leur transition) est plus efficace que le « chacun pour soi ».",
+  faille:"Le « chacun pour soi » ignore que le climat est un bien public MONDIAL : mes émissions nuisent à tous, les tiennes aussi → « chacun gère les siennes » est le raisonnement du passager clandestin qui garantit l'échec. Et il confond responsabilité par habitant/cumulée (où l'Occident domine) et émissions annuelles totales actuelles (où les grands émergents montent) pour se dédouaner.",
+  contre:[
+    {q:"« On n'est pas coupables de ce qu'ont fait nos ancêtres. »", r:"Pas de culpabilité individuelle, d'accord. Mais le stock de CO₂ émis cause aujourd'hui des torts réels, et ceux qui en ont bénéficié et en ont les moyens doivent réparer/prévenir — responsabilité conséquentialiste, pas procès en sorcellerie. On hérite des avantages ET des coûts."},
+    {q:"« La Chine pollue plus que nous maintenant. »", r:"En émissions annuelles totales, oui ; mais par habitant et surtout en CUMULÉ (ce qui compte pour le climat), l'Occident reste devant. Et l'enjeu n'est pas un coupable unique : c'est de financer la décarbonation partout où c'est le plus efficace, Chine et Inde comprises."},
+    {q:"« Payer pour le Sud, c'est un puits sans fond. »", r:"C'est un investissement, pas de la charité : financer leur transition (énergie propre) évite des émissions futures et des désastres qui nous coûteront à tous (migrations, instabilité). Le solde global est positif — et ciblé, pas illimité."},
+    {q:"« Le Sud doit se décarboner aussi. »", r:"Oui, mais il a besoin de croître pour sortir de la misère (utilité marginale) → on ne lui interdit pas l'énergie, on lui finance l'énergie PROPRE. Lui imposer la sobriété qu'on ne s'impose pas serait un « spécisme au drapeau » inversé."}
+  ],
+  etudes:[
+    "Responsabilité cumulée : les pays historiquement industrialisés (Amérique du Nord, Europe) ont émis une part du CO₂ cumulé très supérieure à leur part de population. — Our World in Data ; Global Carbon Project",
+    "Les impacts du changement climatique frappent le plus fort les pays pauvres (proches de l'équateur, agricoles, peu de moyens d'adaptation), qui ont le moins émis. — GIEC (groupe II)",
+    "Émissions par habitant très inégales : un Américain émet plusieurs fois plus qu'un Indien → « la Chine/l'Inde polluent » masque l'écart par tête. — Our World in Data",
+    "La COP a acté un fonds « pertes et préjudices » pour aider les pays vulnérables (2022) → reconnaissance politique d'une responsabilité différenciée. — CCNUCC, COP27 (2022)"
+  ],
+  sources:["Our World in Data ; Global Carbon Project — émissions cumulées / par habitant","GIEC (groupe II) — impacts sur les pays pauvres","Fonds « pertes et préjudices », COP27 (2022)","Cosmopolitisme + responsabilité distribuée (cf. mes débats immigration & justice)"]
 }
 
 ];
