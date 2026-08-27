@@ -157,6 +157,7 @@
 
 <script src="data.js"></script>
 <script src="masterclass.js"></script>
+<script src="dossiers.js"></script>
 <script src="verdicts.js"></script>
 <script>
 /* ---------- état ---------- */
@@ -170,6 +171,7 @@ function loadState(){
   let s={};try{s=JSON.parse(localStorage.getItem('arene_state')||'{}')}catch(e){}
   s.xp=s.xp||0; s.streak=s.streak||0; s.lastDay=s.lastDay||null;
   s.seen=s.seen||{}; s.srs=s.srs||{}; s.done=s.done||{}; s.todayDuel=s.todayDuel||null; s.studied=s.studied||{}; s.carnet=s.carnet||[]; s.verdictsSeen=s.verdictsSeen||{};
+  s.memo=s.memo||{}; s.dossiersSeen=s.dossiersSeen||{};
   return s;
 }
 function save(){localStorage.setItem('arene_state',JSON.stringify(S))}
@@ -253,7 +255,8 @@ function renderNav(){
   $('#nav').innerHTML=items.map(([r,ic,l])=>
     `<div class="nav-i ${TAB===r?'on':''}" onclick="go('${r}')"><div class="ic">${ic}</div><span>${l}</span></div>`).join('');
 }
-function go(t){MCOPEN=null;OPEN=null;CARNET_EDIT=null;CARNET_EXPORT=null;VREV={};TAB=t;render()}
+function go(t){MCOPEN=null;OPEN=null;CARNET_EDIT=null;CARNET_EXPORT=null;VREV={};DOSSIER=null;DRILL=null;REVTAB='munitions';TAB=t;render()}
+function goFiches(){MCOPEN=null;DOSSIER=null;DRILL=null;REVTAB='fiches';TAB='revision';render()}
 
 /* ---------- LE VERDICT (⚖️ faits vs valeurs) ---------- */
 let VREV={};
@@ -322,6 +325,8 @@ function renderArene(){
       ${duelDoneToday?`<button class="btn ghost small" onclick="startDuel('${pickDuel(did)}')">Enchaîner un autre duel</button>`:''}
     </div>`;
   h+=`<div class="card" onclick="go('masterclass')" style="cursor:pointer"><div class="quest" style="padding:2px 0;border:none"><div class="qi">🎓</div><div class="qt"><b>Masterclass</b><small>Te former sur un sujet avant d'avoir un avis</small></div><div class="qx">→</div></div></div>`;
+  const _dueF=(typeof DOSSIERS!=='undefined'?DOSSIERS:[]).reduce((n,d)=>n+dossierDue(d).length,0);
+  h+=`<div class="card" onclick="goFiches()" style="cursor:pointer"><div class="quest" style="padding:2px 0;border:none"><div class="qi">📇</div><div class="qt"><b>Les Fiches</b><small>Réviser les chiffres & dates de fond${_dueF?' · '+_dueF+' à revoir':''}</small></div><div class="qx">→</div></div></div>`;
   const _vseen=Object.keys(S.verdictsSeen).length, _vtot=Object.keys(VERDICTS).length;
   h+=`<div class="card" onclick="go('verdict')" style="cursor:pointer"><div class="quest" style="padding:2px 0;border:none"><div class="qi">⚖️</div><div class="qt"><b>Le Verdict</b><small>Où les faits tranchent — et où c'est ton choix (${_vseen}/${_vtot})</small></div><div class="qx">→</div></div></div>`;
   const _lastC=S.carnet.length?Math.max.apply(null,S.carnet.map(e=>e.updated)):0;
@@ -450,7 +455,9 @@ function renderMCDetail(){
   if(m.chiffres&&m.chiffres.length)h+=`<div class="card"><div class="reveal study"><span class="lbl">🔢 Les chiffres à connaître</span>${m.chiffres.map(fmtEtude).join('')}</div></div>`;
   if(m.pieges&&m.pieges.length)h+=`<div class="card"><div class="reveal att"><span class="lbl">⚠️ Les pièges à éviter</span>${m.pieges.map(x=>'• '+x).join('<br><br>')}</div></div>`;
   if(m.trancher&&m.trancher.length)h+=`<div class="card"><div class="reveal def"><span class="lbl">🧭 Ce qui reste à trancher (tes valeurs, pas les faits)</span>${m.trancher.map(x=>'• '+x).join('<br><br>')}</div></div>`;
-  h+=`<div class="card">${sourcesBlock(m)}</div>`;
+  if(typeof DOSSIERS!=='undefined' && DOSSIERS.find(x=>x.id===m.id))
+    h+=`<button class="btn study small" onclick="mcToDossier('${m.id}')">📇 Réviser les chiffres & dates de ce dossier</button>`;
+  h+=`<div class="card" style="margin-top:12px">${sourcesBlock(m)}</div>`;
   if(done)h+=`<div class="empty" style="padding:14px">✓ Masterclass étudiée</div>`;
   else h+=`<button class="btn study" onclick="studyMC('${m.id}')">✓ Marquer comme étudiée (+15 XP)</button>`;
   h+=`<div class="card" style="margin-top:12px"><div class="sub">Une fois que tu t'es forgé une position là-dessus, dis-le-moi : j'en fais un <b>duel</b> avec ta défense et les contre-arguments.</div></div>`;
@@ -536,19 +543,30 @@ function duelToCarnet(){
   save();toast('Ajouté à ton Carnet ✍️');
 }
 
-/* ---------- RÉVISION ---------- */
-let REV=null;
+/* ---------- RÉVISION (hub : Munitions | Fiches) ---------- */
+let REV=null, REVTAB='munitions', DOSSIER=null, DRILL=null;
+function setRevTab(t){REVTAB=t;REV=null;render();}
 function renderRevision(){
+  if(DRILL){renderDrill();return;}
+  if(DOSSIER){renderDossier();return;}
+  let h=`<h1 class="page">🔁 Révision</h1>
+    <div class="page-sub">Rappel actif. <b>Munitions</b> = tes arguments de duel · <b>Fiches</b> = les chiffres & dates de fond.</div>
+    <div class="row2" style="margin-bottom:14px">
+      <button class="btn ${REVTAB==='munitions'?'':'ghost'} small" onclick="setRevTab('munitions')">🥊 Munitions</button>
+      <button class="btn ${REVTAB==='fiches'?'study':'ghost'} small" onclick="setRevTab('fiches')">📇 Fiches</button>
+    </div>`;
+  h += REVTAB==='fiches' ? revFichesHtml() : revMunitionsHtml();
+  $('#main').innerHTML=h;
+}
+function revMunitionsHtml(){
   const due=dueCards();
   if(!due.length){
     const total=Object.keys(S.srs).length;
-    $('#main').innerHTML=`<h1 class="page">🔁 Révision</h1><div class="page-sub">Rappel actif de tes munitions (répétition espacée).</div>
-      <div class="empty">${total?'✓ Rien à réviser aujourd\'hui.<br>Reviens demain — tes munitions reposent.':'Aucune munition encore.<br>Fais un duel dans l\'Arène pour en débloquer.'}</div>
-      <button class="btn ghost" onclick="go('arene')">← Retour à l'Arène</button>`;return;
+    return `<div class="empty">${total?'✓ Rien à réviser aujourd\'hui.<br>Reviens demain — tes munitions reposent.':'Aucune munition encore.<br>Fais un duel dans l\'Arène pour en débloquer.'}</div>`;
   }
   if(!REV || !due.includes(REV.cid)){REV={cid:due[0],show:false}}
   const cid=REV.cid;
-  let h=`<h1 class="page">🔁 Révision</h1><div class="page-sub">${due.length} munition${due.length>1?'s':''} à revoir.</div>
+  let h=`<div class="sub" style="margin:-4px 2px 10px">${due.length} munition${due.length>1?'s':''} à revoir.</div>
     <div class="srs-card"><div class="srs-front">${srsFront(cid)}</div>`;
   if(REV.show)h+=`<div class="srs-back">${srsBack(cid)}</div>`;
   h+=`</div>`;
@@ -557,10 +575,91 @@ function renderRevision(){
       <div class="row3"><button class="btn ghost small" onclick="revGrade(0)">Encore</button>
         <button class="btn ghost small" onclick="revGrade(3)">Bien</button>
         <button class="btn def small" onclick="revGrade(5)">Facile</button></div>`;
-  $('#main').innerHTML=h;
+  return h;
 }
 function revShow(){REV.show=true;render()}
 function revGrade(q){gradeSrs(REV.cid,q);addXp(q>=5?6:q>=3?4:2);REV=null;render()}
+
+/* --- Fiches : dossiers de révision factuelle (chiffres & événements) --- */
+function dosById(id){return (typeof DOSSIERS!=='undefined'?DOSSIERS:[]).find(d=>d.id===id)}
+function dossierCards(d){const out=[];d.groupes.forEach((g,gi)=>g.cartes.forEach((c,ci)=>out.push({cid:d.id+'#'+gi+'.'+ci,q:c.q,r:c.r,groupe:g.nom})));return out;}
+function ensureMemo(cid){if(!S.memo[cid])S.memo[cid]={ef:2.5,int:0,reps:0,due:today()};return S.memo[cid];}
+function memoDueQ(cid){const m=S.memo[cid];return !m || dnum(m.due)<=dnum(today());}
+function dossierDue(d){return dossierCards(d).filter(c=>memoDueQ(c.cid));}
+function memoGrade(cid,q){
+  const c=ensureMemo(cid);
+  if(q<3){c.reps=0;c.int=0;c.due=today();}
+  else{c.ef=Math.max(1.3,c.ef+(0.1-(5-q)*(0.08+(5-q)*0.02)));c.reps++;
+    if(c.reps===1)c.int=1;else if(c.reps===2)c.int=3;else c.int=Math.round(c.int*c.ef);
+    const nd=new Date();nd.setDate(nd.getDate()+c.int);c.due=nd.toISOString().slice(0,10);}
+  save();
+}
+function revFichesHtml(){
+  const list=(typeof DOSSIERS!=='undefined'?DOSSIERS:[]);
+  if(!list.length)return `<div class="empty">Aucun dossier pour l'instant.<br>Dis-moi un sujet et j'en construis un.</div>`;
+  let h=`<div class="sub" style="margin:-4px 2px 12px">Parcours un dossier pour lire, ou révise-le en rappel actif.</div>`;
+  list.forEach(d=>{
+    const tot=dossierCards(d).length, due=dossierDue(d).length;
+    h+=`<div class="positem" onclick="openDossier('${d.id}')"><div class="pt"><b>${d.emoji} ${d.titre}</b>
+      <span class="chev" style="color:${due?'var(--att)':'var(--ok)'};font-weight:800">${due?due+' à revoir':'✓ à jour'}</span></div>
+      <div class="sub" style="margin-top:6px">${d.sub} · ${tot} fiches</div></div>`;
+  });
+  return h;
+}
+function openDossier(id){DOSSIER=id;if(!S.dossiersSeen[id]){S.dossiersSeen[id]=today();addXp(8);toast('+8 XP · dossier ouvert');}render();}
+function closeDossier(){DOSSIER=null;render();}
+function renderDossier(){
+  const d=dosById(DOSSIER);if(!d){DOSSIER=null;return renderRevision();}
+  const due=dossierDue(d).length, tot=dossierCards(d).length;
+  let h=`<button class="btn ghost small" onclick="closeDossier()" style="margin:0 0 12px;width:auto;display:inline-block;padding:8px 14px">← Fiches</button>
+    <h1 class="page">${d.emoji} ${d.titre}</h1><div class="page-sub">${d.sub}</div>
+    <button class="btn study" onclick="startDrill('${d.id}',false)">🎯 Réviser ${due?('('+due+' à revoir)'):'(tout le dossier)'}</button>`;
+  if(due&&due<tot)h+=`<button class="btn ghost small" onclick="startDrill('${d.id}',true)">Revoir tout le dossier (${tot})</button>`;
+  d.groupes.forEach(g=>{
+    h+=`<div class="mini" style="margin:18px 2px 6px">${g.nom}</div><div class="card" style="padding:4px 15px">`;
+    g.cartes.forEach(c=>{h+=`<div class="estudy"><b style="color:var(--acc2)">${c.q}</b><div style="color:#cfd6ea;margin-top:3px">${c.r}</div></div>`;});
+    h+=`</div>`;
+  });
+  $('#main').innerHTML=h;
+}
+function startDrill(id,all){
+  const d=dosById(id);if(!d)return;
+  let cards=dossierCards(d);
+  if(!all){const due=cards.filter(c=>memoDueQ(c.cid));if(due.length)cards=due;}
+  cards=cards.slice().sort(()=>Math.random()-0.5);
+  DRILL={dosId:id,queue:cards,i:0,show:false,total:cards.length,streaked:false};
+  render();
+}
+function drillShow(){DRILL.show=true;render();}
+function drillGrade(q){const card=DRILL.queue[DRILL.i];memoGrade(card.cid,q);addXp(q>=5?3:q>=3?2:1);DRILL.i++;DRILL.show=false;render();}
+function endDrill(){DRILL=null;render();}
+function renderDrill(){
+  const d=dosById(DRILL.dosId);
+  if(DRILL.i>=DRILL.queue.length){
+    if(!DRILL.streaked){bumpStreak();DRILL.streaked=true;}
+    $('#main').innerHTML=`<h1 class="page">🎯 Terminé</h1><div class="page-sub">${d.emoji} ${d.titre}</div>
+      <div class="card" style="text-align:center;padding:26px 16px"><div style="font-size:38px">✓</div>
+        <div style="font-size:17px;font-weight:800;margin-top:8px">${DRILL.total} fiche${DRILL.total>1?'s':''} révisée${DRILL.total>1?'s':''}</div>
+        <div class="sub" style="margin-top:6px">Les fiches ratées reviendront plus tôt (répétition espacée).</div></div>
+      <button class="btn study" onclick="startDrill('${DRILL.dosId}',false)">Continuer à réviser</button>
+      <button class="btn ghost small" onclick="endDrill()">← Retour aux fiches</button>`;
+    return;
+  }
+  const card=DRILL.queue[DRILL.i];
+  let h=`<button class="btn ghost small" onclick="endDrill()" style="margin:0 0 12px;width:auto;display:inline-block;padding:8px 14px">← Quitter</button>
+    <h1 class="page">🎯 ${d.titre}</h1>
+    <div class="page-sub">${DRILL.i+1} / ${DRILL.queue.length} · <span style="color:var(--study)">${card.groupe}</span></div>
+    <div class="srs-card"><div class="srs-front">${card.q}</div>`;
+  if(DRILL.show)h+=`<div class="srs-back">${card.r}</div>`;
+  h+=`</div>`;
+  if(!DRILL.show)h+=`<button class="btn study" onclick="drillShow()">Révéler la réponse</button>`;
+  else h+=`<div class="prompt" style="text-align:center;margin-top:12px">Tu l'avais ?</div>
+    <div class="row3"><button class="btn ghost small" onclick="drillGrade(0)">Raté</button>
+      <button class="btn ghost small" onclick="drillGrade(3)">Presque</button>
+      <button class="btn study small" onclick="drillGrade(5)">Su</button></div>`;
+  $('#main').innerHTML=h;
+}
+function mcToDossier(id){MCOPEN=null;DRILL=null;REVTAB='fiches';TAB='revision';openDossier(id);}
 
 /* ---------- PROFIL ---------- */
 function renderProfil(){
