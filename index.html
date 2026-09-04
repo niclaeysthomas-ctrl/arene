@@ -140,6 +140,50 @@
     background:var(--acc);color:#04213f;font-weight:800;padding:11px 20px;border-radius:24px;z-index:100;
     box-shadow:0 6px 24px #0009;animation:pop .3s}
   @keyframes pop{from{opacity:0;transform:translate(-50%,10px)}to{opacity:1}}
+
+/* ===== L'ARBITRE & le duel scoré ===== */
+.duelbar{display:flex;align-items:center;gap:8px;margin:0 0 12px;padding:9px 12px;background:var(--bg2);
+  border:1px solid var(--line);border-radius:12px}
+.db-c{font-size:12px;font-weight:800;color:var(--dim2)}
+.db-c.on{color:var(--att)}
+.db-s{margin-left:auto;font-size:19px;font-weight:900;color:var(--txt);font-variant-numeric:tabular-nums}
+.db-s small{font-size:11px;color:var(--dim2);font-weight:700}
+.db-r{font-size:11px;color:var(--dim2);font-weight:700;border-left:1px solid var(--line);padding-left:9px}
+.card.diable{border-color:var(--adv);background:linear-gradient(180deg,rgba(185,139,255,.10),transparent)}
+.card.diable .lbl{color:var(--adv);font-weight:800;display:block;margin-bottom:5px}
+
+.arb{margin-top:12px;padding:13px 14px;background:var(--bg3);border:1px solid var(--line);border-radius:13px}
+.arb-h{font-size:13px;font-weight:800;display:flex;align-items:center;gap:8px}
+.arb-pct{margin-left:auto;font-size:15px;font-weight:900;font-variant-numeric:tabular-nums}
+.arb-pct.g{color:var(--ok)} .arb-pct.m{color:var(--att)} .arb-pct.b{color:var(--bad)}
+.arb-bar{height:5px;border-radius:3px;background:var(--bg4);overflow:hidden;margin:9px 0 8px}
+.arb-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--def));transition:width .4s}
+.arb-sub{font-size:11.5px;color:var(--dim2);font-weight:600}
+.arb-chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 9px}
+.arb-c{font-size:12px;font-weight:750;padding:5px 9px;border-radius:8px;border:1px solid var(--line);
+  background:var(--bg2);color:var(--dim);cursor:pointer;font-family:inherit}
+.arb-c.hit{background:rgba(62,207,122,.14);border-color:rgba(62,207,122,.4);color:var(--ok);cursor:default}
+.arb-c.miss{border-style:dashed;color:var(--dim2)}
+.arb-c.ovr{background:rgba(74,163,255,.14);border-color:var(--acc);color:var(--acc2)}
+.arb-note{font-size:11px;line-height:1.5;color:var(--dim2)}
+.arb-none{font-size:12.5px;color:var(--bad);font-weight:700;margin-top:7px}
+
+.card.fini{text-align:center;padding:24px 18px}
+.fscore{font-size:56px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
+.fscore small{font-size:16px;color:var(--dim2)}
+.fscore.g{color:var(--ok)} .fscore.m{color:var(--att)} .fscore.b{color:var(--bad)}
+.fjuge{font-size:14.5px;font-weight:700;margin-top:10px}
+.fstats{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:14px;font-size:12px;
+  color:var(--dim2);font-weight:700}
+.fdia{margin-top:12px;font-size:12.5px;color:var(--adv);font-weight:800}
+.detrows{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.detrow{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;color:var(--dim)}
+.detrow>span:first-child{flex:0 0 96px}
+.detbar{flex:1;height:6px;border-radius:3px;background:var(--bg4);overflow:hidden;display:block}
+.detbar b{display:block;height:100%;border-radius:3px}
+.detpct{flex:0 0 34px;text-align:right;font-variant-numeric:tabular-nums;color:var(--txt)}
+.recline{font-size:12px;color:var(--dim2);font-weight:700;margin:8px 0 2px}
+.qa textarea{margin-top:8px}
 </style>
 </head>
 <body>
@@ -158,6 +202,7 @@
 <script src="data.js"></script>
 <script src="masterclass.js"></script>
 <script src="dossiers.js"></script>
+<script src="arbitre.js"></script>
 <script src="verdicts.js"></script>
 <script>
 /* ---------- état ---------- */
@@ -171,7 +216,7 @@ function loadState(){
   let s={};try{s=JSON.parse(localStorage.getItem('arene_state')||'{}')}catch(e){}
   s.xp=s.xp||0; s.streak=s.streak||0; s.lastDay=s.lastDay||null;
   s.seen=s.seen||{}; s.srs=s.srs||{}; s.done=s.done||{}; s.todayDuel=s.todayDuel||null; s.studied=s.studied||{}; s.carnet=s.carnet||[]; s.verdictsSeen=s.verdictsSeen||{};
-  s.memo=s.memo||{}; s.dossiersSeen=s.dossiersSeen||{};
+  s.memo=s.memo||{}; s.dossiersSeen=s.dossiersSeen||{}; s.scores=s.scores||{}; s.duels=s.duels||0;
   return s;
 }
 function save(){localStorage.setItem('arene_state',JSON.stringify(S))}
@@ -307,6 +352,7 @@ function renderArene(){
     <div class="xptxt"><span>${S.xp} XP</span><span>${nx?(nx.xp-S.xp)+' → '+nx.n:'niveau max'}</span></div>
   </div>`;
 
+  if(SESS&&SESS.fini){$('#main').innerHTML=finiHtml(byId(SESS.id));return;}
   if(SESS){h+=renderSession();$('#main').innerHTML=h;return;}
 
   h+=`<div class="card">
@@ -321,7 +367,9 @@ function renderArene(){
     <div class="card">
       <span class="tag th">${d.theme}</span>
       <div style="font-size:18px;font-weight:900;margin:10px 0 2px">${d.titre}</div>
+      ${S.scores[d.id]?`<div class="recline">🏆 ton record : <b>${S.scores[d.id].best}</b>/100 · ${S.scores[d.id].n} passage${S.scores[d.id].n>1?'s':''}</div>`:''}
       <button class="btn" onclick="startDuel('${d.id}')">Entrer dans l'arène →</button>
+      <button class="btn ghost small" onclick="startDuel('${d.id}',true)">😈 Avocat du diable — plaide le camp adverse</button>
       ${duelDoneToday?`<button class="btn ghost small" onclick="startDuel('${pickDuel(did)}')">Enchaîner un autre duel</button>`:''}
     </div>`;
   h+=`<div class="card" onclick="go('masterclass')" style="cursor:pointer"><div class="quest" style="padding:2px 0;border:none"><div class="qi">🎓</div><div class="qt"><b>Masterclass</b><small>Te former sur un sujet avant d'avoir un avis</small></div><div class="qx">→</div></div></div>`;
@@ -334,13 +382,77 @@ function renderArene(){
   if(dueN>0)h+=`<button class="btn study" onclick="go('revision')">🔁 Réviser ${dueN} munition${dueN>1?'s':''}</button>`;
   $('#main').innerHTML=h;
 }
-function startDuel(id){SESS={id,revealed:{}};render();}
+function startDuel(id,diable){
+  SESS={id,revealed:{},arb:{},over:{},combo:0,comboMax:0,t0:Date.now(),diable:!!diable};
+  render();
+}
+/* la référence attendue à chaque étape — inversée en Avocat du diable */
+function refOf(d,k){
+  if(k==='def') return SESS.diable ? d.adverse.steelman : d.defense;
+  if(k==='fail') return SESS.diable ? d.defense : d.faille;
+  const i=+k.slice(1); return (d.contre[i]||{}).r||'';
+}
+function nbEtapes(d){ return 2 + d.contre.length; }
+function comboNow(d){
+  let cur=0,max=0;
+  arbKeys(d).forEach(k=>{
+    if(!SESS.arb[k]) return;
+    if(couvOf(k)>=0.5){cur++; if(cur>max)max=cur;} else cur=0;
+  });
+  SESS.comboMax=Math.max(SESS.comboMax||0,max);
+  return cur;
+}
+function arbKeys(d){ return ['def','fail'].concat(d.contre.map((_,i)=>'c'+i)); }
+function couvOf(k){
+  const a=SESS.arb[k]; if(!a) return 0;
+  const ov=(SESS.over[k]||[]).length;
+  return Math.min(1,(a.touches+ov)/Math.max(1,a.total));
+}
+/* Pondération : la défense et la faille sont le cœur du duel (30 % chacune),
+   les pièges pèsent 40 % à eux tous. Une moyenne plate diluait une bonne
+   performance sur l'essentiel dans une série de ripostes secondaires. */
+function poidsOf(d){
+  const n=d.contre.length;
+  const p={def:.30, fail:.30};
+  d.contre.forEach((_,i)=>{ p['c'+i]= n? .40/n : 0; });
+  return p;
+}
+function scoreDuel(d){
+  const P=poidsOf(d), ks=arbKeys(d).filter(k=>SESS.arb[k]);
+  if(!ks.length) return 0;
+  const tot=ks.reduce((t,k)=>t+P[k],0);
+  if(!tot) return 0;
+  return Math.round(ks.reduce((t,k)=>t+couvOf(k)*P[k],0)/tot*100);
+}
+function detailHtml(d){
+  const noms={def:'🛡️ Ta défense', fail:'⚔️ L\'estocade'};
+  d.contre.forEach((c,i)=>{ noms['c'+i]='🎯 Piège '+(i+1); });
+  const ks=arbKeys(d).filter(k=>SESS.arb[k]);
+  if(!ks.length) return '';
+  return `<div class="card"><b style="font-size:14px">Où ça s'est joué</b>
+    <div class="detrows">${ks.map(k=>{
+      const c=Math.round(couvOf(k)*100);
+      return `<div class="detrow"><span>${noms[k]}</span>
+        <i class="detbar"><b style="width:${c}%;background:${c>=70?'var(--ok)':c>=40?'var(--att)':'var(--bad)'}"></b></i>
+        <span class="detpct">${c}%</span></div>`;}).join('')}</div></div>`;
+}
 function renderSession(){
   const d=byId(SESS.id);
+  const rec=S.scores[SESS.id];
   let h=`<h1 class="page">${d.titre}</h1><div class="page-sub"><span class="tag th">${d.theme}</span></div>`;
+  h+=`<div class="duelbar">
+      <span class="db-c ${comboNow(d)>1?'on':''}">🔥 combo ×${comboNow(d)}</span>
+      <span class="db-s">${scoreDuel(d)}<small>/100</small></span>
+      ${rec?`<span class="db-r">record ${rec.best}</span>`:'<span class="db-r">1er passage</span>'}
+    </div>`;
+  if(SESS.diable){
+    h+=`<div class="card diable"><div class="lbl">😈 Avocat du diable</div>
+      Tu plaides <b>contre ta propre position</b>. L'arbitre attend les arguments de
+      ${escapeHtml(d.adverse.nom)}, pas les tiens. C'est l'exercice qui interdit la caricature.</div>`;
+  }
   h+=`<div class="card">
-    <div class="stance me"><span class="lbl">🟢 Ta position</span>${d.maPosition}</div>
-    <div class="stance adv"><span class="lbl">🟣 ${d.adverse.nom} — steelman</span><i>${d.adverse.steelman}</i></div>
+    <div class="stance me"><span class="lbl">${SESS.diable?'🔴 La position que tu dois DÉMOLIR':'🟢 Ta position'}</span>${d.maPosition}</div>
+    <div class="stance adv"><span class="lbl">${SESS.diable?'😈 Le camp que tu plaides':'🟣 '+d.adverse.nom+' — steelman'}</span><i>${d.adverse.steelman}</i></div>
   </div>`;
 
   // 1 — défense
@@ -348,7 +460,8 @@ function renderSession(){
     <div class="prompt">Écris le <b>meilleur argument qui renforce ta position</b>. Puis révèle.</div>
     <textarea id="ta_def" placeholder="Ton argument…">${SESS.def||''}</textarea>`;
   if(!SESS.revealed.def){h+=`<button class="btn def small" onclick="reveal('def')">Révéler la munition 🛡️</button>`;}
-  else{h+=`<div class="reveal def"><span class="lbl">🛡️ Ta munition</span>${d.defense}</div>
+  else{h+=`<div class="reveal def"><span class="lbl">🛡️ ${SESS.diable?'Ce que tu devais produire':'Ta munition'}</span>${refOf(d,'def')}</div>
+    ${arbHtml('def')}
     <div class="prompt" style="margin-top:10px">Tu l'avais ?</div>
     <div class="row3"><button class="btn ghost small" onclick="grade('def',0)">À revoir</button>
       <button class="btn ghost small" onclick="grade('def',3)">L'essentiel</button>
@@ -361,7 +474,8 @@ function renderSession(){
       <div class="prompt">Trouve la <b>faille de l'adversaire</b> — pourquoi son steelman ne tient pas.</div>
       <textarea id="ta_fail" placeholder="La faille…">${SESS.fail||''}</textarea>`;
     if(!SESS.revealed.fail){h+=`<button class="btn att small" onclick="reveal('fail')">Révéler la faille ⚔️</button>`;}
-    else{h+=`<div class="reveal att"><span class="lbl">⚔️ La faille</span>${d.faille}</div>
+    else{h+=`<div class="reveal att"><span class="lbl">⚔️ ${SESS.diable?'La faille de TA position':'La faille'}</span>${refOf(d,'fail')}</div>
+      ${arbHtml('fail')}
       <div class="prompt" style="margin-top:10px">Tu l'avais ?</div>
       <div class="row3"><button class="btn ghost small" onclick="grade('fail',0)">À revoir</button>
         <button class="btn ghost small" onclick="grade('fail',3)">L'essentiel</button>
@@ -375,8 +489,12 @@ function renderSession(){
       <div class="prompt">On va t'attaquer avec ça en débat. Prépare ta riposte, puis révèle.</div>`;
     d.contre.forEach((c,i)=>{const rk='c'+i;
       h+=`<div class="qa"><div class="q">${c.q}</div>`;
-      if(!SESS.revealed[rk]){h+=`<button class="btn ghost small" onclick="reveal('${rk}')" style="margin-top:8px">Voir la riposte</button>`;}
-      else{h+=`<div class="reveal"><span class="lbl">Riposte</span>${c.r}</div>`;}
+      if(!SESS.revealed[rk]){
+        h+=`<textarea data-rip="${rk}" placeholder="Ta riposte…">${escapeHtml((SESS.rip||{})[rk]||'')}</textarea>
+            <button class="btn ghost small" onclick="reveal('${rk}')" style="margin-top:8px">Révéler la riposte</button>`;
+      } else {
+        h+=`<div class="reveal"><span class="lbl">Riposte</span>${c.r}</div>${arbHtml(rk)}`;
+      }
       h+=`</div>`;});
     h+=`</div>`;
   }
@@ -393,12 +511,103 @@ function renderSession(){
   h+=`<button class="btn ghost small" onclick="quitDuel()">Quitter le duel</button>`;
   return h;
 }
-function saveDrafts(){const a=$('#ta_def'),b=$('#ta_fail');if(a)SESS.def=a.value;if(b)SESS.fail=b.value;}
-function reveal(k){saveDrafts();SESS.revealed[k]=true;render()}
-function grade(k,q){saveDrafts();const cid=SESS.id+':'+(k==='def'?'def':'fail');activateSrs(SESS.id);gradeSrs(cid,q);addXp(q>=5?12:q>=3?8:4);render();}
+function saveDrafts(){
+  const a=$('#ta_def'),b=$('#ta_fail');
+  if(a)SESS.def=a.value; if(b)SESS.fail=b.value;
+  SESS.rip=SESS.rip||{};
+  document.querySelectorAll('textarea[data-rip]').forEach(t=>{SESS.rip[t.dataset.rip]=t.value;});
+}
+function reveal(k){
+  saveDrafts();
+  const d=byId(SESS.id);
+  const ecrit = (k==='def'?SESS.def : k==='fail'?SESS.fail : (SESS.rip||{})[k]) || '';
+  try{ SESS.arb[k]=arbitrer(ecrit, refOf(d,k), 5); }catch(e){ SESS.arb[k]=null; }
+  SESS.revealed[k]=true; render();
+}
+function overrideConcept(k,i){
+  SESS.over[k]=SESS.over[k]||[];
+  const j=SESS.over[k].indexOf(i);
+  if(j<0) SESS.over[k].push(i); else SESS.over[k].splice(j,1);
+  render();
+}
+/* le panneau de l'arbitre */
+function arbHtml(k){
+  const a=SESS.arb[k];
+  if(!a) return '';
+  if(a.vide) return `<div class="arb"><div class="arb-h">🧑‍⚖️ L'arbitre</div>
+    <div class="arb-none">${a.nbMots===0
+      ? "Tu n'as rien écrit. Révéler sans écrire, c'est lire — pas s'entraîner."
+      : "Que du remplissage : "+a.nbMots+" mot"+(a.nbMots>1?"s":"")+" porteur"+(a.nbMots>1?"s":"")+" seulement. « Je trouve que ça ne tient pas » n'est pas un argument — nomme le mécanisme."}</div></div>`;
+  const ov=SESS.over[k]||[];
+  const c=Math.round(couvOf(k)*100);
+  const chips=a.concepts.map((x,i)=>{
+    const on = x.trouve || ov.includes(i);
+    return `<button class="arb-c ${x.trouve?'hit':(ov.includes(i)?'ovr':'miss')}"
+      ${x.trouve?'disabled':`onclick="overrideConcept('${k}',${i})"`}
+      title="${x.trouve?'retrouvé dans ton texte':'clique si tu l\'as dit autrement'}">${on?'✓':'○'} ${escapeHtml(x.mot)}</button>`;
+  }).join('');
+  return `<div class="arb">
+    <div class="arb-h">🧑‍⚖️ L'arbitre <span class="arb-pct ${c>=70?'g':c>=40?'m':'b'}">${c}%</span></div>
+    <div class="arb-bar"><i style="width:${c}%"></i></div>
+    <div class="arb-sub">${a.nbMots} mots écrits · ${a.touches}/${a.total} idées-clés retrouvées</div>
+    <div class="arb-chips">${chips}</div>
+    <div class="arb-note">Je compare des <b>mots</b>, pas des idées. Si tu l'as formulé autrement, clique sur le mot manquant — mais sois honnête, c'est toi que tu entraînes.</div>
+  </div>`;
+}
+function grade(k,q){
+  saveDrafts();
+  const d=byId(SESS.id);
+  const cid=SESS.id+':'+(k==='def'?'def':'fail');
+  activateSrs(SESS.id);gradeSrs(cid,q);
+  const base=q>=5?12:q>=3?8:4;
+  const mult=1+Math.min(1,Math.max(0,comboNow(d)-1)*0.25);   // ×1 → ×2 au 5e d'affilée
+  addXp(Math.round(base*mult));
+  render();
+}
 function finishDuel(){
-  const t=today();S.seen[SESS.id]=t;S.done[t]=S.done[t]||[];if(!S.done[t].includes(SESS.id))S.done[t].push(SESS.id);
-  activateSrs(SESS.id);bumpStreak();addXp(25);SESS=null;save();toast('Duel remporté ! +25 XP');render();
+  const d=byId(SESS.id), t=today();
+  const sc=scoreDuel(d), sec=Math.round((Date.now()-SESS.t0)/1000);
+  const anc=S.scores[SESS.id]||null;
+  const record=!anc||sc>anc.best;
+  S.scores[SESS.id]={best:record?sc:anc.best, last:sc, date:t, sec, n:(anc?anc.n:0)+1};
+  S.duels=(S.duels||0)+1;
+  S.seen[SESS.id]=t;S.done[t]=S.done[t]||[];if(!S.done[t].includes(SESS.id))S.done[t].push(SESS.id);
+  activateSrs(SESS.id);bumpStreak();
+  const bonus=Math.round(sc/4)+(SESS.diable?15:0)+(record&&anc?10:0);
+  addXp(25+bonus);
+  SESS.fini={sc,sec,record,ancien:anc?anc.best:null,bonus:25+bonus,combo:SESS.comboMax||0};
+  save();render();
+}
+function closeDuel(){const id=SESS.id;SESS=null;render();}
+function revanche(id,diable){startDuel(id,diable);}
+function finiHtml(d){
+  const f=SESS.fini;
+  const mm=Math.floor(f.sec/60), ss=String(f.sec%60).padStart(2,'0');
+  const ks=arbKeys(d).filter(k=>SESS.arb[k]);
+  const coeur=Math.round((couvOf('def')+couvOf('fail'))/2*100);
+  const pieges=ks.filter(k=>k[0]==='c');
+  const pmoy=pieges.length?Math.round(pieges.reduce((t,k)=>t+couvOf(k),0)/pieges.length*100):null;
+  let juge;
+  if(f.sc>=80) juge='Tu tenais le fond, pièges compris.';
+  else if(coeur>=60 && pmoy!==null && pmoy<35) juge='Le cœur tient — mais on te démonte sur les pièges. C\'est là que se perdent les vrais débats.';
+  else if(coeur<35 && pmoy!==null && pmoy>=50) juge='Tu pares bien les attaques, mais ta position de départ n\'est pas armée.';
+  else if(f.sc>=55) juge='Solide, mais il te manquait des pièces.';
+  else if(f.sc>=30) juge='Tu avais l\'intuition, pas les munitions.';
+  else juge='Tu as lu, tu ne t\'es pas entraîné.';
+  return `<h1 class="page">${f.record?'🏆 Record':'Duel terminé'}</h1>
+    <div class="card fini">
+      <div class="fscore ${f.sc>=70?'g':f.sc>=40?'m':'b'}">${f.sc}<small>/100</small></div>
+      <div class="fjuge">${juge}</div>
+      <div class="fstats">
+        <span>⏱ ${mm}:${ss}</span><span>🔥 combo ${f.combo}</span><span>+${f.bonus} XP</span>
+        ${f.ancien!==null?`<span>${f.record?'ancien record '+f.ancien:'record '+f.ancien}</span>`:''}
+      </div>
+      ${SESS.diable?'<div class="fdia">😈 Plaidé à contre-camp — +15 XP</div>':''}
+    </div>
+    ${detailHtml(d)}
+    <button class="btn" onclick="revanche('${SESS.id}',${SESS.diable?'true':'false'})">↻ Revanche</button>
+    ${!SESS.diable?`<button class="btn ghost" onclick="revanche('${SESS.id}',true)">😈 Rejouer en avocat du diable</button>`:''}
+    <button class="btn ghost small" onclick="closeDuel()">Retour à l'arène</button>`;
 }
 function quitDuel(){saveDrafts();SESS=null;render()}
 
