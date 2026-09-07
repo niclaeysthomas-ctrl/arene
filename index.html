@@ -176,6 +176,13 @@
 .fstats{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:14px;font-size:12px;
   color:var(--dim2);font-weight:700}
 .fdia{margin-top:12px;font-size:12.5px;color:var(--adv);font-weight:800}
+.fsrs{margin-top:12px;font-size:12.5px;color:var(--dim);line-height:1.5;
+  border-top:1px solid var(--line);padding-top:10px}
+.why{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:800;
+  padding:4px 9px;border-radius:999px;margin:8px 0 2px}
+.why.dette{background:rgba(255,140,90,.14);color:var(--att)}
+.why.neuf{background:rgba(90,170,255,.14);color:var(--acc)}
+.why.tour{background:var(--bg2);color:var(--dim2)}
 .detrows{display:flex;flex-direction:column;gap:8px;margin-top:10px}
 .detrow{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;color:var(--dim)}
 .detrow>span:first-child{flex:0 0 96px}
@@ -250,27 +257,63 @@ function sourcesBlock(d){
   return '<div class="reveal src"><span class="lbl">📚 Sources & penseurs</span>'+d.sources.map(s=>'• '+s).join('<br>')+'</div>';
 }
 
-/* choisir le duel : priorité non-vus, sinon le moins récemment vu */
-function pickDuel(exclude){
-  const unseen=DEBATS.filter(d=>!S.seen[d.id] && d.id!==exclude);
-  if(unseen.length)return unseen[0].id;
-  const pool=DEBATS.filter(d=>d.id!==exclude);
-  pool.sort((a,b)=>dnum(S.seen[a.id]||'2000-01-01')-dnum(S.seen[b.id]||'2000-01-01'));
-  return (pool[0]||DEBATS[0]).id;
+/* Le duel du jour se choisit sur la DETTE, pas sur l'ordre du catalogue.
+   Avant : un débat raté repartait au fond de la file des 46, exactement
+   comme un débat maîtrisé — ce que l'arbitre t'avait vu rater n'avait
+   aucune conséquence. Ordre désormais : ce que tu dois reprendre, puis
+   ce que tu n'as jamais affronté, puis le plus ancien.
+   Garde-fou : jamais le même débat deux jours d'affilée. */
+function duelRank(exclude){
+  const t=dnum(today()), hist=S.duelHist||[];
+  return DEBATS.map(d=>{
+    const sc=S.scores[d.id]||null;
+    const cards=srsOf(d.id).filter(srsValide);
+    const retard=cards.length?Math.max.apply(null,cards.map(c=>t-dnum(S.srs[c].due))):-1;
+    const vu=S.seen[d.id]?dnum(S.seen[d.id]):null;
+    let p,why,tag;
+    if(sc && retard>=0){
+      p=1000+(100-sc.last)+retard*4;
+      why='à reprendre — tu l\'as tenu à '+sc.last+'/100';tag='dette';
+    }else if(vu===null){
+      p=500;why='jamais affronté';tag='neuf';
+    }else{
+      const j=t-vu;
+      p=Math.min(400,j);why=j<=0?'déjà tenu aujourd\'hui':j===1?'tenu hier':'tenu il y a '+j+' jours';tag='tour';
+    }
+    if(hist.slice(-2).indexOf(d.id)>=0)p-=900;     // pas deux jours de suite
+    if(d.id===exclude)p-=1e6;
+    return {id:d.id,p,why,tag};
+  }).sort((a,b)=>b.p-a.p);
 }
+function pickDuel(exclude){const r=duelRank(exclude);return (r[0]||{id:DEBATS[0].id}).id;}
+/* enchaîner = découvrir : on ne rejoue pas la dette deux fois dans la journée */
+function pickNeuf(exclude){
+  const r=duelRank(exclude), n=r.find(x=>x.tag==='neuf');
+  return (n||r[0]||{id:DEBATS[0].id}).id;
+}
+function duelWhy(id){const r=duelRank(null).find(x=>x.id===id);return r||{why:'',tag:''};}
 function duelOfDay(){
   const t=today();
   if(S.todayDuel && S.todayDuel.day===t) return S.todayDuel.id;
-  const id=pickDuel(null);S.todayDuel={day:t,id};save();return id;
+  const id=pickDuel(null);
+  S.todayDuel={day:t,id};
+  S.duelHist=(S.duelHist||[]).concat(id).slice(-4);
+  save();return id;
 }
 
 /* ---------- SRS (SM-2 léger) ---------- */
-function srsCardsFor(id){return [id+':def',id+':fail']}
 function ensureSrs(cid){if(!S.srs[cid])S.srs[cid]={ef:2.5,int:0,reps:0,due:today()};return S.srs[cid];}
-function activateSrs(id){srsCardsFor(id).forEach(ensureSrs);save();}
-function dueCards(){const t=dnum(today());return Object.keys(S.srs).filter(cid=>dnum(S.srs[cid].due)<=t);}
-function gradeSrs(cid,q){
+function srsOf(id){const p=id+':';return Object.keys(S.srs).filter(c=>c.startsWith(p));}
+/* une carte n'existe que si son débat (et son piège) existent encore */
+function srsValide(cid){const i=cid.indexOf(':');const d=byId(cid.slice(0,i));if(!d)return false;
+  const k=cid.slice(i+1);return k==='def'||k==='fail'||!!(d.contre||[])[+k.slice(1)];}
+/* une carte notée aujourd'hui sort de la file du jour : sinon un "Encore"
+   la ramenait à l'infini et la séance ne se terminait jamais. */
+function dueCards(){const t=today(),tn=dnum(t);
+  return Object.keys(S.srs).filter(cid=>dnum(S.srs[cid].due)<=tn && S.srs[cid].seen!==t && srsValide(cid));}
+function gradeSrs(cid,q,vu){
   const c=ensureSrs(cid);
+  if(vu)c.seen=today();
   if(q<3){c.reps=0;c.int=0;c.due=today()}
   else{
     c.ef=Math.max(1.3,c.ef+(0.1-(5-q)*(0.08+(5-q)*0.02)));c.reps++;
@@ -279,13 +322,29 @@ function gradeSrs(cid,q){
   }
   save();
 }
-function srsFront(cid){const [id,kind]=cid.split(':');const d=byId(id);if(!d)return'';
-  return (kind==='def'?'🛡️ Ta meilleure DÉFENSE sur :':'⚔️ La FAILLE de l\'adversaire sur :')+'<br><b style="color:var(--acc2)">'+d.titre+'</b>';}
-function srsBack(cid){const [id,kind]=cid.split(':');const d=byId(id);return kind==='def'?d.defense:d.faille}
+function srsParts(cid){const i=cid.indexOf(':');return [cid.slice(0,i),cid.slice(i+1)];}
+function srsFront(cid){const [id,kind]=srsParts(cid);const d=byId(id);if(!d)return'';
+  if(kind==='def'||kind==='fail')
+    return (kind==='def'?'🛡️ Ta meilleure DÉFENSE sur :':'⚔️ La FAILLE de l\'adversaire sur :')+'<br><b style="color:var(--acc2)">'+d.titre+'</b>';
+  const c=(d.contre||[])[+kind.slice(1)];if(!c)return'';
+  return '🎯 On t\'attaque avec ça :<br><b style="color:var(--acc2)">'+c.q+'</b><div class="sub" style="margin-top:8px">'+d.titre+'</div>';}
+function srsBack(cid){const [id,kind]=srsParts(cid);const d=byId(id);if(!d)return'';
+  if(kind==='def')return d.defense; if(kind==='fail')return d.faille;
+  return ((d.contre||[])[+kind.slice(1)]||{}).r||'';}
 
 /* ================= RENDER ================= */
+/* Un re-render n'est pas un changement d'écran : on ne remonte en haut que
+   si on change vraiment de page. Avant, chaque clic (révéler, noter, cocher
+   un mot) rejetait la lecture tout en haut du duel. */
+function screenKey(){
+  return [TAB, SESS?('duel:'+SESS.id+(SESS.fini?':fini':'')):'-',
+    (typeof REVTAB!=='undefined'?REVTAB:'-'), (typeof DOSSIER!=='undefined'&&DOSSIER)?DOSSIER.id||DOSSIER:'-',
+    (typeof DRILL!=='undefined'&&DRILL)?'drill':'-', (typeof MCOPEN!=='undefined'&&MCOPEN)?MCOPEN:'-'].join('|');
+}
+let LASTKEY=null;
 function render(){
   paintHead();
+  const key=screenKey(), meme=(key===LASTKEY), y=window.scrollY;
   if(TAB==='arene')renderArene();
   else if(TAB==='positions')renderPositions();
   else if(TAB==='masterclass')renderMasterclass();
@@ -293,7 +352,8 @@ function render(){
   else if(TAB==='carnet')renderCarnet();
   else if(TAB==='revision')renderRevision();
   else renderProfil();
-  renderNav();window.scrollTo(0,0);
+  renderNav();LASTKEY=key;
+  if(meme)window.scrollTo(0,y);else window.scrollTo(0,0);
 }
 function renderNav(){
   const items=[['arene','🥊','Arène'],['positions','📜','Positions'],['masterclass','🎓','Cours'],['carnet','✍️','Carnet'],['revision','🔁','Révision'],['profil','📊','Profil']];
@@ -361,16 +421,17 @@ function renderArene(){
     <div class="quest ${dueN===0?'done':''}"><div class="qi">🔁</div><div class="qt"><b>Réviser tes munitions</b><small>${dueN} carte${dueN>1?'s':''} à revoir</small></div><div class="qx">${dueN===0?'✓':dueN}</div></div>
   </div>`;
 
-  const did=duelOfDay();const d=byId(did);
+  const did=duelOfDay();const d=byId(did);const w=duelWhy(did);
   h+=`<h1 class="page">🥊 Le duel du jour</h1>
     <div class="page-sub">${d.theme} · production active — écris <i>avant</i> de révéler.</div>
     <div class="card">
       <span class="tag th">${d.theme}</span>
       <div style="font-size:18px;font-weight:900;margin:10px 0 2px">${d.titre}</div>
+      <div class="why ${w.tag}">${w.tag==='dette'?'🔁':w.tag==='neuf'?'✦':'↻'} ${w.why}</div>
       ${S.scores[d.id]?`<div class="recline">🏆 ton record : <b>${S.scores[d.id].best}</b>/100 · ${S.scores[d.id].n} passage${S.scores[d.id].n>1?'s':''}</div>`:''}
       <button class="btn" onclick="startDuel('${d.id}')">Entrer dans l'arène →</button>
       <button class="btn ghost small" onclick="startDuel('${d.id}',true)">😈 Avocat du diable — plaide le camp adverse</button>
-      ${duelDoneToday?`<button class="btn ghost small" onclick="startDuel('${pickDuel(did)}')">Enchaîner un autre duel</button>`:''}
+      ${duelDoneToday?`<button class="btn ghost small" onclick="startDuel('${pickNeuf(did)}')">Enchaîner un duel neuf</button>`:''}
     </div>`;
   h+=`<div class="card" onclick="go('masterclass')" style="cursor:pointer"><div class="quest" style="padding:2px 0;border:none"><div class="qi">🎓</div><div class="qt"><b>Masterclass</b><small>Te former sur un sujet avant d'avoir un avis</small></div><div class="qx">→</div></div></div>`;
   const _dueF=(typeof DOSSIERS!=='undefined'?DOSSIERS:[]).reduce((n,d)=>n+dossierDue(d).length,0);
@@ -461,11 +522,7 @@ function renderSession(){
     <textarea id="ta_def" placeholder="Ton argument…">${SESS.def||''}</textarea>`;
   if(!SESS.revealed.def){h+=`<button class="btn def small" onclick="reveal('def')">Révéler la munition 🛡️</button>`;}
   else{h+=`<div class="reveal def"><span class="lbl">🛡️ ${SESS.diable?'Ce que tu devais produire':'Ta munition'}</span>${refOf(d,'def')}</div>
-    ${arbHtml('def')}
-    <div class="prompt" style="margin-top:10px">Tu l'avais ?</div>
-    <div class="row3"><button class="btn ghost small" onclick="grade('def',0)">À revoir</button>
-      <button class="btn ghost small" onclick="grade('def',3)">L'essentiel</button>
-      <button class="btn def small" onclick="grade('def',5)">Maîtrisé</button></div>`;}
+    ${arbHtml('def')}`;}
   h+=`</div>`;
 
   // 2 — estocade
@@ -475,11 +532,7 @@ function renderSession(){
       <textarea id="ta_fail" placeholder="La faille…">${SESS.fail||''}</textarea>`;
     if(!SESS.revealed.fail){h+=`<button class="btn att small" onclick="reveal('fail')">Révéler la faille ⚔️</button>`;}
     else{h+=`<div class="reveal att"><span class="lbl">⚔️ ${SESS.diable?'La faille de TA position':'La faille'}</span>${refOf(d,'fail')}</div>
-      ${arbHtml('fail')}
-      <div class="prompt" style="margin-top:10px">Tu l'avais ?</div>
-      <div class="row3"><button class="btn ghost small" onclick="grade('fail',0)">À revoir</button>
-        <button class="btn ghost small" onclick="grade('fail',3)">L'essentiel</button>
-        <button class="btn att small" onclick="grade('fail',5)">Maîtrisé</button></div>`;}
+      ${arbHtml('fail')}`;}
     h+=`</div>`;
   }
 
@@ -554,15 +607,22 @@ function arbHtml(k){
     <div class="arb-note">Je compare des <b>mots</b>, pas des idées. Si tu l'as formulé autrement, clique sur le mot manquant — mais sois honnête, c'est toi que tu entraînes.</div>
   </div>`;
 }
-function grade(k,q){
-  saveDrafts();
-  const d=byId(SESS.id);
-  const cid=SESS.id+':'+(k==='def'?'def':'fail');
-  activateSrs(SESS.id);gradeSrs(cid,q);
-  const base=q>=5?12:q>=3?8:4;
-  const mult=1+Math.min(1,Math.max(0,comboNow(d)-1)*0.25);   // ×1 → ×2 au 5e d'affilée
-  addXp(Math.round(base*mult));
-  render();
+/* Plus d'auto-notation : c'est la couverture mesurée par l'arbitre qui
+   programme la révision. Tu ne peux plus te déclarer "maîtrisé" — et le
+   bouton "je l'ai dit autrement" reste la seule marge de correction. */
+function qFromCouv(c){return c>=.75?5:c>=.5?4:c>=.3?3:0;}
+function programmerSrs(d){
+  const prog=[];
+  arbKeys(d).forEach(k=>{
+    const a=SESS.arb[k];if(!a)return;                    // étape non jouée
+    /* en avocat du diable, def/fail portent le contenu ADVERSE :
+       on ne reprogramme pas ces munitions-là sur cette base. */
+    if(SESS.diable && (k==='def'||k==='fail'))return;
+    const q=a.vide?0:qFromCouv(couvOf(k));
+    gradeSrs(SESS.id+':'+k,q);
+    prog.push({k,q});
+  });
+  return prog;
 }
 function finishDuel(){
   const d=byId(SESS.id), t=today();
@@ -572,10 +632,12 @@ function finishDuel(){
   S.scores[SESS.id]={best:record?sc:anc.best, last:sc, date:t, sec, n:(anc?anc.n:0)+1};
   S.duels=(S.duels||0)+1;
   S.seen[SESS.id]=t;S.done[t]=S.done[t]||[];if(!S.done[t].includes(SESS.id))S.done[t].push(SESS.id);
-  activateSrs(SESS.id);bumpStreak();
-  const bonus=Math.round(sc/4)+(SESS.diable?15:0)+(record&&anc?10:0);
+  const prog=programmerSrs(d);bumpStreak();
+  const rates=prog.filter(x=>x.q<3).length;
+  const xpEtapes=arbKeys(d).filter(k=>SESS.arb[k]).reduce((n,k)=>n+Math.round(couvOf(k)*8),0);
+  const bonus=Math.round(sc/4)+(SESS.diable?15:0)+(record&&anc?10:0)+xpEtapes;
   addXp(25+bonus);
-  SESS.fini={sc,sec,record,ancien:anc?anc.best:null,bonus:25+bonus,combo:SESS.comboMax||0};
+  SESS.fini={sc,sec,record,ancien:anc?anc.best:null,bonus:25+bonus,combo:SESS.comboMax||0,rates,prog:prog.length};
   save();render();
 }
 function closeDuel(){const id=SESS.id;SESS=null;render();}
@@ -603,6 +665,9 @@ function finiHtml(d){
         ${f.ancien!==null?`<span>${f.record?'ancien record '+f.ancien:'record '+f.ancien}</span>`:''}
       </div>
       ${SESS.diable?'<div class="fdia">😈 Plaidé à contre-camp — +15 XP</div>':''}
+      ${f.prog?`<div class="fsrs">${f.rates
+        ? '🔁 '+f.rates+' munition'+(f.rates>1?'s':'')+' repassent en révision — et ce débat remonte dans ta file : il revient bientôt.'
+        : '✓ Les '+f.prog+' munitions de ce débat partent au repos. Ce débat descend dans ta file.'}</div>`:''}
     </div>
     ${detailHtml(d)}
     <button class="btn" onclick="revanche('${SESS.id}',${SESS.diable?'true':'false'})">↻ Revanche</button>
@@ -754,6 +819,20 @@ function duelToCarnet(){
 
 /* ---------- RÉVISION (hub : Munitions | Fiches) ---------- */
 let REV=null, REVTAB='munitions', DOSSIER=null, DRILL=null;
+/* File de la séance. Avant, un "Encore" remettait la carte due aujourd'hui
+   et le sélecteur la reprenait aussitôt : compteur figé, séance impossible
+   à terminer, la seule sortie était de mentir. Désormais la carte ratée
+   repasse plus loin dans la file, et au 2e raté elle est remise à demain. */
+let REVQ=null, REVQDAY=null, REVLAPSE={};
+function revFile(){
+  const t=today();
+  if(REVQDAY!==t){REVQ=null;REVLAPSE={};REVQDAY=t;}
+  const due=dueCards();
+  if(!REVQ)REVQ=due.slice();
+  else due.forEach(cid=>{if(REVQ.indexOf(cid)<0)REVQ.push(cid);});
+  REVQ=REVQ.filter(srsValide);
+  return REVQ;
+}
 function setRevTab(t){REVTAB=t;REV=null;render();}
 function renderRevision(){
   if(DRILL){renderDrill();return;}
@@ -768,14 +847,15 @@ function renderRevision(){
   $('#main').innerHTML=h;
 }
 function revMunitionsHtml(){
-  const due=dueCards();
-  if(!due.length){
-    const total=Object.keys(S.srs).length;
-    return `<div class="empty">${total?'✓ Rien à réviser aujourd\'hui.<br>Reviens demain — tes munitions reposent.':'Aucune munition encore.<br>Fais un duel dans l\'Arène pour en débloquer.'}</div>`;
+  const file=revFile();
+  if(!file.length){
+    const total=Object.keys(S.srs).filter(srsValide).length;
+    return `<div class="empty">${total?'✓ Séance faite.<br>Reviens demain — tes munitions reposent.':'Aucune munition encore.<br>Fais un duel dans l\'Arène pour en débloquer.'}</div>`;
   }
-  if(!REV || !due.includes(REV.cid)){REV={cid:due[0],show:false}}
+  if(!REV || REV.cid!==file[0]){REV={cid:file[0],show:false}}
   const cid=REV.cid;
-  let h=`<div class="sub" style="margin:-4px 2px 10px">${due.length} munition${due.length>1?'s':''} à revoir.</div>
+  const lap=REVLAPSE[cid]?' · 2e passage':'';
+  let h=`<div class="sub" style="margin:-4px 2px 10px">${file.length} munition${file.length>1?'s':''} dans la file${lap}.</div>
     <div class="srs-card"><div class="srs-front">${srsFront(cid)}</div>`;
   if(REV.show)h+=`<div class="srs-back">${srsBack(cid)}</div>`;
   h+=`</div>`;
@@ -787,7 +867,17 @@ function revMunitionsHtml(){
   return h;
 }
 function revShow(){REV.show=true;render()}
-function revGrade(q){gradeSrs(REV.cid,q);addXp(q>=5?6:q>=3?4:2);REV=null;render()}
+function revGrade(q){
+  const cid=REV.cid;
+  gradeSrs(cid,q,true);addXp(q>=5?6:q>=3?4:2);
+  if(REVQ&&REVQ[0]===cid)REVQ.shift();
+  if(q<3){
+    REVLAPSE[cid]=(REVLAPSE[cid]||0)+1;
+    if(REVLAPSE[cid]<2){REVQ.splice(Math.min(REVQ.length,2),0,cid);toast('Elle repassera avant la fin de la séance.');}
+    else toast('Remise à demain — tu la reprendras à froid.');
+  }
+  REV=null;render();
+}
 
 /* --- Fiches : dossiers de révision factuelle (chiffres & événements) --- */
 function dosById(id){return (typeof DOSSIERS!=='undefined'?DOSSIERS:[]).find(d=>d.id===id)}
