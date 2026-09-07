@@ -176,6 +176,24 @@
 .fstats{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:14px;font-size:12px;
   color:var(--dim2);font-weight:700}
 .fdia{margin-top:12px;font-size:12.5px;color:var(--adv);font-weight:800}
+.lex{border-left:3px solid var(--acc2);padding:2px 0 2px 12px;margin:14px 0}
+.lex:first-of-type{margin-top:8px}
+.lex .lm{font-weight:900;font-size:15px;color:var(--acc2)}
+.lex .ld{font-size:14px;color:#dde3f2;margin-top:4px;line-height:1.55}
+.lex .ls{background:var(--bg2);border-radius:9px;padding:9px 11px;margin-top:8px;font-size:13.5px;line-height:1.5}
+.lex .ls b{color:var(--acc)}
+.lex .lt{margin-top:9px;font-size:13px;color:var(--att);font-weight:700;line-height:1.5}
+.tvar{width:100%;border-collapse:collapse;margin:4px 0;font-size:13px}
+.tvar th{text-align:center;padding:6px 4px;color:var(--dim2);font-weight:800;font-size:11.5px;
+  border-bottom:1px solid var(--line);line-height:1.25}
+.tvar td{padding:6px 4px;text-align:center;border-bottom:1px solid rgba(255,255,255,.05);font-weight:700}
+.tvar td:first-child{text-align:left;font-weight:600;color:var(--dim)}
+.tvar small{opacity:.6;font-weight:500}
+.mec{background:var(--bg2);border-radius:12px;padding:12px 13px;margin:12px 0}
+.mec .mq{font-weight:900;font-size:14.5px;color:var(--study);margin-bottom:7px}
+.mec .mc{font-size:14px;color:#dde3f2;line-height:1.6}
+.mec .mp{margin-top:9px;font-size:13.5px;color:var(--ok);line-height:1.5}
+.mec .ml{margin-top:7px;font-size:13.5px;color:var(--att);line-height:1.5}
 .fsrs{margin-top:12px;font-size:12.5px;color:var(--dim);line-height:1.5;
   border-top:1px solid var(--line);padding-top:10px}
 .why{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:800;
@@ -719,9 +737,27 @@ function renderMCDetail(){
   const m=mcById(MCOPEN);const done=S.studied&&S.studied[MCOPEN];
   let h=`<button class="btn ghost small" onclick="closeMC()" style="margin:0 0 12px;width:auto;display:inline-block;padding:8px 14px">← Masterclass</button>
     <h1 class="page">${m.titre}</h1><div class="page-sub">${m.sub}</div>`;
+  if(m.lexique&&m.lexique.length){
+    h+=`<div class="card"><div class="mini" style="margin-bottom:2px">📖 Poser les mots avant de débattre</div>
+      <div class="sub" style="margin:6px 0 0">La plupart des disputes ne portent pas sur les faits mais sur le sens des mots. Voilà les définitions exactes, et les sens concurrents quand il y en a.</div>`;
+    m.lexique.forEach(l=>{
+      h+=`<div class="lex"><div class="lm">${l.mot}</div><div class="ld">${l.def}</div>`;
+      if(l.sens&&l.sens.length)h+=l.sens.map(x=>`<div class="ls"><b>${x.q}</b> — ${x.d}</div>`).join('');
+      if(l.test)h+=`<div class="lt">🔎 ${l.test}</div>`;
+      h+=`</div>`;});
+    h+=`</div>`;}
   m.sections.forEach(s=>{
     h+=`<div class="card"><div style="font-weight:900;font-size:16px;margin-bottom:8px;color:var(--acc2)">${s.t}</div><div style="font-size:14.5px;color:#dde3f2">${s.c}</div></div>`;
   });
+  if(m.mecanismes&&m.mecanismes.length){
+    h+=`<div class="card"><div class="mini" style="margin-bottom:2px">🔧 Pourquoi ? Les mécanismes</div>
+      <div class="sub" style="margin:6px 0 0">Un fait sans mécanisme ne se défend pas : on te demandera « pourquoi ? ». Chaque mécanisme est donné avec ce qui l'atteste et ce qu'il n'explique pas.</div>`;
+    m.mecanismes.forEach(x=>{
+      h+=`<div class="mec"><div class="mq">${x.q}</div><div class="mc">${x.c}</div>`;
+      if(x.preuve)h+=`<div class="mp">✔️ <b>Ce qui l'atteste :</b> ${x.preuve}</div>`;
+      if(x.limite)h+=`<div class="ml">⚠️ <b>Ce que ça n'explique pas :</b> ${x.limite}</div>`;
+      h+=`</div>`;});
+    h+=`</div>`;}
   if(m.camps&&m.camps.length){h+=`<div class="card"><div class="mini" style="margin-bottom:2px">⚔️ Les camps en présence (steelman)</div>`;
   m.camps.forEach((c,i)=>{h+=`<div class="stance ${i===0?'me':'adv'}"><span class="lbl">${c.nom}</span>${c.pos}</div>`;});
   h+=`</div>`;}
