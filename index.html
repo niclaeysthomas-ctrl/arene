@@ -209,6 +209,32 @@
 .detpct{flex:0 0 34px;text-align:right;font-variant-numeric:tabular-nums;color:var(--txt)}
 .recline{font-size:12px;color:var(--dim2);font-weight:700;margin:8px 0 2px}
 .qa textarea{margin-top:8px}
+
+/* ---- Quiz de masterclass (progressif) ---- */
+.quizbar{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.quizbar .qztrack{flex:1;height:6px;border-radius:3px;background:var(--bg4);overflow:hidden}
+.quizbar .qztrack i{display:block;height:100%;background:var(--study);border-radius:3px;transition:width .25s}
+.quizbar .qzn{font-size:12.5px;font-weight:800;color:var(--dim);flex-shrink:0}
+.qztag{display:inline-block;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:1px;
+  color:var(--dim2);background:var(--bg3);border-radius:999px;padding:3px 9px;margin-bottom:9px}
+.qzq{font-size:16px;font-weight:800;line-height:1.5;margin-bottom:4px}
+.qcm{display:flex;flex-direction:column;gap:9px;margin-top:14px}
+.qopt{text-align:left;background:var(--bg3);border:1px solid var(--line);border-radius:12px;padding:13px 14px;
+  font-size:14.5px;color:var(--txt);cursor:pointer;line-height:1.4;font-family:inherit}
+.qopt:active{transform:scale(.98)}
+.qopt.right{border-color:var(--ok);background:rgba(62,207,122,.12)}
+.qopt.wrong{border-color:var(--bad);background:rgba(255,107,122,.12)}
+.qopt.dim{opacity:.55}
+.qopt:disabled{cursor:default}
+.qzexp{margin-top:4px}
+.qzexp .lbl{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+.qzexp.right .lbl{color:var(--ok)} .qzexp.wrong .lbl{color:var(--bad)}
+.qzscore{text-align:center;padding:28px 16px}
+.qzscore .big{font-size:40px;font-weight:900}
+.qzscore .big small{font-size:18px;color:var(--dim)}
+.qzrow{display:flex;flex-direction:column;gap:7px;margin-top:14px;text-align:left}
+.qzri{display:flex;align-items:flex-start;gap:9px;font-size:13.5px;padding:9px 11px;border-radius:10px;background:var(--bg3)}
+.qzri .ic{flex-shrink:0;margin-top:1px}
 </style>
 </head>
 <body>
@@ -242,6 +268,7 @@ function loadState(){
   s.xp=s.xp||0; s.streak=s.streak||0; s.lastDay=s.lastDay||null;
   s.seen=s.seen||{}; s.srs=s.srs||{}; s.done=s.done||{}; s.todayDuel=s.todayDuel||null; s.studied=s.studied||{}; s.carnet=s.carnet||[]; s.verdictsSeen=s.verdictsSeen||{};
   s.memo=s.memo||{}; s.dossiersSeen=s.dossiersSeen||{}; s.scores=s.scores||{}; s.duels=s.duels||0;
+  s.mcq=s.mcq||{};
   return s;
 }
 function save(){localStorage.setItem('arene_state',JSON.stringify(S))}
@@ -357,7 +384,8 @@ function srsBack(cid){const [id,kind]=srsParts(cid);const d=byId(id);if(!d)retur
 function screenKey(){
   return [TAB, SESS?('duel:'+SESS.id+(SESS.fini?':fini':'')):'-',
     (typeof REVTAB!=='undefined'?REVTAB:'-'), (typeof DOSSIER!=='undefined'&&DOSSIER)?DOSSIER.id||DOSSIER:'-',
-    (typeof DRILL!=='undefined'&&DRILL)?'drill':'-', (typeof MCOPEN!=='undefined'&&MCOPEN)?MCOPEN:'-'].join('|');
+    (typeof DRILL!=='undefined'&&DRILL)?'drill':'-', (typeof MCOPEN!=='undefined'&&MCOPEN)?MCOPEN:'-',
+    (typeof MCQUIZ!=='undefined'&&MCQUIZ)?('mcquiz:'+MCQUIZ.id+':'+MCQUIZ.i+(MCQUIZ.fini?':fini':'')):'-'].join('|');
 }
 let LASTKEY=null;
 function render(){
@@ -378,7 +406,7 @@ function renderNav(){
   $('#nav').innerHTML=items.map(([r,ic,l])=>
     `<div class="nav-i ${TAB===r?'on':''}" onclick="go('${r}')"><div class="ic">${ic}</div><span>${l}</span></div>`).join('');
 }
-function go(t){MCOPEN=null;OPEN=null;CARNET_EDIT=null;CARNET_EXPORT=null;VREV={};DOSSIER=null;DRILL=null;REVTAB='munitions';TAB=t;render()}
+function go(t){MCOPEN=null;MCQUIZ=null;OPEN=null;CARNET_EDIT=null;CARNET_EXPORT=null;VREV={};DOSSIER=null;DRILL=null;REVTAB='munitions';TAB=t;render()}
 function goFiches(){MCOPEN=null;DOSSIER=null;DRILL=null;REVTAB='fiches';TAB='revision';render()}
 
 /* ---------- LE VERDICT (⚖️ faits vs valeurs) ---------- */
@@ -717,9 +745,10 @@ function toggle(id){OPEN=OPEN===id?null:id;render()}
 function fromPos(id){TAB='arene';startDuel(id)}
 
 /* ---------- MASTERCLASS ---------- */
-let MCOPEN=null;
+let MCOPEN=null, MCQUIZ=null;
 function mcById(id){return MASTERCLASS.find(m=>m.id===id)}
 function renderMasterclass(){
+  if(MCQUIZ){renderMCQuizRunner();return;}
   if(MCOPEN){renderMCDetail();return;}
   let h=`<h1 class="page">🎓 Masterclass</h1><div class="page-sub">Te former avant d'avoir un avis : les faits, les deux camps, les pièges — puis à toi de trancher.</div>`;
   MC_THEMES.forEach(th=>{
@@ -727,8 +756,10 @@ function renderMasterclass(){
     h+=`<div class="mini" style="margin:16px 0 8px">${th}</div>`;
     list.forEach(m=>{
       const done=S.studied&&S.studied[m.id];
+      const rec=S.mcq[m.id];
       h+=`<div class="positem" onclick="openMC('${m.id}')"><div class="pt"><b>${m.titre}</b><span class="chev" style="color:${done?'var(--ok)':'var(--dim2)'}">${done?'✓':'▶'}</span></div>
-        <div class="sub" style="margin-top:6px">${m.sub}</div></div>`;
+        <div class="sub" style="margin-top:6px">${m.sub}</div>
+        ${rec?`<div class="sub" style="margin-top:6px;color:var(--study)">🧠 quiz ${fmtScore(rec.best)}/${rec.total}</div>`:''}</div>`;
     });
   });
   $('#main').innerHTML=h;
@@ -768,14 +799,113 @@ function renderMCDetail(){
   if(typeof DOSSIERS!=='undefined' && DOSSIERS.find(x=>x.id===m.id))
     h+=`<button class="btn study small" onclick="mcToDossier('${m.id}')">📇 Réviser les chiffres & dates de ce dossier</button>`;
   h+=`<div class="card" style="margin-top:12px">${sourcesBlock(m)}</div>`;
+  if(m.quiz&&m.quiz.length){
+    const rec=S.mcq[m.id];
+    h+=`<div class="card" style="margin-top:12px;border-color:var(--study)">
+      <div class="mini" style="margin-bottom:2px;color:var(--study)">🧠 Teste-toi</div>
+      <div class="sub" style="margin:6px 0 10px">${m.quiz.length} questions — pas pour vérifier que tu as lu, pour vérifier que ça a tenu.</div>
+      <button class="btn study" onclick="startMCQuiz('${m.id}')">${rec?'↻ Refaire le quiz · record '+fmtScore(rec.best)+'/'+rec.total:'▶ Lancer le quiz'}</button>
+    </div>`;
+  }
   if(done)h+=`<div class="empty" style="padding:14px">✓ Masterclass étudiée</div>`;
   else h+=`<button class="btn study" onclick="studyMC('${m.id}')">✓ Marquer comme étudiée (+15 XP)</button>`;
   h+=`<div class="card" style="margin-top:12px"><div class="sub">Une fois que tu t'es forgé une position là-dessus, dis-le-moi : j'en fais un <b>duel</b> avec ta défense et les contre-arguments.</div></div>`;
   $('#main').innerHTML=h;
 }
 function openMC(id){MCOPEN=id;render()}
-function closeMC(){MCOPEN=null;render()}
+function closeMC(){MCOPEN=null;MCQUIZ=null;render()}
 function studyMC(id){if(!S.studied[id]){S.studied[id]=today();bumpStreak();addXp(15);toast('Masterclass étudiée ! +15 XP')}render()}
+
+/* ---- Quiz de masterclass : progressif, QCM + questions ouvertes (reveal) ---- */
+function fmtScore(n){return Number.isInteger(n)?n:n.toFixed(1)}
+function startMCQuiz(id){MCQUIZ={id,i:0,score:0,answered:false,picked:null,ecrit:''};render()}
+function quitMCQuiz(){MCQUIZ=null;render()}
+function closeMCQuiz(){MCQUIZ=null;render()}
+function mcQuizPick(i){
+  if(MCQUIZ.answered)return;
+  const m=mcById(MCQUIZ.id),q=m.quiz[MCQUIZ.i];
+  MCQUIZ.picked=i;MCQUIZ.answered=true;
+  if(i===q.bonne){MCQUIZ.score++;addXp(4);}else addXp(1);
+  render();
+}
+function mcQuizReveal(){
+  const t=$('#mcq_ta');if(t)MCQUIZ.ecrit=t.value;
+  MCQUIZ.answered=true;render();
+}
+function mcQuizGrade(q){
+  const cid='mcq:'+MCQUIZ.id+':'+MCQUIZ.i;
+  memoGrade(cid,q);
+  if(q>=5){MCQUIZ.score+=1;addXp(3);}else if(q>=3){MCQUIZ.score+=0.5;addXp(2);}else addXp(1);
+  mcQuizNext();
+}
+function mcQuizNext(){
+  const m=mcById(MCQUIZ.id);
+  MCQUIZ.i++;MCQUIZ.answered=false;MCQUIZ.picked=null;MCQUIZ.ecrit='';
+  if(MCQUIZ.i>=m.quiz.length)finishMCQuiz();else render();
+}
+function finishMCQuiz(){
+  const id=MCQUIZ.id,m=mcById(id),total=m.quiz.length,sc=Math.round(MCQUIZ.score*2)/2;
+  const anc=S.mcq[id]||null,record=!anc||sc>anc.best;
+  S.mcq[id]={best:record?sc:anc.best,total,last:sc,date:today(),n:(anc?anc.n:0)+1};
+  bumpStreak();
+  if(sc===total)addXp(10);
+  save();
+  MCQUIZ.fini={sc,total,record,ancien:anc?anc.best:null};
+  render();
+}
+function renderMCQuizRunner(){
+  const m=mcById(MCQUIZ.id);
+  if(MCQUIZ.fini){renderMCQuizFini(m);return;}
+  const quiz=m.quiz,total=quiz.length,q=quiz[MCQUIZ.i];
+  let h=`<button class="btn ghost small" onclick="quitMCQuiz()" style="margin:0 0 12px;width:auto;display:inline-block;padding:8px 14px">← Quitter le quiz</button>`;
+  h+=`<div class="quizbar"><span class="qzn">${MCQUIZ.i+1}/${total}</span><div class="qztrack"><i style="width:${Math.round(MCQUIZ.i/total*100)}%"></i></div></div>`;
+  h+=`<div class="card">`;
+  h+=`<span class="qztag">${q.type==='qcm'?'Choix multiple':'Question ouverte'}</span>`;
+  h+=`<div class="qzq">${q.q}</div>`;
+  if(q.type==='qcm'){
+    h+=`<div class="qcm">`;
+    q.choix.forEach((c,i)=>{
+      let cls='qopt';
+      if(MCQUIZ.answered){
+        if(i===q.bonne)cls+=' right';
+        else if(i===MCQUIZ.picked)cls+=' wrong';
+        else cls+=' dim';
+      }
+      h+=`<button class="${cls}" ${MCQUIZ.answered?'disabled':''} onclick="mcQuizPick(${i})">${c}</button>`;
+    });
+    h+=`</div>`;
+    if(MCQUIZ.answered){
+      const ok=MCQUIZ.picked===q.bonne;
+      h+=`<div class="reveal qzexp ${ok?'right':'wrong'}"><span class="lbl">${ok?'✓ Exact':'✗ Réponse : '+q.choix[q.bonne]}</span>${q.exp||''}</div>`;
+      h+=`<button class="btn study" style="margin-top:14px" onclick="mcQuizNext()">${MCQUIZ.i+1>=total?'Voir le score':'Question suivante →'}</button>`;
+    }
+  } else {
+    if(!MCQUIZ.answered){
+      h+=`<textarea id="mcq_ta" placeholder="Ta réponse…">${escapeHtml(MCQUIZ.ecrit||'')}</textarea>
+        <button class="btn att small" style="margin-top:10px" onclick="mcQuizReveal()">Révéler la référence</button>`;
+    } else {
+      h+=`<div class="reveal"><span class="lbl">Référence</span>${q.r}</div>
+        <div class="prompt" style="text-align:center;margin-top:12px">Tu l'avais ?</div>
+        <div class="row3"><button class="btn ghost small" onclick="mcQuizGrade(0)">Raté</button>
+          <button class="btn ghost small" onclick="mcQuizGrade(3)">Presque</button>
+          <button class="btn study small" onclick="mcQuizGrade(5)">Su</button></div>`;
+    }
+  }
+  h+=`</div>`;
+  $('#main').innerHTML=h;
+}
+function renderMCQuizFini(m){
+  const f=MCQUIZ.fini,pct=f.total?f.sc/f.total:0;
+  let h=`<h1 class="page">${f.record?'🏆 Record':'Quiz terminé'}</h1><div class="page-sub">${m.titre}</div>`;
+  h+=`<div class="card qzscore">
+    <div class="big">${fmtScore(f.sc)}<small>/${f.total}</small></div>
+    <div class="sub" style="margin-top:8px">${pct>=1?'Sans faute. Le cours a tenu.':pct>=.7?'Solide — regarde ce qui a coincé plus haut.':'Ça vaut le coup de relire le cours et de rejouer le quiz.'}</div>
+    ${f.ancien!==null?`<div class="sub" style="margin-top:4px">${f.record?'ancien record '+fmtScore(f.ancien):'record '+fmtScore(f.ancien)}/${f.total}</div>`:''}
+  </div>`;
+  h+=`<button class="btn study" onclick="startMCQuiz('${m.id}')">↻ Rejouer</button>`;
+  h+=`<button class="btn ghost small" onclick="closeMCQuiz()">← Retour au cours</button>`;
+  $('#main').innerHTML=h;
+}
 
 /* ---------- CARNET (tes prises de position) ---------- */
 let CARNET_EDIT=null, CARNET_EXPORT=null;
